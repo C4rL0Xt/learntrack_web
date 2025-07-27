@@ -13,28 +13,19 @@
 		</seccion-componente>
 		<seccion-componente titulo="Etiqueta">
 			<div class="flex flex-wrap gap-md">
-				<app-trackui-etiqueta tipo="primary" [fill]="true">primary-true</app-trackui-etiqueta>
-				<app-trackui-etiqueta tipo="secondary" [fill]="true">secondary-true</app-trackui-etiqueta>
-				<app-trackui-etiqueta tipo="tertiary" [fill]="true">tertiary-true</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="cuaternary" [fill]="true">cuaternary-true</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="quinary" [fill]="true">quinary-true</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="neutral" [fill]="true">neutral-true</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="subordinary" [fill]="true">subordinary-true</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="warning" [fill]="true">warning-true</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="success" [fill]="true">success-true</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="danger" [fill]="true">danger-true</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="primary" [fill]="false">primary-false</app-trackui-etiqueta>
-				<app-trackui-etiqueta tipo="secondary" [fill]="false">secondary-false</app-trackui-etiqueta>
-				<app-trackui-etiqueta tipo="tertiary" [fill]="false">tertiary-false</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="cuaternary" [fill]="false">cuaternary-false</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="quinary" [fill]="false">quinary-false</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="neutral" [fill]="false">neutral-false</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="subordinary" [fill]="false">subordinary-false</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="warning" [fill]="false">warning-false</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="success" [fill]="false">success-false</app-trackui-etiqueta>	
-				<app-trackui-etiqueta tipo="danger" [fill]="false">danger-false</app-trackui-etiqueta>	
+				<app-trackui-etiqueta
+					*ngFor="let tipo of tiposEtiquetas"
+					[tipo]="tipo"
+					[fill]="true"
+					>{{ tipo }}-true</app-trackui-etiqueta
+				>
+				<app-trackui-etiqueta
+					*ngFor="let tipo of tiposEtiquetas"
+					[tipo]="tipo"
+					[fill]="false"
+					>{{ tipo }}-false</app-trackui-etiqueta
+				>
 			</div>
-
 		</seccion-componente>
 	</section>
 </main>
