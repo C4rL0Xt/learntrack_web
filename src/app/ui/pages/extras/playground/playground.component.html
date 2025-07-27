@@ -7,10 +7,12 @@
 		<seccion-componente titulo="Toggle Button">
 			<!-- ¡Aquí va tu componente tessita! -->
 			<div class="flex gap-md">
-				<trackui-toggle-button tipo="semantico" />
+				<trackui-toggle-button tipo="semantico" [formControl]="controlToggle"  />
 				<trackui-toggle-button tipo="primary" />
 				<trackui-toggle-button tipo="secondary" />
 			</div>
+
+			{{controlToggle.value}}
 			<!-- end -->
 		</seccion-componente>
 	</section>
