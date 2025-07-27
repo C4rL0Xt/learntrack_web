@@ -1,0 +1,1 @@
+export type TiposToggleButton = 'primary' | 'secondary' | 'semantico';

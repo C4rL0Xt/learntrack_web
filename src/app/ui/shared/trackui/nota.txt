@@ -20,12 +20,16 @@
 - breadcrumb ->  (Component) - Tessita
 - dropdown ->  (Component) | Directiva - Abelito
 - modal ->  (Component) - Tessita
+- iconos -> directiva - Carlos
 
 tips modal: 
 - <ng-content>
 - directiva
 - <ng-template> | templateRef
 - viewChild
+
+
+metodoligia bem
 
 
 

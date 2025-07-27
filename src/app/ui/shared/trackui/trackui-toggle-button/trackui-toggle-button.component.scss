@@ -1,0 +1,42 @@
+.toggle-button {
+    min-width: 50px;
+    border-radius: var(--spaceXl);
+    height: 26px;
+    border: none;
+    padding: 2px;
+
+}
+
+.switch {
+    top: 2px;
+    left: 2px;
+    animation: switchToRight 1s ease-in forwards;
+}
+
+.switch--to-right {
+    animation: switchToRight 1s ease-in forwards;
+}
+
+.switch--to-left {
+    animation: switchToLeft 1s ease-in forwards;
+}
+
+@keyframes switchToRight {
+    0% {
+        left: 2px
+    }
+
+    100% {
+        left: 26px;
+    }
+}
+
+@keyframes switchToLeft {
+    0% {
+        left: 26px;
+    }
+
+    100% {
+        left: 2px;
+    }
+}
