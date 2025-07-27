@@ -3,7 +3,7 @@
 - select -> ControlValueAccesor  (Component) - Abelito
 - input number -> ControlValueAccesor  (Component) - Tessita
 - checkbox -> ControlValueAccesor  (Component) - Tessita
-- toggle button -> ControlValueAccesor  (Component) - Abelito
+- toggle button -> ControlValueAccesor  (Component) - Abelito 
 - textarea -> ControlValueAccesor  (Component) - Abelito
 - divider -> Component - Abelito
 - item-nav -> Componente | Directiva - Abelito
