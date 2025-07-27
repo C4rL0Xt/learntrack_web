@@ -1,0 +1,36 @@
+@mixin border-radius($nombre, $valor) {
+
+    .br-#{$nombre} {
+        border-radius: $valor;
+    }
+
+    .br-tl-#{$nombre} {
+        border-top-left-radius: $valor;
+    }
+
+    .br-tr-#{$nombre}{
+        border-top-right-radius: $valor;
+    }
+
+    .br-bl-#{$nombre} {
+        border-bottom-left-radius: $valor;
+    }
+
+    .br-br-#{$nombre}{
+        border-bottom-right-radius: $valor;
+    }
+
+}
+
+@include border-radius('xxxs', var(--spaceXxxs));
+@include border-radius('xxs', var(--spaceXxs));
+@include border-radius('xs', var(--spaceXs));
+@include border-radius('sm', var(--spaceSm));
+@include border-radius('md', var(--spaceMd));
+@include border-radius('lg', var(--spaceLg));
+@include border-radius('xl', var(--spaceXl));
+
+
+.br-50 {
+    border-radius: 50%;
+}

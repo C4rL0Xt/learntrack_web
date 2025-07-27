@@ -1,0 +1,41 @@
+@mixin padding($nombre, $valor) {
+
+    .pt-#{$nombre} {
+        padding-top: $valor;
+    }
+    
+    .pb-#{$nombre} {
+        padding-bottom: $valor;
+    }
+    
+    .pl-#{$nombre} {
+        padding-left: $valor;
+    }
+    
+    .pr-#{$nombre} {
+        padding-right: $valor;
+    }
+
+    .py-#{$nombre} {
+        padding-top: $valor;
+        padding-bottom: $valor;
+    }
+
+    .px-#{$nombre} {
+        padding-left: $valor;
+        padding-right: $valor;
+    }
+    
+    .p-#{$nombre} {
+        padding: $valor;
+    }
+    
+}
+
+@include padding('xxxs', var(--spaceXxxs)); 
+@include padding('xxs', var(--spaceXxs));
+@include padding('xs', var(--spaceXs));
+@include padding('sm', var(--spaceSm));
+@include padding('md', var(--spaceMd));
+@include padding('lg', var(--spaceLg));
+@include padding('xl', var(--spaceXl));

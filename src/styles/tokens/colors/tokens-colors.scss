@@ -1,0 +1,203 @@
+@use 'sass:color';
+
+/* Sistema */
+$color-inverse: #FBFBFB;
+$color-base: #1E0D01;
+$color-disabled: #D9D9D9;
+
+/* Primarios */
+
+$color-primary-0: #DAE0EC;
+$color-primary-1: #B6C1DA;
+$color-primary-2: #91A3C7;
+$color-primary-3: #6C84B4;
+$color-primary-4: #4F689B;
+$color-primary-5: #3C4F76;
+$color-primary-6: #303F5E;
+$color-primary-7: #242F47;
+$color-primary-8: #18202F;
+$color-primary-9: #0C1018;
+
+/* Secundarios */
+
+$color-secondary-0: #EBF1F4;
+$color-secondary-1: #DBE5EA;
+$color-secondary-2: #C5D4DC;
+$color-secondary-3: #ADBECC;
+$color-secondary-4: #97AABD;
+$color-secondary-5: #7A8CA6;
+$color-secondary-6: #6E7D94;
+$color-secondary-7: #5A6679;
+$color-secondary-8: #4D5762;
+$color-secondary-9: #2D3339;
+
+/* Terciarios */
+
+$color-tertiary-0: #E5E3F4;
+$color-tertiary-1: #CAC7E9;
+$color-tertiary-2: #B0ABDE;
+$color-tertiary-3: #958FD3;
+$color-tertiary-4: #7A73C8;
+$color-tertiary-5: #6057BD;
+$color-tertiary-6: #473E9F;
+$color-tertiary-7: #352F77;
+$color-tertiary-8: #231F4F;
+$color-tertiary-9: #121028;
+
+/* Cuaternarios */
+
+$color-cuaternary-0: #E6F2F6;
+$color-cuaternary-1: #CEE5EE;
+$color-cuaternary-2: #B5D8E5;
+$color-cuaternary-3: #9CCADD;
+$color-cuaternary-4: #84BDD4;
+$color-cuaternary-5: #6BB0CC;
+$color-cuaternary-6: #4096B9;
+$color-cuaternary-7: #30718B;
+$color-cuaternary-8: #204B5D;
+$color-cuaternary-9: #10262E;
+
+/* Quinarios */
+
+$color-quinary-0: #F1EFEF;
+$color-quinary-1: #E3DFDE;
+$color-quinary-2: #D5CFCE;
+$color-quinary-3: #C7BFBE;
+$color-quinary-4: #B9AFAD;
+$color-quinary-5: #AB9F9D;
+$color-quinary-6: #8D7C7A;
+$color-quinary-7: #6A5D5B;
+$color-quinary-8: #473E3D;
+$color-quinary-9: #231F1E;
+
+
+/* Semanticos */
+
+$color-success-0: #D1FAED;
+$color-success-1: #A3F5DA;
+$color-success-2: #75F0C8;
+$color-success-3: #48EBB6;
+$color-success-4: #1AE6A3;
+$color-success-5: #14B983;
+$color-success-6: #119A6D;
+$color-success-7: #0D7B57;
+$color-success-8: #0A5D42;
+$color-success-9: #073E2C;
+
+$color-warning-0: #FDEFD7;
+$color-warning-1: #FBDFAE;
+$color-warning-2: #F9CF86;
+$color-warning-3: #F6BE5E;
+$color-warning-4: #F4AE35;
+$color-warning-5: #F29E0D;
+$color-warning-6: #CA840B;
+$color-warning-7: #A16909;
+$color-warning-8: #794F07;
+$color-warning-9: #513504;
+
+$color-danger-0: #FCE0E0;
+$color-danger-1: #F9C1C2;
+$color-danger-2: #F6A2A3;
+$color-danger-3: #F38384;
+$color-danger-4: #F06466;
+$color-danger-5: #ED4547;
+$color-danger-6: #E91619;
+$color-danger-7: #BA1214;
+$color-danger-8: #8C0D0F;
+$color-danger-9: #5D090A;
+
+/* Neutrales */
+
+$color-neutral-0: #F7F8F8;
+$color-neutral-1: #EFF1F1;
+$color-neutral-2: #E7EAEA;
+$color-neutral-3: #DEE2E3;
+$color-neutral-4: #D6DBDC;
+$color-neutral-5: #CED4D5;
+$color-neutral-6: #A1ACAE;
+$color-neutral-7: #748587;
+$color-neutral-8: #4D585A;
+$color-neutral-9: #272C2D;
+
+/* Subordinarios */
+
+$color-subordinary-0: #F0F0F0;
+$color-subordinary-1: #E1E1E1;
+$color-subordinary-2: #D3D3D3;
+$color-subordinary-3: #C4C4C4;
+$color-subordinary-4: #B5B5B5;
+$color-subordinary-5: #A6A6A6;
+$color-subordinary-6: #8E8E8E;
+$color-subordinary-7: #777777;
+$color-subordinary-8: #5FF5F5;
+$color-subordinary-9: #474747;
+
+
+/* Shadows*/
+
+$color-shadow-base: #1E0D01;
+
+/* Transparencias */
+
+$color-cuaternary-0-50: rgba(
+    color.channel($color-cuaternary-0, 'red'),
+    color.channel($color-cuaternary-0, 'green'),
+    color.channel($color-cuaternary-0, 'blue'),
+    0.5
+);
+
+$color-secondary-5-40: rgba(
+    color.channel($color-secondary-5, 'red'),
+    color.channel($color-secondary-5, 'green'),
+    color.channel($color-secondary-5, 'blue'),
+    0.4
+);
+
+$color-subordinary-5-10: rgba(
+    color.channel($color-subordinary-5, 'red'),
+    color.channel($color-subordinary-5, 'green'),
+    color.channel($color-subordinary-5, 'blue'),
+    0.1
+);
+
+$color-neutral-1-75: rgba(
+    color.channel($color-neutral-1, 'red'),
+    color.channel($color-neutral-1, 'green'),
+    color.channel($color-neutral-1, 'blue'),
+    0.7
+);
+
+$color-primary-5-10: rgba(
+    color.channel($color-primary-5, 'red'),
+    color.channel($color-primary-5, 'green'),
+    color.channel($color-primary-5, 'blue'),
+    0.1
+);
+
+$color-base-10: rgba(
+    color.channel($color-base, 'red'),
+    color.channel($color-base, 'green'),
+    color.channel($color-base, 'blue'),
+    0.1
+);
+
+$color-base-50: rgba(
+    color.channel($color-base, 'red'),
+    color.channel($color-base, 'green'),
+    color.channel($color-base, 'blue'),
+    0.5
+);
+
+$color-base-4: rgba(
+    color.channel($color-base, 'red'),
+    color.channel($color-base, 'green'),
+    color.channel($color-base, 'blue'),
+    0.04
+);
+
+$color-secondary-2-30: rgba(
+    color.channel($color-secondary-2, 'red'),
+    color.channel($color-secondary-2, 'green'),
+    color.channel($color-secondary-2, 'blue'),
+    0.3
+);

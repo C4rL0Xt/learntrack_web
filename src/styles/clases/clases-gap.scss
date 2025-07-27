@@ -1,0 +1,15 @@
+@mixin gap($nombre, $valor) {
+
+    .gap-#{$nombre} {
+        gap: $valor;
+    }
+
+}
+
+@include gap('xxxs', var(--spaceXxxs));
+@include gap('xxs', var(--spaceXxs));
+@include gap('xs', var(--spaceXs));
+@include gap('sm', var(--spaceSm));
+@include gap('md', var(--spaceMd));
+@include gap('lg', var(--spaceLg));
+@include gap('xl', var(--spaceXl));

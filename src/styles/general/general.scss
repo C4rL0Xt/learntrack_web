@@ -1,0 +1,18 @@
+body {
+    color: var(--color-base);
+    background-color: var(--color-inverse);
+}
+
+html, body {
+    font-family: 'Nunito', sans-serif;
+}
+
+/* Extras */
+
+.pointer {
+    cursor: pointer;
+}
+
+.fade-in {
+    transition: all 0.3s ease-in;
+}
