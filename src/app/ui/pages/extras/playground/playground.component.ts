@@ -6,10 +6,11 @@ import { NgFor } from '@angular/common';
 import { TiposEtiqueta } from '../../../../core/domain/types/tipos-etiqueta.type';
 import { FormControl } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TrackUiIconsDirective } from '../../../shared/trackui/trackui-icons/trackui-icons.directive';
 
 @Component({
   selector: 'playground',
-  imports: [SeccionComponent, TrackuiToggleButton, TrackuiEtiquetaComponent, NgFor, ReactiveFormsModule],
+  imports: [SeccionComponent, TrackuiToggleButton, TrackuiEtiquetaComponent, NgFor, ReactiveFormsModule, TrackUiIconsDirective],
   templateUrl: 'playground.component.html',
   styleUrl: 'playground.component.scss',
 })

@@ -6,7 +6,7 @@
 	<section class="flex-column">
 		<seccion-componente titulo="Toggle Button">
 			<div class="flex gap-md">
-				<trackui-toggle-button tipo="semantico" [formControl]="controlToggle"  />
+				<trackui-toggle-button tipo="semantico" [formControl]="controlToggle" />
 				<trackui-toggle-button tipo="primary" />
 				<trackui-toggle-button tipo="secondary" />
 			</div>
@@ -17,12 +17,14 @@
 					*ngFor="let tipo of tiposEtiquetas"
 					[tipo]="tipo"
 					[fill]="true"
+					nombreIcon="buscar"
 					>{{ tipo }}-true</app-trackui-etiqueta
 				>
 				<app-trackui-etiqueta
 					*ngFor="let tipo of tiposEtiquetas"
 					[tipo]="tipo"
 					[fill]="false"
+					nombreIcon="buscar"
 					>{{ tipo }}-false</app-trackui-etiqueta
 				>
 			</div>
@@ -30,7 +32,7 @@
 
 		<seccion-componente titulo="Iconos">
 			<!-- una directiva  -->
-			<span trackuiIcon nombre="user" style="font-size: 40px;"></span>
+			<span trackuiIcon nombre="add" style="font-size: 40px"></span>
 			<!-- con font-size se puede especificar el tamaño del icon, es un cuadrado.  -->
 		</seccion-componente>
 	</section>
