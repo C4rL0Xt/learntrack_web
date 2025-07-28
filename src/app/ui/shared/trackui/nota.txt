@@ -10,7 +10,7 @@
 - upload -> Componente - Abelito
 - slider -> Componente - Abelito
 - alerta ->  (Component)  - Tessita
-- segmentados ->  (Component) - Tessita
+- segmentados ->  (Component) - Tessita !LISTO
 - etiqueta ->  (Component) - Tessita
 - item-tab-menu ->  (Component) - Abelito
 - card-mini ->  (Component) - Tessita
@@ -20,7 +20,7 @@
 - breadcrumb ->  (Component) - Tessita
 - dropdown ->  (Component) | Directiva - Abelito
 - modal ->  (Component) - Tessita
-- iconos -> directiva - Carlos
+- iconos -> directiva - Carlos !LISTO
 
 tips modal: 
 - <ng-content>

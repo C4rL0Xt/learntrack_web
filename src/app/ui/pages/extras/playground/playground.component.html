@@ -11,6 +11,7 @@
 				<trackui-toggle-button tipo="secondary" />
 			</div>
 		</seccion-componente>
+
 		<seccion-componente titulo="Etiqueta">
 			<div class="flex flex-wrap gap-md">
 				<app-trackui-etiqueta
@@ -26,6 +27,14 @@
 					[fill]="false"
 					nombreIcon="buscar"
 					>{{ tipo }}-false</app-trackui-etiqueta
+				>
+			</div>
+		</seccion-componente>
+
+		<seccion-componente titulo="Alertas">
+			<div class="flex flex-wrap gap-md">
+				<app-trackui-alerta *ngFor="let tipo of TiposAlerta" [tipo]="tipo"
+					>Alerta pruebas</app-trackui-alerta
 				>
 			</div>
 		</seccion-componente>
