@@ -4,9 +4,12 @@ import { TrackuiToggleButton } from '../../../shared/trackui/trackui-toggle-butt
 import { TrackuiEtiquetaComponent } from '../../../shared/trackui/trackui-etiqueta/trackui-etiqueta.component';
 import { NgFor } from '@angular/common';
 import { TiposEtiqueta } from '../../../../core/domain/types/tipos-etiqueta.type';
+import { FormControl } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @Component({
   selector: 'playground',
-  imports: [SeccionComponent, TrackuiToggleButton, TrackuiEtiquetaComponent, NgFor],
+  imports: [SeccionComponent, TrackuiToggleButton, TrackuiEtiquetaComponent, NgFor, ReactiveFormsModule],
   templateUrl: 'playground.component.html',
   styleUrl: 'playground.component.scss',
 })
@@ -24,4 +27,6 @@ tiposEtiquetas: TiposEtiqueta[] = [
   'success',
   'danger',
 ];
+
+controlToggle = new FormControl<boolean>(true);
 }

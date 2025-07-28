@@ -6,7 +6,7 @@
 	<section class="flex-column">
 		<seccion-componente titulo="Toggle Button">
 			<div class="flex gap-md">
-				<trackui-toggle-button tipo="semantico" />
+				<trackui-toggle-button tipo="semantico" [formControl]="controlToggle"  />
 				<trackui-toggle-button tipo="primary" />
 				<trackui-toggle-button tipo="secondary" />
 			</div>
@@ -26,6 +26,12 @@
 					>{{ tipo }}-false</app-trackui-etiqueta
 				>
 			</div>
+		</seccion-componente>
+
+		<seccion-componente titulo="Iconos">
+			<!-- una directiva  -->
+			<span trackuiIcon nombre="user" style="font-size: 40px;"></span>
+			<!-- con font-size se puede especificar el tamaño del icon, es un cuadrado.  -->
 		</seccion-componente>
 	</section>
 </main>
