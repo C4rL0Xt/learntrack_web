@@ -7,27 +7,35 @@ import { TiposEtiqueta } from '../../../../core/domain/types/tipos-etiqueta.type
 import { FormControl } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TrackUiIconsDirective } from '../../../shared/trackui/trackui-icons/trackui-icons.directive';
+import { TrackuiCardEtiquetaComponent } from '../../../shared/trackui/trackui-card-etiqueta/trackui-card-etiqueta.component';
 
 @Component({
-  selector: 'playground',
-  imports: [SeccionComponent, TrackuiToggleButton, TrackuiEtiquetaComponent, NgFor, ReactiveFormsModule, TrackUiIconsDirective],
-  templateUrl: 'playground.component.html',
-  styleUrl: 'playground.component.scss',
+	selector: 'playground',
+	imports: [
+		SeccionComponent,
+		TrackuiToggleButton,
+		TrackuiEtiquetaComponent,
+		NgFor,
+		ReactiveFormsModule,
+		TrackUiIconsDirective,
+		TrackuiCardEtiquetaComponent,
+	],
+	templateUrl: 'playground.component.html',
+	styleUrl: 'playground.component.scss',
 })
-
 export class PlayGroundPage {
-tiposEtiquetas: TiposEtiqueta[] = [
-  'primary',
-  'secondary',
-  'tertiary',
-  'cuaternary',
-  'quinary',
-  'neutral',
-  'subordinary',
-  'warning',
-  'success',
-  'danger',
-];
+	tiposEtiquetas: TiposEtiqueta[] = [
+		'primary',
+		'secondary',
+		'tertiary',
+		'cuaternary',
+		'quinary',
+		'neutral',
+		'subordinary',
+		'warning',
+		'success',
+		'danger',
+	];
 
-controlToggle = new FormControl<boolean>(true);
+	controlToggle = new FormControl<boolean>(true);
 }
