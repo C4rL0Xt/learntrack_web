@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, OnInit, signal } from '@angular/core';
 import { ItemTabMenu } from '../../../../core/domain/interfaces/item-tab-menu.interface';
 import { ItemTabMenuComponent } from './item-tab-menu/item-tab-menu.component';
 
@@ -8,30 +8,13 @@ import { ItemTabMenuComponent } from './item-tab-menu/item-tab-menu.component';
 	templateUrl: 'trackui-tab-menu.component.html',
 	styleUrl: 'trackui-tab-menu.component.scss',
 })
-export class TrackuiTabMenuComponent {
-	opciones: ItemTabMenu[] = [
-		{
-			id: {
-				id: 1,
-				label: 'Opcion user 1',
-			},
-			icon: 'user',
-		},
-		{
-			id: {
-				id: 2,
-				label: 'Opcion user 2',
-			},
-			icon: 'user',
-		},
-		{
-			id: {
-				id: 3,
-				label: 'Opcion user 3',
-			},
-			icon: 'user',
-		},
-	];
+export class TrackuiTabMenuComponent implements OnInit {
+	opciones = input.required<ItemTabMenu[]>();
+	opcionSeleccionada = signal<ItemTabMenu | undefined>(undefined);
 
-    opcionSeleccionada = signal<ItemTabMenu>(this.opciones[0]);
+	hasIcon = input<boolean>(true);
+
+	ngOnInit(): void {
+		this.opcionSeleccionada.set(this.opciones()[0]);
+	}
 }

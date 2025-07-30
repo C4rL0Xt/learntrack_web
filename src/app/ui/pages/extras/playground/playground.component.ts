@@ -14,6 +14,7 @@ import { TrackuiCardEtiquetaComponent } from '../../../shared/trackui/trackui-ca
 import { TrackuiInputComponent } from '../../../shared/trackui/trackui-input/trackui-input.component';
 import { ItemTabMenuComponent } from '../../../shared/trackui/trackui-tab-menu/item-tab-menu/item-tab-menu.component';
 import { TrackuiTabMenuComponent } from '../../../shared/trackui/trackui-tab-menu/trackui-tab-menu.component';
+import { OPCIONES_TABMENU_TEST } from '../../../../core/domain/constants/opciones-tabmenu-test.const';
 
 @Component({
 	selector: 'playground',
@@ -56,6 +57,8 @@ export class PlayGroundPage {
 		'tertiary',
 		'cuaternary',
 	];
+
+	readonly opciones = OPCIONES_TABMENU_TEST;
 
 	controlToggle = new FormControl<boolean>(true);
 	controlInput = new FormControl<string>('', [Validators.minLength(3)]);

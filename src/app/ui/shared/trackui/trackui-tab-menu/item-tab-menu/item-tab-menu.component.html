@@ -5,8 +5,10 @@
 		'item-tab-menu--seleccionado': estaSeleccionado(),
 	}"
 >
-	<span trackuiIcon nombre="user"></span>
+	@if (hasIcon()) {
+		<span trackuiIcon nombre="user"></span>
+	}
 	<p [ngClass]="estaSeleccionado() ? 'text-bold' : 'text-medium'">
-		Opción de tab
+		{{ opcionTab().id.label }}
 	</p>
 </button>

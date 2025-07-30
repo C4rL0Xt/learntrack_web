@@ -1,13 +1,14 @@
 <nav>
 	<ul class="flex background-primary-0 br-tl-xxs br-tr-xxs">
-		@for (opcionTab of opciones; track $index) {
+		@for (opcionTab of opciones(); track $index) {
 			<li>
 				<item-tab-menu
 					[opcionId]="opcionTab.id.id"
 					[opcionTab]="opcionTab"
 					[(controlOpcion)]="opcionSeleccionada"
+					[hasIcon]="hasIcon()"
 				/>
 			</li>
 		}
 	</ul>
-</nav>
+</nav> 

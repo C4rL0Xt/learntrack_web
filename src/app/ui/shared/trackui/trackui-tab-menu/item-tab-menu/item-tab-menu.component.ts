@@ -12,6 +12,7 @@ import { NgClass } from '@angular/common';
 export class ItemTabMenuComponent {
 	opcionId = input.required<number>();
 	opcionTab = input.required<ItemTabMenu>();
+	hasIcon = input<boolean>();
 
 	controlOpcion = model<ItemTabMenu>();
 
