@@ -30,7 +30,7 @@ export class TrackUiIconsDirective implements AfterViewInit {
 	}
 
 	ngAfterViewInit(): void {
-		console.log(this.elementRef);
+		// console.log(this.elementRef);
 	}
 
 	private loadIcon(iconName: string) {

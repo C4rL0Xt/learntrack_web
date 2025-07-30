@@ -1,0 +1,75 @@
+.trackui-input-group {
+	min-height: 54px;
+	transition: all 0.3s;
+}
+
+.trackui-input-group--valido {
+	background-color: var(--color-subordinary-5-10);
+	border: 1px solid transparent;
+}
+
+.trackui-input-group--error {
+	background-color: var(--color-inverse);
+	border: 1px solid var(--color-danger-4);
+}
+
+.input-icon {
+	color: var(--color-secondary-5);
+	transition: color 0.3s ease;
+}
+
+.input-icon--active {
+	color: var(--color-secondary-5);
+}
+
+.input-icon--disabled {
+	color: var(--color-subordinary-2);
+}
+
+.input-icon--error {
+	color: var(--color-danger-6);;
+}
+
+.trackui-input {
+	border: none;
+	background: none;
+	outline: none;
+	transition: all 0.3s;
+	width: 100%;
+	padding-top: 17px;
+}
+
+.trackui-input-label {
+	position: absolute;
+	top: 50%;
+	left: 2px;
+	transform: translateY(-50%);
+	pointer-events: none;
+	transition: all 0.3s ease;
+}
+
+.trackui-input-label--active {
+	color: var(--color-subordinary-7);
+}
+
+.trackui-input-label--disabled {
+	color: var(--color-subordinary-2);
+}
+
+.trackui-input-group:focus-within {
+	background-color: var(--color-secondary-0);
+	border: 1px solid var(--color-secondary-5);
+}
+
+.trackui-input-group:focus-within .trackui-input-label,
+.trackui-input:not(:placeholder-shown) + .trackui-input-label {
+	top: 0px;
+	transform: translateY(0);
+	font-size: 12px;
+}
+
+.trackui-input:disabled {
+	.trackui-input-label {
+		color: var(--color-subordinary-2);
+	}
+}
