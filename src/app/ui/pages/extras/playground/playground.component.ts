@@ -12,6 +12,8 @@ import { TrackuiEtiquetaComponent } from '../../../shared/trackui/trackui-etique
 import { TrackUiIconsDirective } from '../../../shared/trackui/trackui-icons/trackui-icons.directive';
 import { TrackuiCardEtiquetaComponent } from '../../../shared/trackui/trackui-card-etiqueta/trackui-card-etiqueta.component';
 import { TrackuiInputComponent } from '../../../shared/trackui/trackui-input/trackui-input.component';
+import { ItemTabMenuComponent } from '../../../shared/trackui/trackui-tab-menu/item-tab-menu/item-tab-menu.component';
+import { TrackuiTabMenuComponent } from '../../../shared/trackui/trackui-tab-menu/trackui-tab-menu.component';
 
 @Component({
 	selector: 'playground',
@@ -25,6 +27,7 @@ import { TrackuiInputComponent } from '../../../shared/trackui/trackui-input/tra
 		TrackUiIconsDirective,
 		TrackuiCardEtiquetaComponent,
 		TrackuiInputComponent,
+		TrackuiTabMenuComponent
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',

@@ -1,0 +1,12 @@
+<button
+	class="item-tab-menu px-md py-xxs gap-xs flex items-center br-tl-xxs br-tr-xxs"
+	(click)="seleccionarTab()"
+	[ngClass]="{
+		'item-tab-menu--seleccionado': estaSeleccionado(),
+	}"
+>
+	<span trackuiIcon nombre="user"></span>
+	<p [ngClass]="estaSeleccionado() ? 'text-bold' : 'text-medium'">
+		Opción de tab
+	</p>
+</button>
