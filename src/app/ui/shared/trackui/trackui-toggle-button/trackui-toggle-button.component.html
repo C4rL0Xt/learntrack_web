@@ -5,12 +5,19 @@
 		'background-primary-5': tipo() === 'primary',
 		'background-secondary-5': tipo() === 'secondary',
 		'background-danger-5': tipo() === 'semantico' && !switchValue(),
-		'background-success-5': tipo() === 'semantico' && switchValue()
+		'background-success-5': tipo() === 'semantico' && switchValue(),
 	}"
 >
 	<div
 		class="switch br-50 background-inverse absolute"
 		[ngClass]="switchValue() ? 'switch--to-right' : 'switch--to-left'"
 		style="width: 22px; height: 22px"
-	></div>
+	>
+		<span
+			class="{{ estiloIcon() }} fade-in"
+			trackuiIcon
+			[nombre]="nameIcon()"
+			style="font-size: 10px"
+		></span>
+	</div>
 </button>

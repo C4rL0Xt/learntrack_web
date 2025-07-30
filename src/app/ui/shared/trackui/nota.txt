@@ -12,7 +12,7 @@
 - alerta ->  (Component)  - Tessita | LISTO
 - segmentados ->  (Component) - Tessita 
 - etiqueta ->  (Component) - Tessita | LISTO
-- item-tab-menu ->  (Component) - Abelito
+- item-tab-menu ->  (Component) - Abelito | LISTO
 - card-mini ->  (Component) - Tessita | LISTO
 - sider-bar ->  (Component) - Tessita
 - pagination ->  (Component) - Abelito
