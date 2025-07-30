@@ -46,6 +46,7 @@
 	transform: translateY(-50%);
 	pointer-events: none;
 	transition: all 0.3s ease;
+	color: var(--color-subordinary-7);
 }
 
 .trackui-input-label--active {
@@ -54,6 +55,10 @@
 
 .trackui-input-label--disabled {
 	color: var(--color-subordinary-2);
+}
+
+.trackui-input-label--error {
+	color: var(--color-danger-3);
 }
 
 .trackui-input-group:focus-within {

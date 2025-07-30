@@ -37,9 +37,10 @@
 			<label
 				class="trackui-input-label w100"
 				[ngClass]="
-					isDisabled()
-						? 'trackui-input-label--disabled'
-						: 'trackui-input-label--active'
+					{
+						'trackui-input-label--error' : hasError() && formControl.touched,
+						'trackui-input-label--disabled': isDisabled()
+					}
 				"
 				>{{ label() }}</label
 			>
