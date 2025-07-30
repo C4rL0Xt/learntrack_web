@@ -1,0 +1,81 @@
+@mixin button($nombre, $valor1, $valor2, $valor3, $valor4, $valor5) {
+	.btn-#{$nombre} {
+		background-color: $valor1;
+		color: $text2;
+		border: 1px solid $valor3;
+		padding: $valor4 $valor5;
+		border-radius: $valor5;
+	}
+}
+
+@include button(
+	'primary',
+	var(--color-primary-5),
+	var(--color-inverse),
+	var(--color-primary-5),
+	var(--spaceMd),
+	var(--spaceXs)
+);
+
+@include button(
+	'secondary',
+	var(--color-secondary-5),
+	var(--color-inverse),
+	var(--color-secondary-5),
+	var(--spaceMd),
+	var(--spaceXs)
+);
+
+@include button(
+	'tertiary',
+	var(--color-tertiary-5),
+	var(--color-inverse),
+	var(--color-tertiary-5),
+	var(--spaceMd),
+	var(--spaceXs)
+);
+
+@include button(
+	'cuaternary',
+	var(--color-cuaternary-5),
+	var(--color-inverse),
+	var(--color-cuaternary-5),
+	var(--spaceMd),
+	var(--spaceXs)
+);
+
+@include button(
+	'quinary',
+	var(--color-quinary-5),
+	var(--color-inverse),
+	var(--color-quinary-5),
+	var(--spaceMd),
+	var(--spaceXs)
+);
+
+@include button(
+	'outlined',
+	var(--color-transparente),
+	var(--color-primary-5),
+	var(--color-primary-5),
+	var(--spaceMd),
+	var(--spaceXs)
+);
+
+@include button(
+	'link',
+	var(--color-transparente),
+	var(--color-primary-5),
+	var(--color-transparente),
+	0,
+	0
+);
+
+@include button(
+	'texto',
+	var(--color-transparente),
+	var(--color-primary-5),
+	var(--color-transparente),
+	var(--spaceMd),
+	var(--spaceXs)
+);
