@@ -1,11 +1,10 @@
 
-.alerta{
-    width: 500px;
-    height: 74px;
+.alerta {
+    min-width: 300px;
 }
 
 .container-icon{
-    filter: drop-shadow(0px 1px 1px rgba(30, 13, 1, 0.1));
+    filter: drop-shadow(0px 1px 1px var(--color-base-10));
 }
 
 .container-icon--2{

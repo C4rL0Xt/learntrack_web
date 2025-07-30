@@ -1,6 +1,6 @@
 import { TiposAlerta } from './../../../../core/domain/types/tipos-alerta.type';
 import { TrackuiIcons } from './../../../../core/domain/types/tipos-icons.type';
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { TrackUiIconsDirective } from '../trackui-icons/trackui-icons.directive';
 
@@ -13,6 +13,11 @@ import { TrackUiIconsDirective } from '../trackui-icons/trackui-icons.directive'
 export class TrackuiAlertaComponent {
 	tipo = input.required<TiposAlerta>();
 
+	icon = computed<string>(() => {
+		return '';
+	})
+
+	//computed
 	public iconPorTipo(tipo: TiposAlerta): TrackuiIcons {
 		switch (tipo) {
 			case 'success':

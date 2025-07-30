@@ -3,7 +3,7 @@
 		<h4>PlayGround TrackUI</h4>
 		<p>Para la visualización de componentes trackUI</p>
 	</div>
-	<section class="flex-column items-start">
+	<section class="flex-column gap-xs items-start">
 		<seccion-componente titulo="Toggle Button">
 			<div class="flex gap-md">
 				<trackui-toggle-button tipo="semantico" [formControl]="controlToggle" />
@@ -14,6 +14,10 @@
 
 		<seccion-componente titulo="Etiqueta">
 			<div class="flex flex-wrap gap-md">
+				<!-- @for(tipo of tiposEtiquetas; track $index) {
+					<div>{{tipo}}</div>
+				} -->
+
 				<app-trackui-etiqueta
 					*ngFor="let tipo of tiposEtiquetas"
 					[tipo]="tipo"
