@@ -1,0 +1,75 @@
+<div
+	class="flex-column br-xs"
+	[ngClass]="{ 'background-danger-4': hasError() && formControl.touched }"
+>
+	<div
+		class="trackui-input-group flex items-center gap-xs px-xs py-xxxs br-xs"
+		[ngClass]="
+			hasError() && formControl.touched
+				? 'trackui-input-group--error'
+				: 'trackui-input-group--valido'
+		"
+	>
+		@if (icono()) {
+			<span
+				trackuiIcon
+				[nombre]="icono()!"
+				[ngClass]="{
+					'input-icon--error': hasError() && formControl.touched,
+					'input-icon--disabled': isDisabled(),
+					'input-icon--active': !isDisabled() && !hasError(),
+				}"
+				class="input-icon"
+				style="font-size: 16px"
+			></span>
+		}
+
+		<div class="flex-column expanded relative" style="min-height: 39px">
+			<input
+				class="trackui-input"
+				type="text"
+				placeholder=" "
+				[value]="valorInput()"
+				(input)="listenChanges($event)"
+				(blur)="alTocar()"
+				[disabled]="isDisabled()"
+			/>
+			<label
+				class="trackui-input-label w100"
+				[ngClass]="
+					isDisabled()
+						? 'trackui-input-label--disabled'
+						: 'trackui-input-label--active'
+				"
+				>{{ label() }}</label
+			>
+		</div>
+
+		@if (isErasable() && !isDisabled()) {
+			<button
+				class="pointer"
+				style="border: none; background: none; padding: 0; min-width: 12px"
+				(click)="cleanInput()"
+			>
+				@if (valorInput()) {
+					<span
+						trackuiIcon
+						nombre="equis"
+						[ngClass]="{
+							'input-icon--error': hasError() && formControl.touched,
+							'input-icon--disabled': isDisabled(),
+							'input-icon--active': !isDisabled() && !hasError(),
+						}"
+						class="input-icon"
+						style="font-size: 12px"
+					></span>
+				}
+			</button>
+		}
+	</div>
+	@if (hasError() && formControl.touched) {
+		<div class="px-xxs">
+			<p class="text-inverse text-description">{{ errorMessage() }}</p>
+		</div>
+	}
+</div>

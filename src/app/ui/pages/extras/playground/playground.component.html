@@ -3,7 +3,7 @@
 		<h4>PlayGround TrackUI</h4>
 		<p>Para la visualización de componentes trackUI</p>
 	</div>
-	<section class="flex-column">
+	<section class="flex-column items-start">
 		<seccion-componente titulo="Toggle Button">
 			<div class="flex gap-md">
 				<trackui-toggle-button tipo="semantico" [formControl]="controlToggle" />
@@ -52,6 +52,20 @@
 			<!-- una directiva  -->
 			<span trackuiIcon nombre="add" style="font-size: 40px"></span>
 			<!-- con font-size se puede especificar el tamaño del icon, es un cuadrado.  -->
+		</seccion-componente>
+
+		<seccion-componente class="w100" titulo="Input">
+			<div class="flex expanded gap-md">
+				<trackui-input
+					label="Contraseña"
+					icono="user"
+					[isErasable]="true"
+					[formControl]="controlInput"
+					[errorMessage]="controlInput.getError('minlength')"
+				></trackui-input>
+			</div>
+			<!-- {{ controlInput.value }}
+			{{ controlInput.errors }} -->
 		</seccion-componente>
 	</section>
 </main>
