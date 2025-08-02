@@ -1,76 +1,166 @@
+import { HttpClient } from '@angular/common/http';
+import { TrackuiIcons } from '../../../../core/domain/types/tipos-icons.type';
+import { TrackUiIconsDirective } from '../trackui-icons/trackui-icons.directive';
 import {
-  TiposButton,
-  FormasButton,
-  PositionsIcon,
+	TiposButton,
+	FormasButton,
+	PositionsIcon,
 } from './../../../../core/domain/types/tipos-button.type';
 import {
-  Directive,
-  ElementRef,
-  inject,
-  input,
-  OnInit,
-  Renderer2,
+	contentChild,
+	Directive,
+	ElementRef,
+	HostListener,
+	inject,
+	Injector,
+	input,
+	OnInit,
+	Renderer2,
+	ViewContainerRef,
 } from '@angular/core';
 
+interface TrackuiIconHTMLElement extends HTMLElement {
+	__trackuiIconsDirectiveInstancia?: TrackUiIconsDirective;
+}
+
 @Directive({
-  selector: '[appTrackuiButton]',
+	selector: '[appTrackuiButton]',
 })
 export class TrackuiButtonDirective implements OnInit {
-  tipo = input.required<TiposButton>();
-  forma = input.required<FormasButton>();
-  positionIcon = input<PositionsIcon>();
+	tipo = input.required<TiposButton>();
+	forma = input.required<FormasButton>();
+	positionIcon = input<PositionsIcon>();
+	nameIcon = input<TrackuiIcons>();
 
-  private el = inject(ElementRef);
-  private renderer = inject(Renderer2);
+	private el = inject(ElementRef<HTMLButtonElement>);
+	private renderer = inject(Renderer2);
+	private trackuiDirective = contentChild(TrackUiIconsDirective);
 
-  ngOnInit(): void {
-    this.renderer.addClass(this.el.nativeElement, `btn-${this.tipo}`);
+	private iconoOriginal?: TrackuiIcons;
 
-    if (this.forma() === 'normal') {
-      this.aplicarClasesEspecificas();
-      this.verificarIcon();
-    } else {
-      this.buttonCircular();
-    }
-  }
+	constructor(private injector: Injector) {}
 
-  public aplicarClasesEspecificas(): void {
-    switch (this.tipo()) {
-      case 'outlined':
-        this.renderer.addClass(this.el.nativeElement, 'button-outlined');
-        this.renderer.addClass(this.el.nativeElement, 'border-primary-5');
-        break;
-      case 'link':
-        this.renderer.addClass(this.el.nativeElement, 'button-link');
-        break;
-      case 'texto':
-        this.renderer.addClass(this.el.nativeElement, 'button-texto');
-        this.renderer.addClass(this.el.nativeElement, 'px-md');
-        this.renderer.addClass(this.el.nativeElement, 'py-xs');
-        break;
+	ngOnInit(): void {
+		if (this.forma() === 'normal') {
+			this.renderer.addClass(this.el.nativeElement, 'trackui-button-normal');
+			this.renderer.addClass(
+				this.el.nativeElement,
+				`trackui-button-normal-${this.tipo()}`,
+			);
+			this.verificarIcon();
+		} else {
+			this.renderer.addClass(this.el.nativeElement, 'trackui-button-circular');
+			this.renderer.addClass(
+				this.el.nativeElement,
+				`trackui-button-circular-${this.tipo()}`,
+			);
+			const icon = this.nameIcon();
+			if (icon) this.setIcon('left', icon);
+		}
+		console.log('hola');
+	}
 
-      default:
-        this.renderer.addClass(this.el.nativeElement, 'px-md');
-        this.renderer.addClass(this.el.nativeElement, 'py-xs');
-        this.renderer.addClass(this.el.nativeElement, 'br-xs');
-        break;
-    }
-  }
+	@HostListener('click', ['$event'])
+	async onClick(event: Event) {
+		const iconDirective = this.getIconDirective();
+		if (!iconDirective) return;
 
-  public verificarIcon(): void {
-    const position = this.positionIcon();
-    if (position != undefined) {
-      let iconElement = this.renderer.createElement('span');
-      this.renderer.addClass(iconElement, 'icono');
-      this.renderer.addClass(iconElement, `icono--${this.positionIcon()}`);
-    }
-  }
+		// Guarda icono original
+		if (!this.iconoOriginal) {
+			this.iconoOriginal = iconDirective.nombre;
+		}
 
-  public buttonCircular(): void {
-    this.renderer.addClass(this.el.nativeElement, 'br-50');
-    this.renderer.addClass(this.el.nativeElement, 'py-xs');
-    let iconElement = this.renderer.createElement('span');
-    this.renderer.addClass(iconElement, 'icono');
-    this.renderer.addClass(iconElement, `icono--circular`);
-  }
+		// Cambia a loader
+		iconDirective.nombre = 'loader';
+
+		// Simulando accion
+		await this.simularAccion();
+
+		// Restaura ícono original
+		iconDirective.nombre = this.iconoOriginal!;
+	}
+
+	private async simularAccion(): Promise<void> {
+		return new Promise((resolve) => {
+			setTimeout(() => {
+				resolve();
+			}, 2000);
+		});
+	}
+
+	private getIconDirective(): TrackUiIconsDirective | undefined {
+		// 1. Se intenta acceder via @ContentChild
+		const dir = this.trackuiDirective();
+		if (dir) return dir;
+
+		// 2. Si no se encontro, se busca en el DOM
+		const btn = this.el.nativeElement;
+		const iconEl = btn.querySelector('[trackuiIcon]') as TrackuiIconHTMLElement;
+		if (iconEl?.__trackuiIconsDirectiveInstancia) {
+			return iconEl.__trackuiIconsDirectiveInstancia;
+		}
+
+		return undefined;
+	}
+
+	public verificarIcon(): void {
+		const position = this.positionIcon();
+		const nombreIcono = this.nameIcon();
+
+		if (position != undefined && nombreIcono != undefined) {
+			this.setIcon(position, nombreIcono);
+		}
+	}
+
+	public setIcon(position: PositionsIcon, iconoName: TrackuiIcons): void {
+		const btn = this.el.nativeElement as HTMLButtonElement;
+
+		const existingDirIcon = btn.querySelector('[trackuiIcon]');
+
+		if (existingDirIcon) {
+			if (this.trackuiDirective()) {
+				const iconDirective = this.getIconDirective();
+				if (iconDirective) iconDirective.nombre = iconoName;
+			}
+		} else {
+			const span = this.renderer.createElement('span');
+			this.renderer.setAttribute(span, 'trackuiIcon', '');
+			if (this.forma() === 'normal') {
+				this.renderer.setStyle(span, 'font-size', '16px');
+			} else {
+				this.renderer.setStyle(span, 'font-size', '20px');
+			}
+			if (position === 'right') {
+				this.renderer.appendChild(btn, span);
+			} else {
+				this.renderer.insertBefore(btn, span, btn.firstChild);
+			}
+
+			this.agregarDirectivaIcono(span, iconoName);
+		}
+	}
+
+	public agregarDirectivaIcono(er: HTMLElement, icon: TrackuiIcons): void {
+		const httpClient = this.injector.get(HttpClient);
+		const render = this.injector.get(Renderer2);
+		const directivaInstancia = new TrackUiIconsDirective(
+			new ElementRef(er),
+			httpClient,
+			render,
+		);
+
+		directivaInstancia.nombre = icon;
+
+		if (typeof directivaInstancia.ngOnInit === 'function') {
+			directivaInstancia.ngOnInit();
+		}
+
+		(er as TrackuiIconHTMLElement).__trackuiIconsDirectiveInstancia =
+			directivaInstancia;
+	}
+
+	private removeIconsDirective(element: HTMLElement): void {
+		// Limpia la referencia para evitar fugas de memoria
+		delete (element as TrackuiIconHTMLElement).__trackuiIconsDirectiveInstancia;
+	}
 }

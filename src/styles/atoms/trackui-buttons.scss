@@ -1,10 +1,85 @@
-@mixin button($nombre, $valor1, $valor2, $valor3, $valor4, $valor5) {
-	.btn-#{$nombre} {
-		background-color: $valor1;
-		color: $text2;
-		border: 1px solid $valor3;
-		padding: $valor4 $valor5;
-		border-radius: $valor5;
+.trackui-button-normal {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	border-radius: 12px;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.trackui-button-circular {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+@mixin button(
+	$nombre,
+	$background,
+	$color,
+	$border,
+	$pd,
+	$br,
+	$background-h,
+	$background-a,
+	$background-d,
+	$color-h,
+	$color-a,
+	$color-d,
+	$border-h,
+	$border-a,
+	$border-d
+) {
+	.trackui-button-normal-#{$nombre} {
+		background-color: $background;
+		color: $color;
+		border: 1px solid $border;
+		padding: $br $pd;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+
+		&:hover {
+			background-color: $background-h;
+			color: $color-h;
+			border: 1px solid $border-h;
+		}
+		&:active {
+			background-color: $background-a;
+			color: $color-a;
+			border: 1px solid $border-a;
+		}
+		&:disabled {
+			background-color: $background-d;
+			color: $color-d;
+			border: 1px solid $border-d;
+		}
+	}
+
+	.trackui-button-circular-#{$nombre} {
+		background-color: $background;
+		color: $color;
+		border: 1px solid $border;
+
+		&:hover {
+			background-color: $background-h;
+			color: $color-h;
+			border: 1px solid $border-h;
+		}
+		&:active {
+			background-color: $background-a;
+			color: $color-a;
+			border: 1px solid $border-a;
+		}
+		&:disabled {
+			background-color: $background-d;
+			color: $color-d;
+			border: 1px solid $border-d;
+		}
 	}
 }
 
@@ -14,7 +89,16 @@
 	var(--color-inverse),
 	var(--color-primary-5),
 	var(--spaceMd),
-	var(--spaceXs)
+	var(--spaceXs),
+	var(--color-primary-4),
+	var(--color-primary-6),
+	var(--color-primary-0),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-primary-4),
+	var(--color-primary-6),
+	var(--color-primary-0)
 );
 
 @include button(
@@ -23,7 +107,16 @@
 	var(--color-inverse),
 	var(--color-secondary-5),
 	var(--spaceMd),
-	var(--spaceXs)
+	var(--spaceXs),
+	var(--color-secondary-4),
+	var(--color-secondary-6),
+	var(--color-secondary-0),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-secondary-4),
+	var(--color-secondary-6),
+	var(--color-secondary-0)
 );
 
 @include button(
@@ -32,7 +125,16 @@
 	var(--color-inverse),
 	var(--color-tertiary-5),
 	var(--spaceMd),
-	var(--spaceXs)
+	var(--spaceXs),
+	var(--color-tertiary-4),
+	var(--color-tertiary-6),
+	var(--color-tertiary-0),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-tertiary-1),
+	var(--color-tertiary-4),
+	var(--color-tertiary-6),
+	var(--color-tertiary-0)
 );
 
 @include button(
@@ -41,7 +143,16 @@
 	var(--color-inverse),
 	var(--color-cuaternary-5),
 	var(--spaceMd),
-	var(--spaceXs)
+	var(--spaceXs),
+	var(--color-cuaternary-4),
+	var(--color-cuaternary-6),
+	var(--color-cuaternary-0),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-cuaternary-1),
+	var(--color-cuaternary-4),
+	var(--color-cuaternary-6),
+	var(--color-cuaternary-0)
 );
 
 @include button(
@@ -50,7 +161,16 @@
 	var(--color-inverse),
 	var(--color-quinary-5),
 	var(--spaceMd),
-	var(--spaceXs)
+	var(--spaceXs),
+	var(--color-quinary-4),
+	var(--color-quinary-6),
+	var(--color-quinary-0),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-quinary-1),
+	var(--color-quinary-4),
+	var(--color-quinary-6),
+	var(--color-quinary-0)
 );
 
 @include button(
@@ -59,7 +179,16 @@
 	var(--color-primary-5),
 	var(--color-primary-5),
 	var(--spaceMd),
-	var(--spaceXs)
+	var(--spaceXs),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-primary-0),
+	var(--color-primary-4),
+	var(--color-primary-6),
+	var(--color-primary-1),
+	var(--color-primary-4),
+	var(--color-primary-6),
+	var(--color-primary-1)
 );
 
 @include button(
@@ -68,7 +197,16 @@
 	var(--color-primary-5),
 	var(--color-transparente),
 	0,
-	0
+	0,
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-primary-4),
+	var(--color-primary-6),
+	var(--color-primary-1),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-transparente)
 );
 
 @include button(
@@ -77,5 +215,14 @@
 	var(--color-primary-5),
 	var(--color-transparente),
 	var(--spaceMd),
-	var(--spaceXs)
+	var(--spaceXs),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-primary-4),
+	var(--color-primary-6),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-transparente)
 );

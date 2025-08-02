@@ -1,8 +1,6 @@
 import { TiposAlerta } from './../../../../core/domain/types/tipos-alerta.type';
-
 import { SeccionComponent } from './components/seccion-component/seccion.component';
 import { TrackuiToggleButton } from '../../../shared/trackui/trackui-toggle-button/trackui-toggle-button.component';
-
 import { TrackuiAlertaComponent } from '../../../shared/trackui/trackui-alerta/trackui-alerta.component';
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
@@ -12,6 +10,8 @@ import { TrackuiEtiquetaComponent } from '../../../shared/trackui/trackui-etique
 import { TrackUiIconsDirective } from '../../../shared/trackui/trackui-icons/trackui-icons.directive';
 import { TrackuiCardEtiquetaComponent } from '../../../shared/trackui/trackui-card-etiqueta/trackui-card-etiqueta.component';
 import { TrackuiInputComponent } from '../../../shared/trackui/trackui-input/trackui-input.component';
+import { TrackuiButtonDirective } from '../../../shared/trackui/trackui-button/trackui-button.directive';
+import { TiposButton } from '../../../../core/domain/types/tipos-button.type';
 
 @Component({
 	selector: 'playground',
@@ -25,6 +25,7 @@ import { TrackuiInputComponent } from '../../../shared/trackui/trackui-input/tra
 		TrackUiIconsDirective,
 		TrackuiCardEtiquetaComponent,
 		TrackuiInputComponent,
+		TrackuiButtonDirective,
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
@@ -52,6 +53,26 @@ export class PlayGroundPage {
 		'secondary',
 		'tertiary',
 		'cuaternary',
+	];
+
+	tiposButtonNormal: TiposButton[] = [
+		'primary',
+		'secondary',
+		'tertiary',
+		'cuaternary',
+		'quinary',
+		'outlined',
+		'texto',
+		'link',
+	];
+
+	tiposButtonCircular: TiposButton[] = [
+		'primary',
+		'secondary',
+		'tertiary',
+		'cuaternary',
+		'quinary',
+		'outlined',
 	];
 
 	controlToggle = new FormControl<boolean>(true);
