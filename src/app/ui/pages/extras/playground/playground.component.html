@@ -72,5 +72,28 @@
 		<seccion-componente titulo="Item tab menu">
 			<trackui-tab-menu [opciones]="opciones" />
 		</seccion-componente>
+		<seccion-componente titulo="Dropdown">
+			<button [trackuiDropdown]="menu">Dropdown</button>
+
+			<ng-template #menu>
+				<trackui-dropdown-menu>
+					<li trackuiMenuItem (click)="ejecutar()">
+						Borrar Item
+					</li>
+					<li trackuiMenuItem>
+						Borrar Item
+					</li>
+				</trackui-dropdown-menu>
+			</ng-template>
+		</seccion-componente>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 	</section>
 </main>

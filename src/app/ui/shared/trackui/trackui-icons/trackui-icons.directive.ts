@@ -49,7 +49,7 @@ export class TrackUiIconsDirective implements AfterViewInit {
 					'innerHTML',
 					svgContent,
 				);
-                
+
 				this.elementRef.nativeElement.style.display = 'inline-block';
 				this.elementRef.nativeElement.style.lineHeight = '1';
 				this.elementRef.nativeElement.style.height = '1em';

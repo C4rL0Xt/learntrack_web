@@ -38,13 +38,11 @@ export class TrackuiInputComponent implements ControlValueAccessor {
 
 	errorMessage = input<string>('');
 	hasError = computed<boolean>(() => {
-		console.log('estado del message error ->',this.errorMessage() !== null )
 		return this.errorMessage() !== null;
 	});
 
 	isDisabled = signal<boolean>(false);
 	classIcon = computed<string>(() => {
-		console.log('esatdo -> ',this.hasError() && this.formControl.touched);
 		if (this.isDisabled()) {
 			return 'input-icon--disabled';
 		}

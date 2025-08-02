@@ -1,0 +1,24 @@
+.trackui-dropdown {
+    border: 1px red solid;
+    background: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.trackui-dropdown-menu {
+    position: absolute;
+    top: 30px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    min-width: 190px;
+
+}
+
+.trackui-dropdown-menu-item {
+    list-style: none;
+    width: 100%;
+    text-align: start;
+}
+
+.trackui-dropdown-menu-item:hover {
+    background-color: var(--color-secondary-0);
+}

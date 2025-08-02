@@ -15,6 +15,9 @@ import { TrackuiInputComponent } from '../../../shared/trackui/trackui-input/tra
 import { ItemTabMenuComponent } from '../../../shared/trackui/trackui-tab-menu/item-tab-menu/item-tab-menu.component';
 import { TrackuiTabMenuComponent } from '../../../shared/trackui/trackui-tab-menu/trackui-tab-menu.component';
 import { OPCIONES_TABMENU_TEST } from '../../../../core/domain/constants/opciones-tabmenu-test.const';
+import { TrackuiDropdown } from '../../../shared/trackui/trackui-dropdown/trackui-dropdown.directive';
+import { TrackuiDropdownMenuComponent } from '../../../shared/trackui/trackui-dropdown/trackui-dropdown-menu/trackui-dropdown-menu.component';
+import { TrackuiMenuItemDirective } from '../../../shared/trackui/trackui-dropdown/trackui-menu-item/trackui-menu-item.directive';
 
 @Component({
 	selector: 'playground',
@@ -28,7 +31,10 @@ import { OPCIONES_TABMENU_TEST } from '../../../../core/domain/constants/opcione
 		TrackUiIconsDirective,
 		TrackuiCardEtiquetaComponent,
 		TrackuiInputComponent,
-		TrackuiTabMenuComponent
+		TrackuiTabMenuComponent,
+		TrackuiDropdown,
+		TrackuiDropdownMenuComponent,
+		TrackuiMenuItemDirective,
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
@@ -62,4 +68,9 @@ export class PlayGroundPage {
 
 	controlToggle = new FormControl<boolean>(true);
 	controlInput = new FormControl<string>('', [Validators.minLength(3)]);
+
+
+	ejecutar() {
+		console.log('MELANI ES BEBE');
+	}
 }
