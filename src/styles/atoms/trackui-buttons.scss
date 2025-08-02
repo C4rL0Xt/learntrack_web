@@ -18,6 +18,19 @@
 	transition: all 0.2s ease-in-out;
 }
 
+.icon-loader {
+	animation: cargando 1s linear infinite;
+}
+
+@keyframes cargando {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
 @mixin button(
 	$nombre,
 	$background,

@@ -73,11 +73,23 @@ export class TrackuiButtonDirective implements OnInit {
 		// Cambia a loader
 		iconDirective.nombre = 'loader';
 
-		// Simulando accion
+		// Accede al elemento nativo (DOM)
+		const btn = this.el.nativeElement;
+		const iconEl = btn.querySelector('[trackuiIcon]');
+
+		if (iconEl) {
+			this.renderer.addClass(iconEl, 'icon-loader');
+		}
+
+		// Simular acción
 		await this.simularAccion();
 
-		// Restaura ícono original
-		iconDirective.nombre = this.iconoOriginal!;
+		// Restaurar icono original
+		iconDirective.nombre = this.iconoOriginal;
+
+		if (iconEl) {
+			this.renderer.removeClass(iconEl, 'icon-loader');
+		}
 	}
 
 	private async simularAccion(): Promise<void> {
