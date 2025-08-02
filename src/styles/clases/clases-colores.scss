@@ -15,8 +15,8 @@
     .border-05-#{$nombre}{
         border: 0.5px solid $valor;
     }
-
 }
+
 @include color('inverse', var(--color-inverse));
 @include color('base', var(--color-base));
 @include color('disabled', var(--color-disabled));
@@ -142,3 +142,6 @@
 @include color('base-50', var(--color-base-50));
 @include color('base-4', var(--color-base-4));
 @include color('secondary-2-30', var(--color-secondary-2-30));
+
+
+@include color('transparente',var(--color-transparente));

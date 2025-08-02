@@ -52,12 +52,30 @@
 				></app-trackui-card-etiqueta>
 			</div>
 		</seccion-componente>
-		<seccion-componente titulo="Iconos">
-			<!-- una directiva  -->
-			<span trackuiIcon nombre="add" style="font-size: 40px"></span>
-			<!-- con font-size se puede especificar el tamaño del icon, es un cuadrado.  -->
+		<seccion-componente titulo="Botones">
+			<div class="flex flex-wrap gap-md">
+				<button
+					*ngFor="let tipo of tiposButtonNormal"
+					appTrackuiButton
+					[tipo]="tipo"
+					forma="normal"
+					positionIcon="left"
+					nameIcon="user"
+				>
+					Prueba boton
+				</button>
+				<button
+					*ngFor="let tipo of tiposButtonCircular"
+					appTrackuiButton
+					[tipo]="tipo"
+					forma="circular"
+					nameIcon="user"
+				></button>
+			</div>
 		</seccion-componente>
-
+		<seccion-componente titulo="Iconos">
+			<span trackuiIcon nombre="add" style="font-size: 40px"></span>
+		</seccion-componente>
 		<seccion-componente class="w100" titulo="Input">
 			<div class="flex expanded gap-md">
 				<trackui-input

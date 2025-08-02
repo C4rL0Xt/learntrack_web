@@ -1,8 +1,6 @@
 import { TiposAlerta } from './../../../../core/domain/types/tipos-alerta.type';
-
 import { SeccionComponent } from './components/seccion-component/seccion.component';
 import { TrackuiToggleButton } from '../../../shared/trackui/trackui-toggle-button/trackui-toggle-button.component';
-
 import { TrackuiAlertaComponent } from '../../../shared/trackui/trackui-alerta/trackui-alerta.component';
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
@@ -18,6 +16,9 @@ import { OPCIONES_TABMENU_TEST } from '../../../../core/domain/constants/opcione
 import { TrackuiDropdown } from '../../../shared/trackui/trackui-dropdown/trackui-dropdown.directive';
 import { TrackuiDropdownMenuComponent } from '../../../shared/trackui/trackui-dropdown/trackui-dropdown-menu/trackui-dropdown-menu.component';
 import { TrackuiMenuItemDirective } from '../../../shared/trackui/trackui-dropdown/trackui-menu-item/trackui-menu-item.directive';
+import { TiposButton } from '../../../../core/domain/types/tipos-button.type';
+import { TrackuiButtonDirective } from '../../../shared/trackui/trackui-button/trackui-button.directive';
+
 
 @Component({
 	selector: 'playground',
@@ -35,6 +36,7 @@ import { TrackuiMenuItemDirective } from '../../../shared/trackui/trackui-dropdo
 		TrackuiDropdown,
 		TrackuiDropdownMenuComponent,
 		TrackuiMenuItemDirective,
+		TrackuiButtonDirective,
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
@@ -65,6 +67,25 @@ export class PlayGroundPage {
 	];
 
 	readonly opciones = OPCIONES_TABMENU_TEST;
+	tiposButtonNormal: TiposButton[] = [
+		'primary',
+		'secondary',
+		'tertiary',
+		'cuaternary',
+		'quinary',
+		'outlined',
+		'texto',
+		'link',
+	];
+
+	tiposButtonCircular: TiposButton[] = [
+		'primary',
+		'secondary',
+		'tertiary',
+		'cuaternary',
+		'quinary',
+		'outlined',
+	];
 
 	controlToggle = new FormControl<boolean>(true);
 	controlInput = new FormControl<string>('', [Validators.minLength(3)]);

@@ -1,0 +1,241 @@
+.trackui-button-normal {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	border-radius: 12px;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.trackui-button-circular {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.icon-loader {
+	animation: cargando 1s linear infinite;
+}
+
+@keyframes cargando {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@mixin button(
+	$nombre,
+	$background,
+	$color,
+	$border,
+	$pd,
+	$br,
+	$background-h,
+	$background-a,
+	$background-d,
+	$color-h,
+	$color-a,
+	$color-d,
+	$border-h,
+	$border-a,
+	$border-d
+) {
+	.trackui-button-normal-#{$nombre} {
+		background-color: $background;
+		color: $color;
+		border: 1px solid $border;
+		padding: $br $pd;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+
+		&:hover {
+			background-color: $background-h;
+			color: $color-h;
+			border: 1px solid $border-h;
+		}
+		&:active {
+			background-color: $background-a;
+			color: $color-a;
+			border: 1px solid $border-a;
+		}
+		&:disabled {
+			background-color: $background-d;
+			color: $color-d;
+			border: 1px solid $border-d;
+		}
+	}
+
+	.trackui-button-circular-#{$nombre} {
+		background-color: $background;
+		color: $color;
+		border: 1px solid $border;
+
+		&:hover {
+			background-color: $background-h;
+			color: $color-h;
+			border: 1px solid $border-h;
+		}
+		&:active {
+			background-color: $background-a;
+			color: $color-a;
+			border: 1px solid $border-a;
+		}
+		&:disabled {
+			background-color: $background-d;
+			color: $color-d;
+			border: 1px solid $border-d;
+		}
+	}
+}
+
+@include button(
+	'primary',
+	var(--color-primary-5),
+	var(--color-inverse),
+	var(--color-primary-5),
+	var(--spaceMd),
+	var(--spaceXs),
+	var(--color-primary-4),
+	var(--color-primary-6),
+	var(--color-primary-0),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-primary-4),
+	var(--color-primary-6),
+	var(--color-primary-0)
+);
+
+@include button(
+	'secondary',
+	var(--color-secondary-5),
+	var(--color-inverse),
+	var(--color-secondary-5),
+	var(--spaceMd),
+	var(--spaceXs),
+	var(--color-secondary-4),
+	var(--color-secondary-6),
+	var(--color-secondary-0),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-secondary-4),
+	var(--color-secondary-6),
+	var(--color-secondary-0)
+);
+
+@include button(
+	'tertiary',
+	var(--color-tertiary-5),
+	var(--color-inverse),
+	var(--color-tertiary-5),
+	var(--spaceMd),
+	var(--spaceXs),
+	var(--color-tertiary-4),
+	var(--color-tertiary-6),
+	var(--color-tertiary-0),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-tertiary-1),
+	var(--color-tertiary-4),
+	var(--color-tertiary-6),
+	var(--color-tertiary-0)
+);
+
+@include button(
+	'cuaternary',
+	var(--color-cuaternary-5),
+	var(--color-inverse),
+	var(--color-cuaternary-5),
+	var(--spaceMd),
+	var(--spaceXs),
+	var(--color-cuaternary-4),
+	var(--color-cuaternary-6),
+	var(--color-cuaternary-0),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-cuaternary-1),
+	var(--color-cuaternary-4),
+	var(--color-cuaternary-6),
+	var(--color-cuaternary-0)
+);
+
+@include button(
+	'quinary',
+	var(--color-quinary-5),
+	var(--color-inverse),
+	var(--color-quinary-5),
+	var(--spaceMd),
+	var(--spaceXs),
+	var(--color-quinary-4),
+	var(--color-quinary-6),
+	var(--color-quinary-0),
+	var(--color-inverse),
+	var(--color-inverse),
+	var(--color-quinary-1),
+	var(--color-quinary-4),
+	var(--color-quinary-6),
+	var(--color-quinary-0)
+);
+
+@include button(
+	'outlined',
+	var(--color-transparente),
+	var(--color-primary-5),
+	var(--color-primary-5),
+	var(--spaceMd),
+	var(--spaceXs),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-primary-0),
+	var(--color-primary-4),
+	var(--color-primary-6),
+	var(--color-primary-1),
+	var(--color-primary-4),
+	var(--color-primary-6),
+	var(--color-primary-1)
+);
+
+@include button(
+	'link',
+	var(--color-transparente),
+	var(--color-primary-5),
+	var(--color-transparente),
+	0,
+	0,
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-primary-4),
+	var(--color-primary-6),
+	var(--color-primary-1),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-transparente)
+);
+
+@include button(
+	'texto',
+	var(--color-transparente),
+	var(--color-primary-5),
+	var(--color-transparente),
+	var(--spaceMd),
+	var(--spaceXs),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-primary-4),
+	var(--color-primary-6),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-transparente),
+	var(--color-transparente)
+);
