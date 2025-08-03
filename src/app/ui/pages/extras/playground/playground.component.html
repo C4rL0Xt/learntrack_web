@@ -59,9 +59,10 @@
 					appTrackuiButton
 					[tipo]="tipo"
 					forma="normal"
-					positionIcon="left"
-					nameIcon="user"
-				>
+					(click)="ejecutar()"
+					[isLoading]="isloading"
+				>	
+					<span trackuiIcon nombre="user"></span>
 					Prueba boton
 				</button>
 				<button

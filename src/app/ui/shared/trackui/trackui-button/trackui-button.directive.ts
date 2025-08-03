@@ -9,6 +9,7 @@ import {
 import {
 	contentChild,
 	Directive,
+	effect,
 	ElementRef,
 	HostListener,
 	inject,
@@ -31,6 +32,7 @@ export class TrackuiButtonDirective implements OnInit {
 	forma = input.required<FormasButton>();
 	positionIcon = input<PositionsIcon>();
 	nameIcon = input<TrackuiIcons>();
+	isLoading = input<boolean>(false);
 
 	private el = inject(ElementRef<HTMLButtonElement>);
 	private renderer = inject(Renderer2);
@@ -38,7 +40,11 @@ export class TrackuiButtonDirective implements OnInit {
 
 	private iconoOriginal?: TrackuiIcons;
 
-	constructor(private injector: Injector) {}
+	constructor(private injector: Injector) {
+		effect(() => {
+			this.handleLoading();
+		});
+	}
 
 	ngOnInit(): void {
 		if (this.forma() === 'normal') {
@@ -60,44 +66,43 @@ export class TrackuiButtonDirective implements OnInit {
 		console.log('hola');
 	}
 
-	@HostListener('click', ['$event'])
-	async onClick(event: Event) {
-		const iconDirective = this.getIconDirective();
-		if (!iconDirective) return;
+	handleLoading() {
+		if (!this.isLoading()) {
+			const iconDirective = this.getIconDirective();
+			// Restaurar icono original
+			if (!iconDirective) return;
 
-		// Guarda icono original
-		if (!this.iconoOriginal) {
-			this.iconoOriginal = iconDirective.nombre;
+			if (this.iconoOriginal) {
+				iconDirective.nombre = this.iconoOriginal;
+			}
+
+			// Accede al elemento nativo (DOM)
+			const btn = this.el.nativeElement;
+			const iconEl = btn.querySelector('[trackuiIcon]');
+
+			if (iconEl) {
+				this.renderer.removeClass(iconEl, 'icon-loader');
+			}
+		} else {
+			const iconDirective = this.getIconDirective();
+			if (!iconDirective) return;
+
+			// Guarda icono original
+			if (!this.iconoOriginal) {
+				this.iconoOriginal = iconDirective.nombre;
+			}
+
+			// Cambia a loader
+			iconDirective.nombre = 'loader';
+
+			// Accede al elemento nativo (DOM)
+			const btn = this.el.nativeElement;
+			const iconEl = btn.querySelector('[trackuiIcon]');
+
+			if (iconEl) {
+				this.renderer.addClass(iconEl, 'icon-loader');
+			}
 		}
-
-		// Cambia a loader
-		iconDirective.nombre = 'loader';
-
-		// Accede al elemento nativo (DOM)
-		const btn = this.el.nativeElement;
-		const iconEl = btn.querySelector('[trackuiIcon]');
-
-		if (iconEl) {
-			this.renderer.addClass(iconEl, 'icon-loader');
-		}
-
-		// Simular acción
-		await this.simularAccion();
-
-		// Restaurar icono original
-		iconDirective.nombre = this.iconoOriginal;
-
-		if (iconEl) {
-			this.renderer.removeClass(iconEl, 'icon-loader');
-		}
-	}
-
-	private async simularAccion(): Promise<void> {
-		return new Promise((resolve) => {
-			setTimeout(() => {
-				resolve();
-			}, 2000);
-		});
 	}
 
 	private getIconDirective(): TrackUiIconsDirective | undefined {

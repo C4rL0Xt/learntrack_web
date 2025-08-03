@@ -19,7 +19,6 @@ import { TrackuiMenuItemDirective } from '../../../shared/trackui/trackui-dropdo
 import { TiposButton } from '../../../../core/domain/types/tipos-button.type';
 import { TrackuiButtonDirective } from '../../../shared/trackui/trackui-button/trackui-button.directive';
 
-
 @Component({
 	selector: 'playground',
 	imports: [
@@ -90,8 +89,12 @@ export class PlayGroundPage {
 	controlToggle = new FormControl<boolean>(true);
 	controlInput = new FormControl<string>('', [Validators.minLength(3)]);
 
-
+	isloading = false;
 	ejecutar() {
-		console.log('MELANI ES BEBE');
+		this.isloading = true;
+		setTimeout(() => {
+			this.isloading = false;
+			console.log('MELANI ES BEBE');
+		}, 2000);
 	}
 }
