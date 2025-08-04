@@ -1,0 +1,22 @@
+<nav>
+	<ul class="flex gap-xs items-center">
+		@for (opcionTab of opciones(); let i = $index; track i) {
+			<li class="flex">
+				<app-item-breadcrumb
+					[id]="opcionTab.id.id"
+					[item]="opcionTab"
+					[(control)]="opcionSeleccionada"
+				/>
+			</li>
+			@if (i < opciones().length - 1) {
+				<li class="flex">
+					<span
+						trackuiIcon
+						nombre="derecha"
+						style="font-size: 12px; color: var(--color-neutral-2)"
+					></span>
+				</li>
+			}
+		}
+	</ul>
+</nav>

@@ -18,6 +18,8 @@ import { TrackuiDropdownMenuComponent } from '../../../shared/trackui/trackui-dr
 import { TrackuiMenuItemDirective } from '../../../shared/trackui/trackui-dropdown/trackui-menu-item/trackui-menu-item.directive';
 import { TiposButton } from '../../../../core/domain/types/tipos-button.type';
 import { TrackuiButtonDirective } from '../../../shared/trackui/trackui-button/trackui-button.directive';
+import { TrackuiBreadcrumbComponent } from '../../../shared/trackui/trackui-breadcrumb/trackui-breadcrumb.component';
+import { OPCIONES_BREADCRUMB_TEST } from '../../../../core/domain/constants/opciones-breadcrumb-test.const';
 
 @Component({
 	selector: 'playground',
@@ -36,6 +38,7 @@ import { TrackuiButtonDirective } from '../../../shared/trackui/trackui-button/t
 		TrackuiDropdownMenuComponent,
 		TrackuiMenuItemDirective,
 		TrackuiButtonDirective,
+		TrackuiBreadcrumbComponent
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
@@ -66,6 +69,7 @@ export class PlayGroundPage {
 	];
 
 	readonly opciones = OPCIONES_TABMENU_TEST;
+	readonly opcionesBreadcrumb = OPCIONES_BREADCRUMB_TEST;
 	tiposButtonNormal: TiposButton[] = [
 		'primary',
 		'secondary',

@@ -1,0 +1,7 @@
+<p
+	class="item-breadcrumb text-inverse text-medium text-description"
+	(click)="seleccionarItem()"
+	[ngClass]="{ 'item-breadcrumb--seleccionado': seleccionado() }"
+>
+	{{ item().id.label }}
+</p>

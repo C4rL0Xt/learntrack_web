@@ -1,0 +1,11 @@
+.item-breadcrumb {
+	cursor: pointer;
+}
+
+.item-breadcrumb--seleccionado {
+	color: var(--color-neutral-5);
+}
+
+p:hover {
+	color: var(--color-neutral-1);
+}

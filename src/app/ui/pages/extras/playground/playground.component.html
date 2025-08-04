@@ -61,7 +61,7 @@
 					forma="normal"
 					(click)="ejecutar()"
 					[isLoading]="isloading"
-				>	
+				>
 					<span trackuiIcon nombre="user"></span>
 					Prueba boton
 				</button>
@@ -96,23 +96,27 @@
 
 			<ng-template #menu>
 				<trackui-dropdown-menu>
-					<li trackuiMenuItem (click)="ejecutar()">
-						Borrar Item
-					</li>
-					<li trackuiMenuItem>
-						Borrar Item
-					</li>
+					<li trackuiMenuItem (click)="ejecutar()">Borrar Item</li>
+					<li trackuiMenuItem>Borrar Item</li>
 				</trackui-dropdown-menu>
 			</ng-template>
 		</seccion-componente>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
+		<seccion-componente titulo="BreadCrumb">
+			<div
+				class="flex items-center background-primary-4 justify-center"
+				style="width: 500px; height: 30px"
+			>
+				<app-trackui-breadcrumb [opciones]="opcionesBreadcrumb" />
+			</div>
+		</seccion-componente>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
 	</section>
 </main>
