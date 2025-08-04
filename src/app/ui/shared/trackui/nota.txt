@@ -1,4 +1,4 @@
-- botones -> Directivas - Tessita
+- botones -> Directivas - Tessita | LISTO
 - input -> ControlValueAccesor (Component) - Abelito  | LISTO
 - select -> ControlValueAccesor  (Component) - Abelito
 - input number -> ControlValueAccesor  (Component) - Tessita
@@ -18,7 +18,7 @@
 - pagination ->  (Component) - Abelito
 - acordeon ->  (Component) - Tessita
 - breadcrumb ->  (Component) - Tessita
-- dropdown ->  (Component) | Directiva - Abelito
+- dropdown ->  (Component) | Directiva - Abelito | LISTO
 - modal ->  (Component) - Tessita
 - iconos -> directiva - Carlos | LISTO
 

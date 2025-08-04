@@ -18,6 +18,8 @@ import { TrackuiDropdownMenuComponent } from '../../../shared/trackui/trackui-dr
 import { TrackuiMenuItemDirective } from '../../../shared/trackui/trackui-dropdown/trackui-menu-item/trackui-menu-item.directive';
 import { TiposButton } from '../../../../core/domain/types/tipos-button.type';
 import { TrackuiButtonDirective } from '../../../shared/trackui/trackui-button/trackui-button.directive';
+import { TrackuiOptionSelectComponent } from '../../../shared/trackui/trackui-select/trackui-option-select/trackui-option-select.component';
+import { TrackuiSelectComponent } from '../../../shared/trackui/trackui-select/trackui-select.component';
 
 @Component({
 	selector: 'playground',
@@ -36,6 +38,8 @@ import { TrackuiButtonDirective } from '../../../shared/trackui/trackui-button/t
 		TrackuiDropdownMenuComponent,
 		TrackuiMenuItemDirective,
 		TrackuiButtonDirective,
+		TrackuiOptionSelectComponent,
+		TrackuiSelectComponent
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',

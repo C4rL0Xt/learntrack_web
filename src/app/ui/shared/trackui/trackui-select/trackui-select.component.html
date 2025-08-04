@@ -1,0 +1,17 @@
+<div
+	class="flex items-center gap-xs px-sm py-xxxs trackui-select br-xs"
+	(click)="openSelect()"
+>
+	<div
+		class="flex-column justify-center expanded relative"
+		style="min-height: 39px;"
+	>
+		<label>{{ label() }}</label>
+	</div>
+	<button
+		class="flex items-center trackui-select-button"
+		[ngClass]="{ 'trackui-select--open': isOpen() }"
+	>
+		<span trackuiIcon nombre="flecha-arriba" style="font-size: 16px"></span>
+	</button>
+</div>
