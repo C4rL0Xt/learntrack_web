@@ -1,26 +1,36 @@
-- botones -> Directivas - Tessita
+
+TESSITA
+
+- breadcrumb ->  (Component) - Tessita | LISTO
+- card-mini ->  (Component) - Tessita | LISTO
+- botones -> Directivas - Tessita | LISTO
+- alerta ->  (Component)  - Tessita | LISTO
+- etiqueta ->  (Component) - Tessita | LISTO
+
+- checkbox -> ControlValueAccesor  (Component) - Tessita 
+- segmentados ->  (Component) - Tessita 
+
+- acordeon ->  (Component) - Tessita
+- sider-bar ->  (Component) - Tessita
+- input number -> ControlValueAccesor  (Component) - Tessita
+- modal ->  (Component) - Tessita
+
+
+ABELITO
+
 - input -> ControlValueAccesor (Component) - Abelito  | LISTO
 - select -> ControlValueAccesor  (Component) - Abelito
-- input number -> ControlValueAccesor  (Component) - Tessita
-- checkbox -> ControlValueAccesor  (Component) - Tessita
 - toggle button -> ControlValueAccesor  (Component) - Abelito  | LISTO 
 - textarea -> ControlValueAccesor  (Component) - Abelito
 - divider -> Component - Abelito
 - item-nav -> Componente | Directiva - Abelito
 - upload -> Componente - Abelito
 - slider -> Componente - Abelito
-- alerta ->  (Component)  - Tessita | LISTO
-- segmentados ->  (Component) - Tessita 
-- etiqueta ->  (Component) - Tessita | LISTO
 - item-tab-menu ->  (Component) - Abelito | LISTO
-- card-mini ->  (Component) - Tessita | LISTO
-- sider-bar ->  (Component) - Tessita
 - pagination ->  (Component) - Abelito
-- acordeon ->  (Component) - Tessita
-- breadcrumb ->  (Component) - Tessita
 - dropdown ->  (Component) | Directiva - Abelito
-- modal ->  (Component) - Tessita
 - iconos -> directiva - Carlos | LISTO
+
 
 tips modal: 
 - <ng-content>
