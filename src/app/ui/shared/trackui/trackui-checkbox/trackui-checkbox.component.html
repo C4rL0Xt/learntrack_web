@@ -1,0 +1,19 @@
+<div
+	class="checkbox flex gap-xxs justify-center items-center fade-in	"
+	[ngClass]="{
+		'checkbox--activo': checkboxValue(),
+	}"
+>
+	<div
+		class="checkbox__cuadro items-center flex justify-center br-xxxs border-disabled pointer"
+		(click)="selectCheckbox()"
+		[ngClass]="{
+			'checkbox__cuadro--activo': checkboxValue(),
+		}"
+	>
+		@if (checkboxValue()) {
+			<span trackuiIcon nombre="check" style="font-size: 12px"> </span>
+		}
+	</div>
+	<p class="text-description text-regular">{{ label() }}</p>
+</div>

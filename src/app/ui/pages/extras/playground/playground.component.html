@@ -11,7 +11,14 @@
 				<trackui-toggle-button tipo="secondary" />
 			</div>
 		</seccion-componente>
-
+		<seccion-componente titulo="Checkbox">
+			<div class="flex gap-md">
+				<app-trackui-checkbox
+					label="Opcion num1"
+					[formControl]="controlCheckbox"
+				/>
+			</div>
+		</seccion-componente>
 		<seccion-componente titulo="Etiqueta">
 			<div class="flex flex-wrap gap-md">
 				<!-- @for(tipo of tiposEtiquetas; track $index) {

@@ -1,0 +1,22 @@
+.checkbox:hover {
+	color: var(--color-secondary-5);
+}
+
+.checkbox--activo {
+	color: var(--color-secondary-7);
+}
+
+.checkbox__cuadro {
+	width: 16px;
+	height: 16px;
+}
+
+.checkbox__cuadro:hover {
+	border-color: var(--color-secondary-5);
+	transition: all 0.3s;
+}
+
+.checkbox__cuadro--activo {
+	border-color: var(--color-secondary-7);
+	background-color: var(--color-primary-0);
+}

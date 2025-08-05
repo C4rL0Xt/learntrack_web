@@ -20,6 +20,7 @@ import { TiposButton } from '../../../../core/domain/types/tipos-button.type';
 import { TrackuiButtonDirective } from '../../../shared/trackui/trackui-button/trackui-button.directive';
 import { TrackuiBreadcrumbComponent } from '../../../shared/trackui/trackui-breadcrumb/trackui-breadcrumb.component';
 import { OPCIONES_BREADCRUMB_TEST } from '../../../../core/domain/constants/opciones-breadcrumb-test.const';
+import { TrackuiCheckboxComponent } from '../../../shared/trackui/trackui-checkbox/trackui-checkbox.component';
 
 @Component({
 	selector: 'playground',
@@ -38,7 +39,8 @@ import { OPCIONES_BREADCRUMB_TEST } from '../../../../core/domain/constants/opci
 		TrackuiDropdownMenuComponent,
 		TrackuiMenuItemDirective,
 		TrackuiButtonDirective,
-		TrackuiBreadcrumbComponent
+		TrackuiBreadcrumbComponent,
+		TrackuiCheckboxComponent,
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
@@ -91,6 +93,7 @@ export class PlayGroundPage {
 	];
 
 	controlToggle = new FormControl<boolean>(true);
+	controlCheckbox = new FormControl<boolean>(false);
 	controlInput = new FormControl<string>('', [Validators.minLength(3)]);
 
 	isloading = false;

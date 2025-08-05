@@ -39,7 +39,7 @@ tips modal:
 - viewChild
 
 
-metodoligia bem
+metodologia bem
 
 
 
