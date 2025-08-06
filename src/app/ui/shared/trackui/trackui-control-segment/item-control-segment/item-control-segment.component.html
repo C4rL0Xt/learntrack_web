@@ -1,0 +1,14 @@
+<button
+	class="item-segment text-secondary-5 fade-in px-sm py-xxxs gap-xxs flex items-center br-xs"
+	(click)="seleccionarSegment()"
+	[ngClass]="{
+		'item-segment--seleccionado': estaSeleccionado(),
+	}"
+>
+	@if (hasIcon()) {
+		<span trackuiIcon nombre="user"></span>
+	}
+	<p [ngClass]="estaSeleccionado() ? 'text-medium' : 'text-regular'">
+		{{ opcionSegment().id.label }}
+	</p>
+</button>

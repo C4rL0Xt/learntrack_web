@@ -1,20 +1,19 @@
 @mixin color($nombre, $valor) {
+	.background-#{$nombre} {
+		background-color: $valor;
+	}
 
-    .background-#{$nombre} {
-        background-color: $valor;
-    }
+	.text-#{$nombre} {
+		color: $valor;
+	}
 
-    .text-#{$nombre} {
-        color: $valor;
-    }
+	.border-#{$nombre} {
+		border: 1px solid $valor;
+	}
 
-    .border-#{$nombre} {
-        border: 1px solid $valor;
-    }
-
-    .border-05-#{$nombre}{
-        border: 0.5px solid $valor;
-    }
+	.border-05-#{$nombre} {
+		border: 0.5px solid $valor;
+	}
 }
 
 @include color('inverse', var(--color-inverse));
@@ -143,5 +142,4 @@
 @include color('base-4', var(--color-base-4));
 @include color('secondary-2-30', var(--color-secondary-2-30));
 
-
-@include color('transparente',var(--color-transparente));
+@include color('transparente', var(--color-transparente));

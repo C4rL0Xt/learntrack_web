@@ -3,7 +3,7 @@ import { SeccionComponent } from './components/seccion-component/seccion.compone
 import { TrackuiToggleButton } from '../../../shared/trackui/trackui-toggle-button/trackui-toggle-button.component';
 import { TrackuiAlertaComponent } from '../../../shared/trackui/trackui-alerta/trackui-alerta.component';
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TiposEtiqueta } from '../../../../core/domain/types/tipos-etiqueta.type';
 import { TrackuiEtiquetaComponent } from '../../../shared/trackui/trackui-etiqueta/trackui-etiqueta.component';
@@ -21,7 +21,9 @@ import { TrackuiButtonDirective } from '../../../shared/trackui/trackui-button/t
 import { TrackuiBreadcrumbComponent } from '../../../shared/trackui/trackui-breadcrumb/trackui-breadcrumb.component';
 import { OPCIONES_BREADCRUMB_TEST } from '../../../../core/domain/constants/opciones-breadcrumb-test.const';
 import { TrackuiCheckboxComponent } from '../../../shared/trackui/trackui-checkbox/trackui-checkbox.component';
-
+import { OPCIONES_SEGMENT_TEST } from '../../../../core/domain/constants/opciones-control-segment.const';
+import { TrackuiControlSegmentComponent } from '../../../shared/trackui/trackui-control-segment/trackui-control-segment.component';
+import { ItemControlSegment } from '../../../../core/domain/interfaces/item-control-segment.interface';
 @Component({
 	selector: 'playground',
 	imports: [
@@ -41,11 +43,18 @@ import { TrackuiCheckboxComponent } from '../../../shared/trackui/trackui-checkb
 		TrackuiButtonDirective,
 		TrackuiBreadcrumbComponent,
 		TrackuiCheckboxComponent,
+		TrackuiControlSegmentComponent,
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
 })
 export class PlayGroundPage {
+	constructor() {
+		this.controlSegmentado.valueChanges.subscribe((valor) => {
+			console.log('✅ Objeto recibido en el Playground:', valor);
+		});
+	}
+
 	tiposEtiquetas: TiposEtiqueta[] = [
 		'primary',
 		'secondary',
@@ -72,6 +81,8 @@ export class PlayGroundPage {
 
 	readonly opciones = OPCIONES_TABMENU_TEST;
 	readonly opcionesBreadcrumb = OPCIONES_BREADCRUMB_TEST;
+	readonly opcionesControlSegment = OPCIONES_SEGMENT_TEST;
+
 	tiposButtonNormal: TiposButton[] = [
 		'primary',
 		'secondary',
@@ -95,6 +106,8 @@ export class PlayGroundPage {
 	controlToggle = new FormControl<boolean>(true);
 	controlCheckbox = new FormControl<boolean>(false);
 	controlInput = new FormControl<string>('', [Validators.minLength(3)]);
+
+	controlSegmentado = new FormControl<number | string | undefined>(1);
 
 	isloading = false;
 	ejecutar() {

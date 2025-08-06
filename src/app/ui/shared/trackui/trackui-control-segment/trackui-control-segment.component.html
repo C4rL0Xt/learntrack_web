@@ -1,0 +1,15 @@
+<nav>
+	<ul class="flex background-neutral-1 p-xxxs gap-xxxs br-xs">
+		@for (opcionSegment of opciones; track opcionSegment.id.id) {
+			<li>
+				<app-item-control-segment
+					[opcionId]="opcionSegment.id.id"
+					[opcionSegment]="opcionSegment"
+					[controlOpcion]="opcionSeleccionada()"
+					[hasIcon]="hasIcon()"
+					(click)="seleccionarOpcion(opcionSegment.id.id)"
+				/>
+			</li>
+		}
+	</ul>
+</nav>

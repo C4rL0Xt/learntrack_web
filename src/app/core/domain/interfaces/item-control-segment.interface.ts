@@ -1,0 +1,7 @@
+import { TrackuiIcons } from '../types/tipos-icons.type';
+import { IdLabel } from './base/id-label.interface';
+
+export interface ItemControlSegment {
+	id: IdLabel<number>;
+	icon: TrackuiIcons;
+}
