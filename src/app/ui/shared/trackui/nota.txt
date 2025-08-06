@@ -19,7 +19,7 @@ TESSITA
 ABELITO
 
 - input -> ControlValueAccesor (Component) - Abelito  | LISTO
-- select -> ControlValueAccesor  (Component) - Abelito
+- select -> ControlValueAccesor  (Component) - Abelito | LISTO
 - toggle button -> ControlValueAccesor  (Component) - Abelito  | LISTO 
 - textarea -> ControlValueAccesor  (Component) - Abelito
 - divider -> Component - Abelito
