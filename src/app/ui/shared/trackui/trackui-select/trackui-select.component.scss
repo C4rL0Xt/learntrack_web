@@ -1,23 +1,51 @@
+.trackui-select-container {
+	position: relative;
+	display: inline-block;
+	min-width: fit-content;
+}
+
 .trackui-select {
 	background-color: var(--color-subordinary-5-10);
-    transition: 0.3s all;
-    border: 1px solid transparent;
+	transition: 0.3s all;
+	border: 1px solid transparent;
+	min-height: 54px;
+	outline: none;
 }
 
 .trackui-select:hover {
-    border: 1px solid var(--color-secondary-5);
+	border: 1px solid var(--color-secondary-5);
 }
 
-.trackui-select-button {
+.trackui-select-icon {
 	border: none;
 	background: none;
 	transition: 0.3s all;
 	color: var(--color-secondary-5);
-    padding: 0;
-
-	transform: rotate(180deg);
 }
 
 .trackui-select--open {
-	transform: rotate(0deg);
+	transform: rotate(180deg);
+}
+
+.trackui-select-label {
+	transition: all 0.3s ease;
+	color: var(--color-subordinary-7);
+}
+
+.trackui-select-label--focus {
+	top: 0px;
+	transform: translateY(0);
+	font-size: 12px;
+}
+
+.trackui-opciones-container {
+	position: absolute;
+	min-width: 100%;
+	background-color: var(--color-inverse);
+	width: 100%;
+	top: calc(100% + var(--spaceXxs));
+	border-radius: var(--spaceXs);
+	padding: var(--spaceXxs) var(--spaceXxxs);
+	box-shadow: 0px 0px 3px var(--color-secondary-5-40);
+	z-index: 99;
 }

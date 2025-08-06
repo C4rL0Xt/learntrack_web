@@ -1,17 +1,33 @@
-<div
-	class="flex items-center gap-xs px-sm py-xxxs trackui-select br-xs"
-	(click)="openSelect()"
->
-	<div
-		class="flex-column justify-center expanded relative"
-		style="min-height: 39px;"
-	>
-		<label>{{ label() }}</label>
-	</div>
+<div class="trackui-select-container">
 	<button
-		class="flex items-center trackui-select-button"
-		[ngClass]="{ 'trackui-select--open': isOpen() }"
+		class="flex items-center gap-xs px-xs py-xxxs trackui-select br-xs"
+		(click)="openSelect()"
 	>
-		<span trackuiIcon nombre="flecha-arriba" style="font-size: 16px"></span>
+		@if (icono()) {
+			<span class="trackui-select-icon" trackuiIcon [nombre]="icono()!"></span>
+		}
+
+		<div
+			class="flex-column justify-center relative"
+			style="min-height: 39px; min-width: 40px"
+		>
+			<p>{{etiquetaAMostrar()}}</p>
+		</div>
+
+		<span
+			class="trackui-select-icon"
+			[ngClass]="{ 'trackui-select--open': isOpen() }"
+			trackuiIcon
+			nombre="flecha-abajo"
+			style="font-size: 16px"
+		></span>
 	</button>
+
+	@if (isOpen()) {
+		<div class="trackui-opciones-container" @accordionOpciones>
+			<div class="flex-column gap-xxxs">
+				<ng-content></ng-content>
+			</div>
+		</div>
+	}
 </div>

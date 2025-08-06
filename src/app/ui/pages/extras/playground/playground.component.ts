@@ -39,7 +39,7 @@ import { TrackuiSelectComponent } from '../../../shared/trackui/trackui-select/t
 		TrackuiMenuItemDirective,
 		TrackuiButtonDirective,
 		TrackuiOptionSelectComponent,
-		TrackuiSelectComponent
+		TrackuiSelectComponent,
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
@@ -92,6 +92,9 @@ export class PlayGroundPage {
 
 	controlToggle = new FormControl<boolean>(true);
 	controlInput = new FormControl<string>('', [Validators.minLength(3)]);
+	controlSelect = new FormControl<string | number | null | undefined>(
+		undefined,
+	);
 
 	isloading = false;
 	ejecutar() {
