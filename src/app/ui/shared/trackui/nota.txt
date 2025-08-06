@@ -6,9 +6,8 @@ TESSITA
 - botones -> Directivas - Tessita | LISTO
 - alerta ->  (Component)  - Tessita | LISTO
 - etiqueta ->  (Component) - Tessita | LISTO
-
-- checkbox -> ControlValueAccesor  (Component) - Tessita 
-- segmentados ->  (Component) - Tessita 
+- checkbox -> ControlValueAccesor  (Component) - Tessita | LISTO
+- segmentados ->  (Component) - Tessita | LISTO
 
 - acordeon ->  (Component) - Tessita
 - sider-bar ->  (Component) - Tessita
