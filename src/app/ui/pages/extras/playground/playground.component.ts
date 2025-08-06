@@ -23,6 +23,7 @@ import { OPCIONES_BREADCRUMB_TEST } from '../../../../core/domain/constants/opci
 import { TrackuiCheckboxComponent } from '../../../shared/trackui/trackui-checkbox/trackui-checkbox.component';
 import { TrackuiOptionSelectComponent } from '../../../shared/trackui/trackui-select/trackui-option-select/trackui-option-select.component';
 import { TrackuiSelectComponent } from '../../../shared/trackui/trackui-select/trackui-select.component';
+import { TrackuiDividerComponent } from '../../../shared/trackui/trackui-divider/trackui-divider.component';
 
 @Component({
 	selector: 'playground',
@@ -45,6 +46,7 @@ import { TrackuiSelectComponent } from '../../../shared/trackui/trackui-select/t
 		TrackuiCheckboxComponent,
 		TrackuiOptionSelectComponent,
 		TrackuiSelectComponent,
+		TrackuiDividerComponent,
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
