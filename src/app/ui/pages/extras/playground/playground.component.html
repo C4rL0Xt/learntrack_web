@@ -87,7 +87,7 @@
 		<seccion-componente class="w100" titulo="Input">
 			<div class="flex expanded gap-md">
 				<trackui-input
-					label="Contraseña"
+					label="Contraseñaaaaaaaaaaaaa"
 					icono="user"
 					[isErasable]="true"
 					[formControl]="controlInput"
@@ -115,6 +115,16 @@
 			>
 				<app-trackui-breadcrumb [opciones]="opcionesBreadcrumb" />
 			</div>
+		<seccion-componente titulo="Select">
+			<trackui-select
+				icono="user"
+				[formControl]="controlSelect"
+				label="Tipo documento"
+			>
+				<trackui-option [id]="1" valor="valor 1" />
+				<trackui-option [id]="2" valor="valor 2" />
+				<trackui-option [id]="3" valor="valor 3" />
+			</trackui-select>
 		</seccion-componente>
 		<br />
 		<br />

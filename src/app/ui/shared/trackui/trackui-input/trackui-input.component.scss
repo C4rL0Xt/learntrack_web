@@ -49,6 +49,10 @@
 	color: var(--color-subordinary-7);
 }
 
+.trackui-input-group:hover {
+	border: 1px solid var(--color-secondary-5);
+}
+
 .trackui-input-label--active {
 	color: var(--color-subordinary-7);
 }

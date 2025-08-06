@@ -28,7 +28,7 @@ ABELITO
 - slider -> Componente - Abelito
 - item-tab-menu ->  (Component) - Abelito | LISTO
 - pagination ->  (Component) - Abelito
-- dropdown ->  (Component) | Directiva - Abelito
+- dropdown ->  (Component) | Directiva - Abelito | LISTO
 - iconos -> directiva - Carlos | LISTO
 
 

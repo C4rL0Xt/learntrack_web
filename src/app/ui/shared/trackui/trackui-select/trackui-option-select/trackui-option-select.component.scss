@@ -1,0 +1,15 @@
+.trackui-option {
+    color: var(--color-subordinary-7);
+    
+}
+
+.trackui-option:hover {
+    background-color: var(--color-secondary-0);
+    color: var(--color-secondary-5);
+    cursor: pointer;
+}
+
+.trackui-option--selected {
+    color: var(--color-secondary-8);
+    background-color: var(--color-secondary-1);
+}

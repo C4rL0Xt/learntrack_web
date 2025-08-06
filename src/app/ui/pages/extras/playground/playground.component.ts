@@ -21,6 +21,8 @@ import { TrackuiButtonDirective } from '../../../shared/trackui/trackui-button/t
 import { TrackuiBreadcrumbComponent } from '../../../shared/trackui/trackui-breadcrumb/trackui-breadcrumb.component';
 import { OPCIONES_BREADCRUMB_TEST } from '../../../../core/domain/constants/opciones-breadcrumb-test.const';
 import { TrackuiCheckboxComponent } from '../../../shared/trackui/trackui-checkbox/trackui-checkbox.component';
+import { TrackuiOptionSelectComponent } from '../../../shared/trackui/trackui-select/trackui-option-select/trackui-option-select.component';
+import { TrackuiSelectComponent } from '../../../shared/trackui/trackui-select/trackui-select.component';
 
 @Component({
 	selector: 'playground',
@@ -41,6 +43,8 @@ import { TrackuiCheckboxComponent } from '../../../shared/trackui/trackui-checkb
 		TrackuiButtonDirective,
 		TrackuiBreadcrumbComponent,
 		TrackuiCheckboxComponent,
+		TrackuiOptionSelectComponent,
+		TrackuiSelectComponent,
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
@@ -95,6 +99,9 @@ export class PlayGroundPage {
 	controlToggle = new FormControl<boolean>(true);
 	controlCheckbox = new FormControl<boolean>(false);
 	controlInput = new FormControl<string>('', [Validators.minLength(3)]);
+	controlSelect = new FormControl<string | number | null | undefined>(
+		undefined,
+	);
 
 	isloading = false;
 	ejecutar() {

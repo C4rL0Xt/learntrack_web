@@ -1,0 +1,8 @@
+<div class="flex items-center px-xs py-xxxs br-xs trackui-option" (click)="seleccionar()"
+	[ngClass]="{'trackui-option--selected': estaSeleccionado()}"
+>
+	<p class="expanded">{{ valor() }}</p>
+	@if(estaSeleccionado()) {
+		<span trackuiIcon nombre="check" style="font-size: 12px;"></span>
+	}
+</div>
