@@ -8,12 +8,13 @@ TESSITA
 - etiqueta ->  (Component) - Tessita | LISTO
 - checkbox -> ControlValueAccesor  (Component) - Tessita | LISTO
 - segmentados ->  (Component) - Tessita | LISTO
+- acordeon ->  (Component) - Tessita | LISTO
 
-- acordeon ->  (Component) - Tessita
 - sider-bar ->  (Component) - Tessita
+- modal ->  (Component) - Tessita
 
 - input number -> ControlValueAccesor  (Component) - Tessita
-- modal ->  (Component) - Tessita
+
 
 
 ABELITO

@@ -1,0 +1,19 @@
+<div
+	class="header flex justify-space-beetween items-center p-xs p text-medium text-neutral-8 background-neutral-0"
+	[ngClass]="{ 'header--activo': getExpanded()}"
+>
+	<div class="flex gap-md">
+		<ng-content select="panel-title"></ng-content>
+		<ng-content select="panel-description"></ng-content>
+	</div>
+
+	<span
+		trackuiIcon
+		nombre="flecha-abajo"
+		style="font-size: 16px"
+		[ngClass]="{
+			'icon-animado': true,
+			'icon-rotado': getExpanded(),
+		}"
+	></span>
+</div>

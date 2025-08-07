@@ -1,0 +1,14 @@
+<div class="panel">
+	<div class="panel-header" (click)="toggle()">
+		<ng-content select="expansion-panel-header"></ng-content>
+	</div>
+
+	<div
+		class="panel-body"
+		#panelBody
+		[style.height]="panelHeight"
+		style="overflow: hidden;"
+	>
+		<ng-content select="expansion-panel-content"></ng-content>
+	</div>
+</div>

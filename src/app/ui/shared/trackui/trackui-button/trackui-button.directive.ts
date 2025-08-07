@@ -29,7 +29,7 @@ interface TrackuiIconHTMLElement extends HTMLElement {
 })
 export class TrackuiButtonDirective implements OnInit {
 	tipo = input.required<TiposButton>();
-	forma = input.required<FormasButton>();
+	forma = input<FormasButton>("normal");
 	positionIcon = input<PositionsIcon>();
 	nameIcon = input<TrackuiIcons>();
 	isLoading = input<boolean>(false);

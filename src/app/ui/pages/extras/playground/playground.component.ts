@@ -1,9 +1,10 @@
+import { UnidadAccordion } from './../../../../core/domain/interfaces/unidad-accordion.interface';
 import { TiposAlerta } from './../../../../core/domain/types/tipos-alerta.type';
 import { SeccionComponent } from './components/seccion-component/seccion.component';
 import { TrackuiToggleButton } from '../../../shared/trackui/trackui-toggle-button/trackui-toggle-button.component';
 import { TrackuiAlertaComponent } from '../../../shared/trackui/trackui-alerta/trackui-alerta.component';
 import { NgFor } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TiposEtiqueta } from '../../../../core/domain/types/tipos-etiqueta.type';
 import { TrackuiEtiquetaComponent } from '../../../shared/trackui/trackui-etiqueta/trackui-etiqueta.component';
@@ -25,8 +26,14 @@ import { TrackuiOptionSelectComponent } from '../../../shared/trackui/trackui-se
 import { TrackuiSelectComponent } from '../../../shared/trackui/trackui-select/trackui-select.component';
 import { OPCIONES_SEGMENT_TEST } from '../../../../core/domain/constants/opciones-control-segment.const';
 import { TrackuiControlSegmentComponent } from '../../../shared/trackui/trackui-control-segment/trackui-control-segment.component';
-import { ItemControlSegment } from '../../../../core/domain/interfaces/item-control-segment.interface';
-
+import { TrackuiAccordionComponent } from '../../../shared/trackui/trackui-accordion/trackui-accordion.component';
+import { ExpansionPanelComponent } from '../../../shared/trackui/trackui-accordion/expansion-panel/expansion-panel.component';
+import { PanelDescriptionComponent } from '../../../shared/trackui/trackui-accordion/panel-description/panel-description.component';
+import { PanelTitleComponent } from '../../../shared/trackui/trackui-accordion/panel-title/panel-title.component';
+import { ExpansionPanelHeaderComponent } from '../../../shared/trackui/trackui-accordion/expansion-panel-header/expansion-panel-header.component';
+import { PanelItemComponent } from '../../../shared/trackui/trackui-accordion/panel-item/panel-item.component';
+import { UNIDADES_ACCORDION_TEST } from '../../../../core/domain/constants/unidades-accordion-test.const';
+import { ExpansionPanelContentComponent } from '../../../shared/trackui/trackui-accordion/expansion-panel-content/expansion-panel-content.component';
 @Component({
 	selector: 'playground',
 	imports: [
@@ -49,6 +56,13 @@ import { ItemControlSegment } from '../../../../core/domain/interfaces/item-cont
 		TrackuiOptionSelectComponent,
 		TrackuiSelectComponent,
 		TrackuiControlSegmentComponent,
+		TrackuiAccordionComponent,
+		ExpansionPanelComponent,
+		PanelDescriptionComponent,
+		PanelTitleComponent,
+		ExpansionPanelHeaderComponent,
+		PanelItemComponent,
+		ExpansionPanelContentComponent
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
@@ -87,6 +101,7 @@ export class PlayGroundPage {
 	readonly opciones = OPCIONES_TABMENU_TEST;
 	readonly opcionesBreadcrumb = OPCIONES_BREADCRUMB_TEST;
 	readonly opcionesControlSegment = OPCIONES_SEGMENT_TEST;
+	readonly unidadesAccordion = UNIDADES_ACCORDION_TEST;
 
 	tiposButtonNormal: TiposButton[] = [
 		'primary',
@@ -117,6 +132,9 @@ export class PlayGroundPage {
 
 	controlSegmentado = new FormControl<number | string | undefined>(1);
 
+	itemAccordionSeleccionado = 0;
+	UnidadAccordionSeleccionado = 1;
+
 	isloading = false;
 	ejecutar() {
 		this.isloading = true;
@@ -124,5 +142,23 @@ export class PlayGroundPage {
 			this.isloading = false;
 			console.log('MELANI ES BEBE');
 		}, 2000);
+	}
+
+	ejecutarConElOutput(itemId: number) {
+		this.itemAccordionSeleccionado = itemId;
+		console.log(
+			`Id del Item seleccionado pe: ${this.itemAccordionSeleccionado}`,
+		);
+	}
+
+	unidadSeleccionadaRecibida(unidadId: number){
+		if (this.UnidadAccordionSeleccionado === unidadId) {
+		this.UnidadAccordionSeleccionado = 0;
+	} else {
+		this.UnidadAccordionSeleccionado = unidadId;
+	}
+		console.log(
+			`Id de unidad seleccionado pe: ${this.UnidadAccordionSeleccionado}`,
+		);
 	}
 }

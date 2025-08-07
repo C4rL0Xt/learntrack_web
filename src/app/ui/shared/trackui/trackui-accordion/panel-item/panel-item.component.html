@@ -1,0 +1,21 @@
+<div
+	class="item flex justify-space-beetween px-xs py-xxs background-inverse pointer"
+	(click)="onClick(item().id)"
+	[ngClass]="{
+		'item--seleccionado': isSelect(),
+		'item--no-seleccionado': !isSelect(),
+	}"
+>
+	<div class="flex-column">
+		<label class="text-medium text-base"
+			>{{ item().titulo }}: {{ item().descripcion }}</label
+		>
+		<div class="flex gap-xxxs text-neutral-7 items-center">
+			<span trackuiIcon nombre="fecha" style="font-size: 12px"></span>
+			<p class="text-description">
+				Publicado: {{ formatFecha(item().fechaCreacion) }}
+			</p>
+		</div>
+	</div>
+	<span trackuiIcon nombre="tres-puntos" style="font-size: 12px"></span>
+</div>

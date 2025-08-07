@@ -100,7 +100,10 @@
 		</seccion-componente>
 
 		<seccion-componente titulo="Control Segment">
-			<app-trackui-control-segment [formControl]="controlSegmentado" [opciones]="opcionesControlSegment" />
+			<app-trackui-control-segment
+				[formControl]="controlSegmentado"
+				[opciones]="opcionesControlSegment"
+			/>
 		</seccion-componente>
 		<seccion-componente titulo="Dropdown">
 			<button [trackuiDropdown]="menu">Dropdown</button>
@@ -131,9 +134,34 @@
 				<trackui-option [id]="3" valor="valor 3" />
 			</trackui-select>
 		</seccion-componente>
-		<br>
-		<br>
-		<br>
-		<br>
+		<seccion-componente titulo="Accorsdion">
+			<trackui-accordion>
+				@for (unidad of unidadesAccordion; track $index) {
+					<expansion-panel
+						(updateExpanded)="unidadSeleccionadaRecibida($event)"
+						[unidad]="unidad.id"
+						[isExpanded]="UnidadAccordionSeleccionado === unidad.id"
+					>
+						<expansion-panel-header>
+							<panel-title> {{ unidad.titulo }} </panel-title>
+							<panel-description> {{ unidad.descripcion }} </panel-description>
+						</expansion-panel-header>
+						<expansion-panel-content>
+							@for (item of unidad.items; track $index) {
+								<panel-item
+									[item]="item"
+									(toggle)="ejecutarConElOutput($event)"
+									[isSelect]="item.id === itemAccordionSeleccionado"
+								/>
+							}
+						</expansion-panel-content>
+					</expansion-panel>
+				}
+			</trackui-accordion>
+		</seccion-componente>
+		<br />
+		<br />
+		<br />
+		<br />
 	</section>
 </main>

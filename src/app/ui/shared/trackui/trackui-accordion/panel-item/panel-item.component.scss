@@ -1,0 +1,15 @@
+.item {
+	border: 1px solid transparent;
+}
+
+.item--no-seleccionado {
+	border-bottom: 0.5px solid var(--color-neutral-4);
+}
+
+.item--seleccionado {
+	border: 1px solid var(--color-secondary-6);
+}
+
+.item:hover {
+	background-color: var(--color-neutral-1);
+}

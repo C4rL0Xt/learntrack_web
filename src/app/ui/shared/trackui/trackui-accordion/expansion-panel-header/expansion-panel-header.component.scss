@@ -1,0 +1,19 @@
+.header {
+	min-width: 500px;
+	border-bottom: 0.5px solid var(--color-neutral-4);
+}
+
+.header--activo {
+	color: var(--color-cuaternary-7);
+	font-weight: bold;
+	background-color: #e9f2f5;
+}
+
+.icon-animado {
+	transition: transform 0.3s ease;
+	display: inline-block;
+}
+
+.icon-rotado {
+	transform: rotate(180deg);
+}
