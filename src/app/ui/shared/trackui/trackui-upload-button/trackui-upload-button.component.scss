@@ -2,10 +2,11 @@
     border-radius: var(--spaceXs);
     padding: var(--spaceXs);
     display: flex;
-    gap: var(--spaceSm);
+    gap: var(--spaceXs);
     background-color: var(--color-cuaternary-8);
     align-items: center;
     box-shadow: 0px 0px 4px var(--color-base-50);
+    border: none;
 }
 
 .trackui-upload-button:hover {

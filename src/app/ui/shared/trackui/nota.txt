@@ -24,7 +24,7 @@ ABELITO
 - textarea -> ControlValueAccesor  (Component) - Abelito
 - divider -> Component - Abelito | LISTO
 - item-nav -> Componente | Directiva - Abelito
-- upload -> Componente - Abelito
+- upload -> Componente - Abelito | LISTO
 - slider -> Componente - Abelito | POSTERGADO
 - item-tab-menu ->  (Component) - Abelito | LISTO
 - pagination ->  (Component) - Abelito | POSTERGADO

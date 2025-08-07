@@ -1,18 +1,27 @@
-<button class="trackui-upload-button pointer">
-    <input #inputFile type="file">
-    @if(archivoSubido()) {
-        <ng-container *ngTemplateOutlet="conArchivo"></ng-container>
-    }@else {
-        <ng-container *ngTemplateOutlet="sinArchivo"></ng-container>
-    }
-</button>
-
+<div class="flex items-center gap-sm">
+	<button
+		class="trackui-upload-button pointer"
+		(click)="seleccionarArchivo()"
+		(change)="guardarArchivo()"
+	>
+		<input #inputFile type="file" style="display: none" />
+		@if (archivoSubido()) {
+			<ng-container *ngTemplateOutlet="conArchivo"></ng-container>
+		} @else {
+			<ng-container *ngTemplateOutlet="sinArchivo"></ng-container>
+		}
+	</button>
+	<div class="flex-column">
+		<p>{{ archivoSubido()?.name }}</p>
+	</div>
+</div>
 
 <ng-template #sinArchivo>
-    <span trackuiIcon class="text-inverse" nombre="upload"></span>
-    <p class="text-inverse">{{label()}}</p>
+	<span trackuiIcon class="text-inverse" nombre="upload"></span>
+	<p class="text-inverse">Subir {{ label() }}</p>
 </ng-template>
 
 <ng-template #conArchivo>
-
+	<span trackuiIcon class="text-inverse" nombre="upload"></span>
+	<p class="text-inverse">Cambiar {{ label() }}</p>
 </ng-template>
