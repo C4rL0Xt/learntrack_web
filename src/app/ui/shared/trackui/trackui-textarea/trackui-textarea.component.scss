@@ -1,0 +1,37 @@
+.textarea-container {
+	position: relative;
+	border: 1px solid transparent;
+	background: var(--color-subordinary-5-10);
+}
+
+.textarea-container:hover {
+	border: 1px solid var(--color-secondary-5);
+}
+
+.trackui-textarea {
+	resize: none;
+	outline: none;
+	border: none;
+	background: none;
+}
+
+.trackui-textarea-label {
+	color: var(--color-secondary-5);
+	position: absolute;
+	top: 50%;
+	left: 18px;
+	transform: translateY(-50%);
+	transition: all 0.3s ease;
+}
+
+.textarea-container:focus-within {
+	border: 1px solid var(--color-secondary-5);
+	background: var(--color-secondary-0);
+}
+
+.textarea-container:focus-within .trackui-textarea-label,
+.trackui-textarea:not(:placeholder-shown) + .trackui-textarea-label {
+	top: 0px;
+	transform: translateY(0);
+	font-size: 12px;
+}
