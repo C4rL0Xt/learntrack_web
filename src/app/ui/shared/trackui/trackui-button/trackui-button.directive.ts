@@ -25,7 +25,7 @@ interface TrackuiIconHTMLElement extends HTMLElement {
 }
 
 @Directive({
-	selector: '[appTrackuiButton]',
+	selector: '[trackuiButton]',
 })
 export class TrackuiButtonDirective implements OnInit {
 	tipo = input.required<TiposButton>();

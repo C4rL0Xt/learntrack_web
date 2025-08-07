@@ -34,6 +34,11 @@ import { ExpansionPanelHeaderComponent } from '../../../shared/trackui/trackui-a
 import { PanelItemComponent } from '../../../shared/trackui/trackui-accordion/panel-item/panel-item.component';
 import { UNIDADES_ACCORDION_TEST } from '../../../../core/domain/constants/unidades-accordion-test.const';
 import { ExpansionPanelContentComponent } from '../../../shared/trackui/trackui-accordion/expansion-panel-content/expansion-panel-content.component';
+import { TrackuiDividerComponent } from '../../../shared/trackui/trackui-divider/trackui-divider.component';
+import { TrackuiUploadComponent } from '../../../shared/trackui/trackui-upload/trackui-upload.component';
+import { TrackuiUploadButtonComponent } from '../../../shared/trackui/trackui-upload-button/trackui-upload-button.component';
+import { TrackuiTextareaComponent } from '../../../shared/trackui/trackui-textarea/trackui-textarea.component';
+
 @Component({
 	selector: 'playground',
 	imports: [
@@ -62,7 +67,11 @@ import { ExpansionPanelContentComponent } from '../../../shared/trackui/trackui-
 		PanelTitleComponent,
 		ExpansionPanelHeaderComponent,
 		PanelItemComponent,
-		ExpansionPanelContentComponent
+		ExpansionPanelContentComponent,
+		TrackuiDividerComponent,
+		TrackuiUploadComponent,
+		TrackuiUploadButtonComponent,
+		TrackuiTextareaComponent
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',

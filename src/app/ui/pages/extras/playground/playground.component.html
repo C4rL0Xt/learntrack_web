@@ -63,7 +63,7 @@
 			<div class="flex flex-wrap gap-md">
 				<button
 					*ngFor="let tipo of tiposButtonNormal"
-					appTrackuiButton
+					trackuiButton
 					[tipo]="tipo"
 					forma="normal"
 					(click)="ejecutar()"
@@ -74,7 +74,7 @@
 				</button>
 				<button
 					*ngFor="let tipo of tiposButtonCircular"
-					appTrackuiButton
+					trackuiButton
 					[tipo]="tipo"
 					forma="circular"
 					nameIcon="user"
@@ -158,6 +158,20 @@
 					</expansion-panel>
 				}
 			</trackui-accordion>
+		<seccion-componente titulo="Divider" class="w100">
+			horizontal
+			<trackui-divider />
+			<div class="w100" style="height: 20px">
+				<trackui-divider orientacion="vertical" />
+				vertical
+			</div>
+		</seccion-componente>
+		<seccion-componente titulo="Upload" >
+			<trackui-upload />
+			<trackui-upload-button />
+		</seccion-componente>
+		<seccion-componente titulo="textarea" >
+			<trackui-textarea />
 		</seccion-componente>
 		<br />
 		<br />
