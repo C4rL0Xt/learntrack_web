@@ -22,12 +22,12 @@ ABELITO
 - select -> ControlValueAccesor  (Component) - Abelito | LISTO
 - toggle button -> ControlValueAccesor  (Component) - Abelito  | LISTO 
 - textarea -> ControlValueAccesor  (Component) - Abelito
-- divider -> Component - Abelito
+- divider -> Component - Abelito | LISTO
 - item-nav -> Componente | Directiva - Abelito
 - upload -> Componente - Abelito
-- slider -> Componente - Abelito
+- slider -> Componente - Abelito | POSTERGADO
 - item-tab-menu ->  (Component) - Abelito | LISTO
-- pagination ->  (Component) - Abelito
+- pagination ->  (Component) - Abelito | POSTERGADO
 - dropdown ->  (Component) | Directiva - Abelito | LISTO
 - iconos -> directiva - Carlos | LISTO
 

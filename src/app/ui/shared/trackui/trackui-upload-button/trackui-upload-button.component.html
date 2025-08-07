@@ -1,0 +1,18 @@
+<button class="trackui-upload-button pointer">
+    <input #inputFile type="file">
+    @if(archivoSubido()) {
+        <ng-container *ngTemplateOutlet="conArchivo"></ng-container>
+    }@else {
+        <ng-container *ngTemplateOutlet="sinArchivo"></ng-container>
+    }
+</button>
+
+
+<ng-template #sinArchivo>
+    <span trackuiIcon class="text-inverse" nombre="upload"></span>
+    <p class="text-inverse">{{label()}}</p>
+</ng-template>
+
+<ng-template #conArchivo>
+
+</ng-template>

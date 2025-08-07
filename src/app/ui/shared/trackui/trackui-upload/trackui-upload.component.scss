@@ -1,0 +1,36 @@
+.trackui-upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spaceSm);
+}
+
+.trackui-upload {
+    position: relative;
+    border: 1px solid var(--color-cuaternary-6);
+    background-color: var(--color-cuaternary-0);
+    padding: var(--spaceMd) var(--spaceXl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: var(--spaceXxs);
+}
+
+.trackui-upload-input {
+    display: none;
+}
+
+.trackui-upload-delete-file {
+   color: var(--color-base);
+}
+
+.trackui-upload-delete-file:hover {
+   color: var(--color-danger-5);
+}
+
+.trackui-file-item {
+    display: flex;
+    padding: var(--spaceSm) var(--spaceXs);
+    border: 1px solid var(--color-neutral-3);
+    border-radius: var(--spaceXxxs);
+    height: 54px;
+}

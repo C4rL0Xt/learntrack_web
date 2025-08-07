@@ -24,6 +24,8 @@ import { TrackuiCheckboxComponent } from '../../../shared/trackui/trackui-checkb
 import { TrackuiOptionSelectComponent } from '../../../shared/trackui/trackui-select/trackui-option-select/trackui-option-select.component';
 import { TrackuiSelectComponent } from '../../../shared/trackui/trackui-select/trackui-select.component';
 import { TrackuiDividerComponent } from '../../../shared/trackui/trackui-divider/trackui-divider.component';
+import { TrackuiUploadComponent } from '../../../shared/trackui/trackui-upload/trackui-upload.component';
+import { TrackuiUploadButtonComponent } from '../../../shared/trackui/trackui-upload-button/trackui-upload-button.component';
 
 @Component({
 	selector: 'playground',
@@ -47,6 +49,8 @@ import { TrackuiDividerComponent } from '../../../shared/trackui/trackui-divider
 		TrackuiOptionSelectComponent,
 		TrackuiSelectComponent,
 		TrackuiDividerComponent,
+		TrackuiUploadComponent,
+		TrackuiUploadButtonComponent
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',

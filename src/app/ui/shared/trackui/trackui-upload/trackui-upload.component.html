@@ -1,0 +1,81 @@
+<div class="trackui-upload-container">
+	<div class="flex-column gap-xxxs">
+		<div class="trackui-upload">
+			<ng-container *ngTemplateOutlet="infoUpload"></ng-container>
+		</div>
+		<p class="text-neutral-7">Formatos permitidos: JPEG, Doc, PDF, PNG</p>
+	</div>
+	@if (esSeleccionMultiple() && archivosSubidos.length > 0) {
+		<ng-container *ngTemplateOutlet="listadoArchivos"></ng-container>
+	}
+</div>
+
+<ng-template #infoUpload>
+	<div class="flex-column items-center">
+		<img src="images/pngs/subir-archivo.png" alt="" height="56" width="56" />
+		@if (!esSeleccionMultiple() && archivoSubido()) {
+			<div class="flex gap-xs items-center">
+				<div class="background-secondary-2 px-xs br-xs">
+					<p>{{ archivoSubido()?.name }}</p>
+				</div>
+				<button
+					class="flex items-center pointer"
+					(click)="eliminarArchivoNoMultiple()"
+					style="background: none; border: none; padding: 0"
+				>
+					<span
+						class="trackui-upload-delete-file"
+						trackuiIcon
+						nombre="basura"
+						style="font-size: 20px"
+					></span>
+				</button>
+			</div>
+		}
+	</div>
+	<div class="flex items-center gap-xxxs">
+		<input
+			#inputFile
+			id="fileInput"
+			class="trackui-upload-input"
+			type="file"
+			(change)="guardarArchivos()"
+			[multiple]="esSeleccionMultiple()"
+		/>
+		<p class="text-neutral-9">Arrastra y suelta tus archivos aquí o</p>
+
+		<button trackuiButton tipo="link" (click)="seleccionarArchivos()">
+			Seleccione archivo
+		</button>
+	</div>
+</ng-template>
+
+<ng-template #listadoArchivos>
+	<div class="flex-column gap-sm">
+		<p class="text-neutral-8">Archivos</p>
+		<div class="flex-column gap-xs">
+			@for (archivo of archivosSubidos; track $index) {
+				<div class="trackui-file-item items-center fade-in" @newFile>
+					<div class="flex gap-xxs items-center expanded">
+						<span trackuiIcon nombre="documento" style="font-size: 16px"></span>
+						<p>{{ archivo.name }}</p>
+					</div>
+					<div class="flex gap-xs">
+						<button
+							class="pointer trackui-upload-delete-file flex items-center"
+							style="
+								background: none;
+								border: none;
+								padding: none;
+								height: 16px;
+							"
+                            (click)="eliminarArchivo($index)"
+						>
+							<span trackuiIcon nombre="basura" style="font-size: 16px"></span>
+						</button>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+</ng-template>
