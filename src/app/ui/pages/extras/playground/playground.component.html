@@ -6,10 +6,20 @@
 	<p class="">Hola abelito</p>
 </trackui-sidebar>
 
+<trackui-modal
+	titulo="Titulo modal"
+	[cerrar]="cerrarModal"
+	[isOpen]="isModalOpen"
+>
+	<p class="">AAAAAA</p>
+</trackui-modal>
+
 <div class="layout">
 	<header class="header">
 		<button (click)="isSidebarOpen = !isSidebarOpen">☰</button>
-		<h1>Playground TrackUI</h1>
+		<button trackuiButton tipo="primary" (click)="isModalOpen = !isModalOpen">
+			Prueba modal
+		</button>
 	</header>
 
 	<main class="flex-column gap-md p-md">
@@ -317,6 +327,7 @@
 					}
 				</trackui-accordion>
 			</seccion-componente>
+
 			<br />
 			<br />
 			<br />

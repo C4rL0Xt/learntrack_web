@@ -41,6 +41,7 @@ import { TrackuiUploadButtonComponent } from '../../../shared/trackui/trackui-up
 import { TrackuiTextareaComponent } from '../../../shared/trackui/trackui-textarea/trackui-textarea.component';
 import { TrackuiSidebarComponent } from '../../../shared/trackui/trackui-sidebar/trackui-sidebar.component';
 import { ITEMS_SIDEBAR_TEST } from '../../../../core/domain/constants/items-sidebar-test.const';
+import { TrackuiModalComponent } from '../../../shared/trackui/trackui-modal/trackui-modal.component';
 
 @Component({
 	selector: 'playground',
@@ -76,6 +77,7 @@ import { ITEMS_SIDEBAR_TEST } from '../../../../core/domain/constants/items-side
 		TrackuiUploadButtonComponent,
 		TrackuiTextareaComponent,
 		TrackuiSidebarComponent,
+		TrackuiModalComponent,
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
@@ -112,6 +114,7 @@ export class PlayGroundPage {
 	];
 
 	isSidebarOpen = false;
+	isModalOpen = false;
 
 	readonly opciones = OPCIONES_TABMENU_TEST;
 	readonly opcionesBreadcrumb = OPCIONES_BREADCRUMB_TEST;
@@ -185,5 +188,13 @@ export class PlayGroundPage {
 
 	cerrarSider = () => {
 		this.isSidebarOpen = false;
+	};
+
+	abrirModal() {
+		this.isModalOpen = true;
+	}
+
+	cerrarModal = () => {
+		this.isModalOpen = false;
 	};
 }

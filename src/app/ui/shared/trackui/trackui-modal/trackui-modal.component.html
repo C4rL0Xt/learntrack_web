@@ -1,0 +1,47 @@
+@if (isOpen) {
+	<div class="modal-backdrop" (click)="cerrar()()"></div>
+	<div
+		class="modal flex-column gap-sm br-xxs background-inverse"
+		@modalAnimation
+	>
+		<div class="flex-column gap-xs px-md">
+			<div class="flex justify-space-beetween pt-sm">
+				<p class="text-primary-7">{{ titulo() }}</p>
+				<span
+					class="icon text-neutral-5"
+					trackuiIcon
+					nombre="equis"
+					style="font-size: 12px"
+					(click)="cerrar()()"
+				></span>
+			</div>
+
+			<trackui-divider
+				orientacion="horizontal"
+				color="background-primary-1"
+			></trackui-divider>
+		</div>
+		<div class="px-md">
+			<ng-content></ng-content>
+		</div>
+
+		<div>
+			<trackui-divider
+				orientacion="horizontal"
+				color="background-primary-1"
+			></trackui-divider>
+			<div class="buttons-container flex justify-self-end gap-xxs px-md py-sm">
+				<button
+					trackuiButton
+					tipo="outlined"
+					(click)="handleAction.emit(false)"
+				>
+					{{ button1() }}
+				</button>
+				<button trackuiButton tipo="primary" (click)="handleAction.emit(true)">
+					{{ button2() }}
+				</button>
+			</div>
+		</div>
+	</div>
+}
