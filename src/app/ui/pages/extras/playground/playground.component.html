@@ -1,167 +1,187 @@
-<main class="flex-column gap-md p-md">
-	<div class="flex-column gap-xs">
-		<h4>PlayGround TrackUI</h4>
-		<p>Para la visualización de componentes trackUI</p>
-	</div>
-	<section class="flex-column gap-xs items-start">
-		<seccion-componente titulo="Toggle Button">
-			<div class="flex gap-md">
-				<trackui-toggle-button tipo="semantico" [formControl]="controlToggle" />
-				<trackui-toggle-button tipo="primary" />
-				<trackui-toggle-button tipo="secondary" />
-			</div>
-		</seccion-componente>
-		<seccion-componente titulo="Checkbox">
-			<div class="flex gap-md">
-				<app-trackui-checkbox
-					label="Opcion num1"
-					[formControl]="controlCheckbox"
-				/>
-			</div>
-		</seccion-componente>
-		<seccion-componente titulo="Etiqueta">
-			<div class="flex flex-wrap gap-md">
-				<!-- @for(tipo of tiposEtiquetas; track $index) {
+<trackui-sidebar
+	[isOpen]="isSidebarOpen"
+	titulo="titulo prueba"
+	[cerrar]="cerrarSider"
+>
+	<p class="">Hola abelito</p>
+</trackui-sidebar>
+
+<div class="layout">
+	<header class="header">
+		<button (click)="isSidebarOpen = !isSidebarOpen">☰</button>
+		<h1>Playground TrackUI</h1>
+	</header>
+
+	<main class="flex-column gap-md p-md">
+		<div class="flex-column gap-xs">
+			<h4>PlayGround TrackUI</h4>
+			<p>Para la visualización de componentes trackUI</p>
+		</div>
+		<section class="flex-column gap-xs items-start">
+			<seccion-componente titulo="Toggle Button">
+				<div class="flex gap-md">
+					<trackui-toggle-button
+						tipo="semantico"
+						[formControl]="controlToggle"
+					/>
+					<trackui-toggle-button tipo="primary" />
+					<trackui-toggle-button tipo="secondary" />
+				</div>
+			</seccion-componente>
+			<seccion-componente titulo="Checkbox">
+				<div class="flex gap-md">
+					<app-trackui-checkbox
+						label="Opcion num1"
+						[formControl]="controlCheckbox"
+					/>
+				</div>
+			</seccion-componente>
+			<seccion-componente titulo="Etiqueta">
+				<div class="flex flex-wrap gap-md">
+					<!-- @for(tipo of tiposEtiquetas; track $index) {
 					<div>{{tipo}}</div>
 				} -->
 
-				<app-trackui-etiqueta
-					*ngFor="let tipo of tiposEtiquetas"
-					[tipo]="tipo"
-					[fill]="true"
-					nombreIcon="upload"
-					>{{ tipo }}-true</app-trackui-etiqueta
-				>
-				<app-trackui-etiqueta
-					*ngFor="let tipo of tiposEtiquetas"
-					[tipo]="tipo"
-					[fill]="false"
-					nombreIcon="buscar"
-					>{{ tipo }}-false</app-trackui-etiqueta
-				>
-			</div>
-		</seccion-componente>
-
-		<seccion-componente titulo="Alertas">
-			<div class="flex flex-wrap gap-md">
-				<app-trackui-alerta *ngFor="let tipo of TiposAlerta" [tipo]="tipo"
-					>Alerta pruebas</app-trackui-alerta
-				>
-			</div>
-		</seccion-componente>
-
-		<seccion-componente titulo="Card Etiqueta">
-			<div class="flex flex-wrap gap-md">
-				<app-trackui-card-etiqueta
-					icon="user"
-					titulo="cantidad de alumnos"
-					descripcion="35"
-				></app-trackui-card-etiqueta>
-			</div>
-		</seccion-componente>
-		<seccion-componente titulo="Botones">
-			<div class="flex flex-wrap gap-md">
-				<button
-					*ngFor="let tipo of tiposButtonNormal"
-					appTrackuiButton
-					[tipo]="tipo"
-					forma="normal"
-					(click)="ejecutar()"
-					[isLoading]="isloading"
-				>
-					<span trackuiIcon nombre="user"></span>
-					Prueba boton
-				</button>
-				<button
-					*ngFor="let tipo of tiposButtonCircular"
-					appTrackuiButton
-					[tipo]="tipo"
-					forma="circular"
-					nameIcon="user"
-				></button>
-			</div>
-		</seccion-componente>
-		<seccion-componente titulo="Iconos">
-			<span trackuiIcon nombre="add" style="font-size: 40px"></span>
-		</seccion-componente>
-		<seccion-componente class="w100" titulo="Input">
-			<div class="flex expanded gap-md">
-				<trackui-input
-					label="Contraseñaaaaaaaaaaaaa"
-					icono="user"
-					[isErasable]="true"
-					[formControl]="controlInput"
-					[errorMessage]="controlInput.getError('minlength')"
-				></trackui-input>
-			</div>
-		</seccion-componente>
-		<seccion-componente titulo="Item tab menu">
-			<trackui-tab-menu [opciones]="opciones" />
-		</seccion-componente>
-
-		<seccion-componente titulo="Control Segment">
-			<app-trackui-control-segment
-				[formControl]="controlSegmentado"
-				[opciones]="opcionesControlSegment"
-			/>
-		</seccion-componente>
-		<seccion-componente titulo="Dropdown">
-			<button [trackuiDropdown]="menu">Dropdown</button>
-
-			<ng-template #menu>
-				<trackui-dropdown-menu>
-					<li trackuiMenuItem (click)="ejecutar()">Borrar Item</li>
-					<li trackuiMenuItem>Borrar Item</li>
-				</trackui-dropdown-menu>
-			</ng-template>
-		</seccion-componente>
-		<seccion-componente titulo="BreadCrumb">
-			<div
-				class="flex items-center background-primary-4 justify-center"
-				style="width: 500px; height: 30px"
-			>
-				<app-trackui-breadcrumb [opciones]="opcionesBreadcrumb" />
-			</div>
-		</seccion-componente>
-		<seccion-componente titulo="Select">
-			<trackui-select
-				icono="user"
-				[formControl]="controlSelect"
-				label="Tipo documento"
-			>
-				<trackui-option [id]="1" valor="valor 1" />
-				<trackui-option [id]="2" valor="valor 2" />
-				<trackui-option [id]="3" valor="valor 3" />
-			</trackui-select>
-		</seccion-componente>
-		<seccion-componente titulo="Accorsdion">
-			<trackui-accordion>
-				@for (unidad of unidadesAccordion; track $index) {
-					<expansion-panel
-						(updateExpanded)="unidadSeleccionadaRecibida($event)"
-						[unidad]="unidad.id"
-						[isExpanded]="UnidadAccordionSeleccionado === unidad.id"
+					<app-trackui-etiqueta
+						*ngFor="let tipo of tiposEtiquetas"
+						[tipo]="tipo"
+						[fill]="true"
+						nombreIcon="upload"
+						>{{ tipo }}-true</app-trackui-etiqueta
 					>
-						<expansion-panel-header>
-							<panel-title> {{ unidad.titulo }} </panel-title>
-							<panel-description> {{ unidad.descripcion }} </panel-description>
-						</expansion-panel-header>
-						<expansion-panel-content>
-							@for (item of unidad.items; track $index) {
-								<panel-item
-									[item]="item"
-									(toggle)="ejecutarConElOutput($event)"
-									[isSelect]="item.id === itemAccordionSeleccionado"
-								/>
-							}
-						</expansion-panel-content>
-					</expansion-panel>
-				}
-			</trackui-accordion>
-		</seccion-componente>
-		<br />
-		<br />
-		<br />
-		<br />
-	</section>
-</main>
+					<app-trackui-etiqueta
+						*ngFor="let tipo of tiposEtiquetas"
+						[tipo]="tipo"
+						[fill]="false"
+						nombreIcon="buscar"
+						>{{ tipo }}-false</app-trackui-etiqueta
+					>
+				</div>
+			</seccion-componente>
+
+			<seccion-componente titulo="Alertas">
+				<div class="flex flex-wrap gap-md">
+					<app-trackui-alerta *ngFor="let tipo of TiposAlerta" [tipo]="tipo"
+						>Alerta pruebas</app-trackui-alerta
+					>
+				</div>
+			</seccion-componente>
+
+			<seccion-componente titulo="Card Etiqueta">
+				<div class="flex flex-wrap gap-md">
+					<app-trackui-card-etiqueta
+						icon="user"
+						titulo="cantidad de alumnos"
+						descripcion="35"
+					></app-trackui-card-etiqueta>
+				</div>
+			</seccion-componente>
+			<seccion-componente titulo="Botones">
+				<div class="flex flex-wrap gap-md">
+					<button
+						*ngFor="let tipo of tiposButtonNormal"
+						appTrackuiButton
+						[tipo]="tipo"
+						forma="normal"
+						(click)="ejecutar()"
+						[isLoading]="isloading"
+					>
+						<span trackuiIcon nombre="user"></span>
+						Prueba boton
+					</button>
+					<button
+						*ngFor="let tipo of tiposButtonCircular"
+						appTrackuiButton
+						[tipo]="tipo"
+						forma="circular"
+						nameIcon="user"
+					></button>
+				</div>
+			</seccion-componente>
+			<seccion-componente titulo="Iconos">
+				<span trackuiIcon nombre="add" style="font-size: 40px"></span>
+			</seccion-componente>
+			<seccion-componente class="w100" titulo="Input">
+				<div class="flex expanded gap-md">
+					<trackui-input
+						label="Contraseñaaaaaaaaaaaaa"
+						icono="user"
+						[isErasable]="true"
+						[formControl]="controlInput"
+						[errorMessage]="controlInput.getError('minlength')"
+					></trackui-input>
+				</div>
+			</seccion-componente>
+			<seccion-componente titulo="Item tab menu">
+				<trackui-tab-menu [opciones]="opciones" />
+			</seccion-componente>
+
+			<seccion-componente titulo="Control Segment">
+				<app-trackui-control-segment
+					[formControl]="controlSegmentado"
+					[opciones]="opcionesControlSegment"
+				/>
+			</seccion-componente>
+			<seccion-componente titulo="Dropdown">
+				<button [trackuiDropdown]="menu">Dropdown</button>
+
+				<ng-template #menu>
+					<trackui-dropdown-menu>
+						<li trackuiMenuItem (click)="ejecutar()">Borrar Item</li>
+						<li trackuiMenuItem>Borrar Item</li>
+					</trackui-dropdown-menu>
+				</ng-template>
+			</seccion-componente>
+			<seccion-componente titulo="BreadCrumb">
+				<div
+					class="flex items-center background-primary-4 justify-center"
+					style="width: 500px; height: 30px"
+				>
+					<app-trackui-breadcrumb [opciones]="opcionesBreadcrumb" />
+				</div>
+			</seccion-componente>
+			<seccion-componente titulo="Select">
+				<trackui-select
+					icono="user"
+					[formControl]="controlSelect"
+					label="Tipo documento"
+				>
+					<trackui-option [id]="1" valor="valor 1" />
+					<trackui-option [id]="2" valor="valor 2" />
+					<trackui-option [id]="3" valor="valor 3" />
+				</trackui-select>
+			</seccion-componente>
+			<seccion-componente titulo="Accorsdion">
+				<trackui-accordion>
+					@for (unidad of unidadesAccordion; track $index) {
+						<expansion-panel
+							(updateExpanded)="unidadSeleccionadaRecibida($event)"
+							[unidad]="unidad.id"
+							[isExpanded]="UnidadAccordionSeleccionado === unidad.id"
+						>
+							<expansion-panel-header>
+								<panel-title> {{ unidad.titulo }} </panel-title>
+								<panel-description>
+									{{ unidad.descripcion }}
+								</panel-description>
+							</expansion-panel-header>
+							<expansion-panel-content>
+								@for (item of unidad.items; track $index) {
+									<panel-item
+										[item]="item"
+										(toggle)="ejecutarConElOutput($event)"
+										[isSelect]="item.id === itemAccordionSeleccionado"
+									/>
+								}
+							</expansion-panel-content>
+						</expansion-panel>
+					}
+				</trackui-accordion>
+			</seccion-componente>
+			<br />
+			<br />
+			<br />
+			<br />
+		</section>
+	</main>
+</div>

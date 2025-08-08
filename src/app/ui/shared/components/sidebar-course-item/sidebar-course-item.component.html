@@ -1,0 +1,9 @@
+<div class="course-item flex items-center gap-sm">
+	<div class="circle-icon flex justify-center items-center br-50 background-primary-4 text-inverse text-medium text-description">
+		{{ itemCourse().label.charAt(0) | uppercase }}
+	</div>
+    <div class="">
+        <p class="text-medium text-neutral-9">{{itemCourse().label}}</p>
+        <p class="text-description text-regular text-neutral-7">{{itemCourse().grado}}° Secundaria - {{itemCourse().fechaCreacion | date: 'yyyy'}}</p>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+@if (isOpen) {
+	<div class="sidebar-backdrop" (click)="cerrar()()"></div>
+}
+
+<aside class="sidebar px-xxs py-xs" [class.open]="isOpen">
+	<h5>{{ titulo() }}</h5>
+	<hr />
+	<ng-content></ng-content>
+</aside>

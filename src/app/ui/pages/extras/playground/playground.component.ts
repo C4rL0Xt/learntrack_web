@@ -1,3 +1,4 @@
+import { ITEMS_SIDEBAR_COURSE_TEST } from './../../../../core/domain/constants/items-sidebar-test.const';
 import { UnidadAccordion } from './../../../../core/domain/interfaces/unidad-accordion.interface';
 import { TiposAlerta } from './../../../../core/domain/types/tipos-alerta.type';
 import { SeccionComponent } from './components/seccion-component/seccion.component';
@@ -34,6 +35,9 @@ import { ExpansionPanelHeaderComponent } from '../../../shared/trackui/trackui-a
 import { PanelItemComponent } from '../../../shared/trackui/trackui-accordion/panel-item/panel-item.component';
 import { UNIDADES_ACCORDION_TEST } from '../../../../core/domain/constants/unidades-accordion-test.const';
 import { ExpansionPanelContentComponent } from '../../../shared/trackui/trackui-accordion/expansion-panel-content/expansion-panel-content.component';
+import { TrackuiSidebarComponent } from '../../../shared/trackui/trackui-sidebar/trackui-sidebar.component';
+import { ITEMS_SIDEBAR_TEST } from '../../../../core/domain/constants/items-sidebar-test.const';
+
 @Component({
 	selector: 'playground',
 	imports: [
@@ -62,7 +66,8 @@ import { ExpansionPanelContentComponent } from '../../../shared/trackui/trackui-
 		PanelTitleComponent,
 		ExpansionPanelHeaderComponent,
 		PanelItemComponent,
-		ExpansionPanelContentComponent
+		ExpansionPanelContentComponent,
+		TrackuiSidebarComponent,
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
@@ -98,10 +103,14 @@ export class PlayGroundPage {
 		'cuaternary',
 	];
 
+	isSidebarOpen = false;
+
 	readonly opciones = OPCIONES_TABMENU_TEST;
 	readonly opcionesBreadcrumb = OPCIONES_BREADCRUMB_TEST;
 	readonly opcionesControlSegment = OPCIONES_SEGMENT_TEST;
 	readonly unidadesAccordion = UNIDADES_ACCORDION_TEST;
+	readonly itemsSidebar = ITEMS_SIDEBAR_TEST;
+	readonly itemsSidebarCourse = ITEMS_SIDEBAR_COURSE_TEST;
 
 	tiposButtonNormal: TiposButton[] = [
 		'primary',
@@ -151,14 +160,22 @@ export class PlayGroundPage {
 		);
 	}
 
-	unidadSeleccionadaRecibida(unidadId: number){
+	unidadSeleccionadaRecibida(unidadId: number) {
 		if (this.UnidadAccordionSeleccionado === unidadId) {
-		this.UnidadAccordionSeleccionado = 0;
-	} else {
-		this.UnidadAccordionSeleccionado = unidadId;
-	}
+			this.UnidadAccordionSeleccionado = 0;
+		} else {
+			this.UnidadAccordionSeleccionado = unidadId;
+		}
 		console.log(
 			`Id de unidad seleccionado pe: ${this.UnidadAccordionSeleccionado}`,
 		);
 	}
+
+	abrirSider() {
+		this.isSidebarOpen = true;
+	}
+
+	cerrarSider = () => {
+		this.isSidebarOpen = false;
+	};
 }
