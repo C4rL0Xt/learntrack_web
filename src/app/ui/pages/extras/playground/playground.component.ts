@@ -1,3 +1,4 @@
+import { ITEMS_SIDEBAR_COURSE_TEST } from './../../../../core/domain/constants/items-sidebar-test.const';
 import { UnidadAccordion } from './../../../../core/domain/interfaces/unidad-accordion.interface';
 import { TiposAlerta } from './../../../../core/domain/types/tipos-alerta.type';
 import { SeccionComponent } from './components/seccion-component/seccion.component';
@@ -38,6 +39,8 @@ import { TrackuiDividerComponent } from '../../../shared/trackui/trackui-divider
 import { TrackuiUploadComponent } from '../../../shared/trackui/trackui-upload/trackui-upload.component';
 import { TrackuiUploadButtonComponent } from '../../../shared/trackui/trackui-upload-button/trackui-upload-button.component';
 import { TrackuiTextareaComponent } from '../../../shared/trackui/trackui-textarea/trackui-textarea.component';
+import { TrackuiSidebarComponent } from '../../../shared/trackui/trackui-sidebar/trackui-sidebar.component';
+import { ITEMS_SIDEBAR_TEST } from '../../../../core/domain/constants/items-sidebar-test.const';
 
 @Component({
 	selector: 'playground',
@@ -71,7 +74,8 @@ import { TrackuiTextareaComponent } from '../../../shared/trackui/trackui-textar
 		TrackuiDividerComponent,
 		TrackuiUploadComponent,
 		TrackuiUploadButtonComponent,
-		TrackuiTextareaComponent
+		TrackuiTextareaComponent,
+		TrackuiSidebarComponent,
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
@@ -107,10 +111,14 @@ export class PlayGroundPage {
 		'cuaternary',
 	];
 
+	isSidebarOpen = false;
+
 	readonly opciones = OPCIONES_TABMENU_TEST;
 	readonly opcionesBreadcrumb = OPCIONES_BREADCRUMB_TEST;
 	readonly opcionesControlSegment = OPCIONES_SEGMENT_TEST;
 	readonly unidadesAccordion = UNIDADES_ACCORDION_TEST;
+	readonly itemsSidebar = ITEMS_SIDEBAR_TEST;
+	readonly itemsSidebarCourse = ITEMS_SIDEBAR_COURSE_TEST;
 
 	tiposButtonNormal: TiposButton[] = [
 		'primary',
@@ -160,14 +168,22 @@ export class PlayGroundPage {
 		);
 	}
 
-	unidadSeleccionadaRecibida(unidadId: number){
+	unidadSeleccionadaRecibida(unidadId: number) {
 		if (this.UnidadAccordionSeleccionado === unidadId) {
-		this.UnidadAccordionSeleccionado = 0;
-	} else {
-		this.UnidadAccordionSeleccionado = unidadId;
-	}
+			this.UnidadAccordionSeleccionado = 0;
+		} else {
+			this.UnidadAccordionSeleccionado = unidadId;
+		}
 		console.log(
 			`Id de unidad seleccionado pe: ${this.UnidadAccordionSeleccionado}`,
 		);
 	}
+
+	abrirSider() {
+		this.isSidebarOpen = true;
+	}
+
+	cerrarSider = () => {
+		this.isSidebarOpen = false;
+	};
 }
