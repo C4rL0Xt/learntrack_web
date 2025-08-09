@@ -8,8 +8,14 @@ export const routes: Routes = [
 				(c) => c.PlayGroundPage,
 			),
 	},
+	{
+		path: 'home',
+		loadComponent: () => import('./ui/pages/home/home.component').then(
+			(c) => c.HomeComponent
+		)
+	},
     {
         path: '**',
-        redirectTo: 'playground'
+        redirectTo: 'home'
     }
 ];
