@@ -9,13 +9,20 @@ export const routes: Routes = [
 			),
 	},
 	{
-		path: 'home',
+		// cuando inician sesión
+		path: '',
+		loadChildren: () => import('./ui/routes/main.routes').then(
+			(r) => r.MAIN_ROUTES
+		)
+	},
+	{
+		path: 'auth',
 		loadComponent: () => import('./ui/pages/home/home.component').then(
 			(c) => c.HomeComponent
 		)
 	},
     {
         path: '**',
-        redirectTo: 'home'
+        redirectTo: ''
     }
 ];

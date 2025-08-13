@@ -1,0 +1,9 @@
+<ng-template
+	[ngClass]="{
+		'step-activo': completado === 'activo',
+		'step-completado': completado() === 'true',
+		'step-pendiente': completado() === 'false',
+	}"
+>
+	<ng-content></ng-content>
+</ng-template>

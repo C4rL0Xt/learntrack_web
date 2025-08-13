@@ -36,7 +36,7 @@ export class TrackuiInputComponent implements ControlValueAccessor {
 
 	valorInput = signal<string>('');
 
-	errorMessage = input<string>('');
+	errorMessage = input<string | undefined | null>(null);
 	hasError = computed<boolean>(() => {
 		return this.errorMessage() !== null;
 	});

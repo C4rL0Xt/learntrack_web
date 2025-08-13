@@ -5,7 +5,7 @@ import { SeccionComponent } from './components/seccion-component/seccion.compone
 import { TrackuiToggleButton } from '../../../shared/trackui/trackui-toggle-button/trackui-toggle-button.component';
 import { TrackuiAlertaComponent } from '../../../shared/trackui/trackui-alerta/trackui-alerta.component';
 import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TiposEtiqueta } from '../../../../core/domain/types/tipos-etiqueta.type';
 import { TrackuiEtiquetaComponent } from '../../../shared/trackui/trackui-etiqueta/trackui-etiqueta.component';
@@ -42,6 +42,8 @@ import { TrackuiTextareaComponent } from '../../../shared/trackui/trackui-textar
 import { TrackuiSidebarComponent } from '../../../shared/trackui/trackui-sidebar/trackui-sidebar.component';
 import { ITEMS_SIDEBAR_TEST } from '../../../../core/domain/constants/items-sidebar-test.const';
 import { TrackuiModalComponent } from '../../../shared/trackui/trackui-modal/trackui-modal.component';
+import { TrackuiStepComponent } from '../../../shared/trackui/trackui-step/trackui-step.component';
+import { ItemStepComponent } from '../../../shared/trackui/trackui-step/item-step/item-step.component';
 
 @Component({
 	selector: 'playground',
@@ -78,6 +80,8 @@ import { TrackuiModalComponent } from '../../../shared/trackui/trackui-modal/tra
 		TrackuiTextareaComponent,
 		TrackuiSidebarComponent,
 		TrackuiModalComponent,
+		TrackuiStepComponent,
+		ItemStepComponent
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
@@ -197,4 +201,38 @@ export class PlayGroundPage {
 	cerrarModal = () => {
 		this.isModalOpen = false;
 	};
+
+
+	stepActivo = signal(0);
+	step1Completo = signal(false);
+	step2Completo = signal(false);
+	step3Completo = signal(false);
+
+	completarPaso1(){
+		this.step1Completo.set(!this.step1Completo());
+	}
+	completarPaso2(){
+		this.step2Completo.set(!this.step2Completo());
+	}
+	completarPaso3(){
+		this.step3Completo.set(!this.step3Completo());
+	}
+
+	anteriorStep(){
+		let stepA = this.stepActivo();
+		if(stepA > 0) {
+			stepA--;
+			this.stepActivo.set(stepA);
+		}
+	}
+
+	siguienteStep(){
+		let stepA = this.stepActivo();
+		if(stepA < 2) {
+			stepA++;
+			this.stepActivo.set(stepA);
+		}
+	}
+
+
 }

@@ -1,0 +1,31 @@
+
+
+.curso-profesor{
+    min-width: 470px;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+}
+
+.curso-profesor:hover {
+    background-color: var(--color-neutral-1);
+    box-shadow: 1px 1px 1px 1px var(--color-base-10);
+}
+
+.curso-profesor--seleccionado {
+    background-color: var(--color-neutral-2);
+     box-shadow: 0px 0px 2px 2px var(--color-base-10);
+}
+.container{
+    width: 100%;
+}
+
+.text-content{
+    width: 100%;
+}
+.image{
+    width: 161px;
+    height: 151px;
+    object-fit: cover;
+}

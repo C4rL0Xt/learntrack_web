@@ -1,0 +1,29 @@
+<button class="curso-profesor flex gap-sm br-sm px-sm py-xs fade-in pointer" (click)="seleccionarCurso()" [ngClass]="{'curso-profesor--seleccionado': estaSeleccionado()}">
+	<img class="image br-sm" [src]="curso().imagen" />
+
+	<div class="container flex-column justify-space-beetween items-end">
+		<div class="text-content flex flex-wrap justify-space-beetween">
+			<div class="flex-column gap-xxs">
+				<p class="text-base text-bold">{{ curso().nombreCurso }}</p>
+				<div class="flex-column">
+					<p class="text-regular text-subordinary-9">
+						{{ curso().institucion.nombreInstitucion}}
+					</p>
+					<p class="text-description text-regular text-neutral-9">
+						{{ curso().grado }}° - Grupo {{ curso().grupo}}
+					</p>
+				</div>
+			</div>
+
+			<button [trackuiDropdown]="menu()" style="background: none; border: none; height: 20px; width: 20px;">
+				<span
+					class="text-base pointer"
+					trackuiIcon
+					nombre="tres-puntos"
+					style="font-size: 16px"
+				></span>
+			</button>
+		</div>
+		<button trackuiButton tipo="secondary">INGRESAR</button>
+	</div>
+</button>

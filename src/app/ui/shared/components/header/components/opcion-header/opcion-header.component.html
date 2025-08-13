@@ -1,0 +1,11 @@
+<a
+	class="flex items-center gap-xxs pointer fade-in"
+	(click)="seleccionarOpcion()"
+	[ngClass]="{ 'opcion--selected': estaSeleccionado() }"
+    [routerLink]="valor().route"
+>
+	@if (valor().icon) {
+		<span trackuiIcon [nombre]="valor().icon!" style="font-size: 16px"></span>
+	}
+	<h6 class="text-medium">{{ valor().value.label }}</h6>
+</a>

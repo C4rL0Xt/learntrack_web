@@ -79,11 +79,11 @@
 
 			<seccion-componente titulo="Card Etiqueta">
 				<div class="flex flex-wrap gap-md">
-					<app-trackui-card-etiqueta
+					<trackui-card-etiqueta
 						icon="user"
 						titulo="cantidad de alumnos"
 						descripcion="35"
-					></app-trackui-card-etiqueta>
+					></trackui-card-etiqueta>
 				</div>
 			</seccion-componente>
 			<seccion-componente titulo="Botones">
@@ -218,11 +218,11 @@
 
 			<seccion-componente titulo="Card Etiqueta">
 				<div class="flex flex-wrap gap-md">
-					<app-trackui-card-etiqueta
+					<trackui-card-etiqueta
 						icon="user"
 						titulo="cantidad de alumnos"
 						descripcion="35"
-					></app-trackui-card-etiqueta>
+					></trackui-card-etiqueta>
 				</div>
 			</seccion-componente>
 			<seccion-componente titulo="Botones">
@@ -326,6 +326,60 @@
 						</expansion-panel>
 					}
 				</trackui-accordion>
+			</seccion-componente>
+
+			<seccion-componente titulo="Steps">
+				<!-- app.component.html -->
+				<trackui-step [activeStep]="stepActivo()">
+					<item-step
+						[stepNumber]="1"
+						titulo="Datos personales"
+						[completado]="step1Completo()"
+					>
+						<ng-template>
+							<p>Contenido del paso 1</p>
+							<button (click)="completarPaso1()">Completar</button>
+						</ng-template>
+					</item-step>
+
+					<item-step
+						[stepNumber]="2"
+						titulo="Dirección"
+						[completado]="step2Completo()"
+					>
+						<ng-template>
+							<p>Contenido del paso 2</p>
+							<button (click)="completarPaso2()">Completar</button>
+						</ng-template>
+					</item-step>
+
+					<item-step
+						[stepNumber]="3"
+						titulo="Confirmación"
+						[completado]="step3Completo()"
+					>
+						<ng-template>
+							<p>Contenido del paso 3</p>
+							<button (click)="completarPaso3()">Completar</button>
+						</ng-template>
+					</item-step>
+				</trackui-step>
+
+				<div class="mt-3">
+					<button (click)="anteriorStep()" [disabled]="stepActivo() === 0">
+						Anterior
+					</button>
+					<button
+						(click)="siguienteStep()"
+						[disabled]="
+							(stepActivo() === 0 && !step1Completo()) ||
+							(stepActivo() === 1 && !step2Completo()) ||
+							(stepActivo() === 2 && !step3Completo())
+						"
+					>
+						Siguiente
+					</button>
+				</div>
 			</seccion-componente>
 
 			<br />

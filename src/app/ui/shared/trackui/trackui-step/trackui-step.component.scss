@@ -1,0 +1,47 @@
+/* step-wizard.component.css */
+.wizard-header {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.step-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.step-header.active {
+  border-bottom-color: #007bff;
+  font-weight: bold;
+}
+
+.step-number {
+  background-color: #ccc;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-header.active .step-number {
+  background-color: #007bff;
+  color: white;
+}
+
+.step-title {
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.wizard-content {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}

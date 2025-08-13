@@ -1,2 +1,36 @@
-<p>header works!</p>
-<img src="icons/logoHeader.png" alt="" class="">
+<header
+	class="flex items-center justify-space-beetween px-md py-xs background-inverse header-border pointer w100"
+>
+	<div class="flex items-center gap-lg text-base">
+		<span trackuiIcon nombre="tres-rayas" style="font-size: 24px"></span>
+		<div class="flex gap-xxs items-center">
+			<img src="logos/learntrack-logo-medium.png" class="img-logo" />
+			<img src="logos/lr-label.png" alt="" class="label-logo" />
+		</div>
+	</div>
+
+	<div class="flex gap-md">
+		@for (opcion of opciones; track $index) {
+			<opcion-header [valor]="opcion" [(controlOpcion)]="opcionSeleccionada" />
+		}
+	</div>
+	<div class="flex gap-xs items-center" *TieneAcceso="'adm'">
+		<button trackuiButton tipo="outlined">Registrarse</button>
+		<button trackuiButton tipo="primary">Iniciar Sesión</button>
+	</div>
+	<div class="flex gap-sm items-center" *TieneAcceso="'est'">
+		<span
+			class="pointer"
+			trackuiIcon
+			nombre="bell"
+			style="font-size: 24px"
+		></span>
+		<div class="flex gap-xxs pointer">
+			<span trackuiIcon nombre="photo" style="font-size: 24px"></span>
+			<span trackuiIcon nombre="flecha-abajo" style="font-size: 24px"></span>
+		</div>
+	</div>
+	<ng-template #noAcceso>
+		<p>No tienes acceso o no has iniciado sesión.</p>
+	</ng-template>
+</header>

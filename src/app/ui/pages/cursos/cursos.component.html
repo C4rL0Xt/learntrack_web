@@ -1,0 +1,50 @@
+<main class="flex gap-md px-md p-sm background-neutral-0 h100">
+	<section
+		class="listado flex-column gap-md p-lg background-inverse br-sm expanded"
+	>
+		<div class="flex justify-space-beetween items-center">
+			<h5 class="text-base text-bold">Mis cursos</h5>
+			<button
+				(click)="abrirModal()"
+				trackuiButton
+				tipo="primary"
+				nameIcon="add"
+				positionIcon="left"
+			>
+				Crear clase
+			</button>
+		</div>
+		<div class="flex-column gap-xs">
+			@if (true) {
+				<trackui-select [formControl]="controlSelect" label="Institución">
+					<trackui-option [id]="1" valor="valor 1" />
+					<trackui-option [id]="2" valor="valor 2" />
+					<trackui-option [id]="3" valor="valor 3" />
+				</trackui-select>
+			}
+			<trackui-input
+				label="Nombre del curso"
+				icono="buscar"
+				[formControl]="controlInput"
+			></trackui-input>
+		</div>
+		<div class="flex-column gap-md cursos-container px-xxs" >
+			@for (curso of cursos; track $index) {
+				<card-curso-profesor [curso]="curso" [menu]="menuAccionClase" [(controlCurso)]="cursoPreview"/>
+			}
+		</div>
+	</section>
+
+	<vista-previa-curso [curso]="cursoPreview()!" class="expanded h100"/>
+</main>
+
+@defer (when modalAbierto()) {
+	<modal-crear-clase (cerrar)="cerrarModal()"></modal-crear-clase>
+}
+
+<ng-template #menuAccionClase>
+	<trackui-dropdown-menu>
+		<li trackuiMenuItem>Actualizar clase</li>
+		<li trackuiMenuItem>Borrar clase</li>
+	</trackui-dropdown-menu>
+</ng-template>

@@ -1,0 +1,32 @@
+a {
+	color: var(--color-primary-3);
+	height: 27px;
+}
+a:hover {
+	color: var(--color-primary-5);
+}
+
+.opcion--selected {
+	color: var(--color-primary-5);
+	position: relative;
+}
+
+.opcion--selected::before {
+	content: '';
+	position: absolute;
+	height: 1px;
+	background-color: var(--color-primary-5);
+	width: 100%;
+	bottom: 0;
+	animation: animBorder ease-in-out 0.4s forwards;
+}
+
+@keyframes animBorder {
+	0% {
+		width: 0;
+	}
+
+	100% {
+		width: 100%;
+	}
+}
