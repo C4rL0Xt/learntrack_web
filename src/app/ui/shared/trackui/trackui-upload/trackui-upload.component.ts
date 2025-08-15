@@ -40,7 +40,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 	],
 })
 export class TrackuiUploadComponent implements ControlValueAccessor {
-	esSeleccionMultiple = input<boolean>(true);
+	esSeleccionMultiple = input<boolean>(false);
 
 	archivosSubidos: File[] = [];
 	archivoSubido = signal<File | undefined>(undefined);

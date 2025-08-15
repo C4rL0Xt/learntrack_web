@@ -1,4 +1,4 @@
-<div class="trackui-upload-container flex-wrap">
+<div class="trackui-upload-container">
 	<div class="flex-column gap-xxxs">
 		<div class="trackui-upload">
 			<ng-container *ngTemplateOutlet="infoUpload"></ng-container>
@@ -33,7 +33,7 @@
 			</div>
 		}
 	</div>
-	<div class="flex items-center gap-xxxs">
+	<div class="flex flex-wrap justify-center items-center gap-xxxs">
 		<input
 			#inputFile
 			id="fileInput"
@@ -42,7 +42,7 @@
 			(change)="guardarArchivos()"
 			[multiple]="esSeleccionMultiple()"
 		/>
-		<p class="text-neutral-9">Arrastra y suelta tus archivos aquí o</p>
+		<p class=" text-center  text-neutral-9">Arrastra y suelta tus archivos aquí o</p>
 
 		<button trackuiButton tipo="link" (click)="seleccionarArchivos()">
 			Seleccione archivo
