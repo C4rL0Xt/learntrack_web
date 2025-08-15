@@ -26,6 +26,7 @@ export class TrackuiModalComponent {
 	cerrar = input.required<() => void>();
 	button1 = input<string>('Cancelar');
 	button2 = input<string>('Aceptar');
+	existButtons = input<boolean>(true);
 	@Output() handleAction = new EventEmitter<boolean>();
 
 	@Input() isOpen = false;

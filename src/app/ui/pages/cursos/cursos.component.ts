@@ -48,9 +48,16 @@ export class CursosPage {
 		this.modalAbierto.set(true);
 	}
 
-	cerrarModal() {
+	cerrarModal = () => {
+		console.log('funcion cerrarModal');
 		this.modalAbierto.set(false);
-	}
+	};
 
+	manejarAccion(accion: boolean) {
+		if (accion) {
+			console.log('Clase creada');
+		}
+		this.cerrarModal();
+	}
 	//
 }

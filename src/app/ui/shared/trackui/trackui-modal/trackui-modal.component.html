@@ -25,23 +25,31 @@
 			<ng-content></ng-content>
 		</div>
 
-		<div>
-			<trackui-divider
-				orientacion="horizontal"
-				color="background-primary-1"
-			></trackui-divider>
-			<div class="buttons-container flex justify-self-end gap-xxs px-md py-sm">
-				<button
-					trackuiButton
-					tipo="outlined"
-					(click)="handleAction.emit(false)"
+		@if (existButtons()) {
+			<div>
+				<trackui-divider
+					orientacion="horizontal"
+					color="background-primary-1"
+				></trackui-divider>
+				<div
+					class="buttons-container flex justify-self-end gap-xxs px-md py-sm"
 				>
-					{{ button1() }}
-				</button>
-				<button trackuiButton tipo="primary" (click)="handleAction.emit(true)">
-					{{ button2() }}
-				</button>
+					<button
+						trackuiButton
+						tipo="outlined"
+						(click)="handleAction.emit(false)"
+					>
+						{{ button1() }}
+					</button>
+					<button
+						trackuiButton
+						tipo="primary"
+						(click)="handleAction.emit(true)"
+					>
+						{{ button2() }}
+					</button>
+				</div>
 			</div>
-		</div>
+		}
 	</div>
 }

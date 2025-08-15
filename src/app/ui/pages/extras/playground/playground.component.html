@@ -328,60 +328,49 @@
 				</trackui-accordion>
 			</seccion-componente>
 
-			<seccion-componente titulo="Steps">
+			<seccion-componente titulo="Steps 2.0 ">
 				<!-- app.component.html -->
-				<trackui-step [activeStep]="stepActivo()">
+				<trackui-step
+					[textoSiguiente]="'Continuar'"
+					[textoAnterior]="'Volver'"
+					[textoFinalizar]="'Terminar'"
+					(finalizado)="onFinalizado()"
+				>
+					<!-- Paso 1 -->
 					<item-step
 						[stepNumber]="1"
-						titulo="Datos personales"
-						[completado]="step1Completo()"
+						titulo="Subir archivo"
+						[isValid]="fileUploaded"
 					>
 						<ng-template>
-							<p>Contenido del paso 1</p>
-							<button (click)="completarPaso1()">Completar</button>
+							<p>Paso 1: Sube un archivo</p>
+							<input type="file" (change)="onFileSelected($event)" />
+							<p *ngIf="fileUploaded" style="color: green">✅ Archivo listo</p>
 						</ng-template>
 					</item-step>
 
+					<!-- Paso 2 -->
 					<item-step
 						[stepNumber]="2"
-						titulo="Dirección"
-						[completado]="step2Completo()"
+						titulo="Aceptar términos"
+						[isValid]="acceptedTerms"
 					>
 						<ng-template>
-							<p>Contenido del paso 2</p>
-							<button (click)="completarPaso2()">Completar</button>
+							<p>Paso 2: Acepta los términos</p>
+							<label>
+								<input type="checkbox" [(ngModel)]="acceptedTerms" /> Acepto
+							</label>
 						</ng-template>
 					</item-step>
 
-					<item-step
-						[stepNumber]="3"
-						titulo="Confirmación"
-						[completado]="step3Completo()"
-					>
+					<!-- Paso 3 -->
+					<item-step [stepNumber]="3" titulo="Resumen" [isValid]="true">
 						<ng-template>
-							<p>Contenido del paso 3</p>
-							<button (click)="completarPaso3()">Completar</button>
+							<p>Revisa y confirma</p>
 						</ng-template>
 					</item-step>
 				</trackui-step>
-
-				<div class="mt-3">
-					<button (click)="anteriorStep()" [disabled]="stepActivo() === 0">
-						Anterior
-					</button>
-					<button
-						(click)="siguienteStep()"
-						[disabled]="
-							(stepActivo() === 0 && !step1Completo()) ||
-							(stepActivo() === 1 && !step2Completo()) ||
-							(stepActivo() === 2 && !step3Completo())
-						"
-					>
-						Siguiente
-					</button>
-				</div>
 			</seccion-componente>
-
 			<br />
 			<br />
 			<br />

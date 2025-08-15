@@ -5,6 +5,7 @@
 		<div class="flex justify-space-beetween items-center">
 			<h5 class="text-base text-bold">Mis cursos</h5>
 			<button
+				#btnModal
 				(click)="abrirModal()"
 				trackuiButton
 				tipo="primary"
@@ -28,19 +29,27 @@
 				[formControl]="controlInput"
 			></trackui-input>
 		</div>
-		<div class="flex-column gap-md cursos-container px-xxs" >
+		<div class="flex-column gap-md cursos-container px-xxs">
 			@for (curso of cursos; track $index) {
-				<card-curso-profesor [curso]="curso" [menu]="menuAccionClase" [(controlCurso)]="cursoPreview"/>
+				<card-curso-profesor
+					[curso]="curso"
+					[menu]="menuAccionClase"
+					[(controlCurso)]="cursoPreview"
+				/>
 			}
 		</div>
 	</section>
 
-	<vista-previa-curso [curso]="cursoPreview()!" class="expanded h100"/>
+	<vista-previa-curso [curso]="cursoPreview()!" class="expanded h100" />
 </main>
 
-@defer (when modalAbierto()) {
-	<modal-crear-clase (cerrar)="cerrarModal()"></modal-crear-clase>
+
+@defer (on interaction(btnModal)) {
+	<modal-crear-clase [cerrar]="cerrarModal" [visible]="modalAbierto()"></modal-crear-clase>
+
+
 }
+
 
 <ng-template #menuAccionClase>
 	<trackui-dropdown-menu>

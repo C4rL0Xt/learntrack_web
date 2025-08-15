@@ -4,7 +4,7 @@ import { TiposAlerta } from './../../../../core/domain/types/tipos-alerta.type';
 import { SeccionComponent } from './components/seccion-component/seccion.component';
 import { TrackuiToggleButton } from '../../../shared/trackui/trackui-toggle-button/trackui-toggle-button.component';
 import { TrackuiAlertaComponent } from '../../../shared/trackui/trackui-alerta/trackui-alerta.component';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TiposEtiqueta } from '../../../../core/domain/types/tipos-etiqueta.type';
@@ -42,9 +42,9 @@ import { TrackuiTextareaComponent } from '../../../shared/trackui/trackui-textar
 import { TrackuiSidebarComponent } from '../../../shared/trackui/trackui-sidebar/trackui-sidebar.component';
 import { ITEMS_SIDEBAR_TEST } from '../../../../core/domain/constants/items-sidebar-test.const';
 import { TrackuiModalComponent } from '../../../shared/trackui/trackui-modal/trackui-modal.component';
-import { TrackuiStepComponent } from '../../../shared/trackui/trackui-step/trackui-step.component';
-import { ItemStepComponent } from '../../../shared/trackui/trackui-step/item-step/item-step.component';
-
+import { TrackuiStepComponent } from '../../../shared/trackui/trackui-ste/trackui-ste.component';
+import { ItemStepComponent } from '../../../shared/trackui/trackui-ste/item-ste/item-ste.component';
+import { FormsModule } from '@angular/forms';
 @Component({
 	selector: 'playground',
 	imports: [
@@ -81,7 +81,9 @@ import { ItemStepComponent } from '../../../shared/trackui/trackui-step/item-ste
 		TrackuiSidebarComponent,
 		TrackuiModalComponent,
 		TrackuiStepComponent,
-		ItemStepComponent
+		ItemStepComponent,
+		NgIf,
+		FormsModule,
 	],
 	templateUrl: 'playground.component.html',
 	styleUrl: 'playground.component.scss',
@@ -202,37 +204,17 @@ export class PlayGroundPage {
 		this.isModalOpen = false;
 	};
 
+	fileUploaded = false;
+	acceptedTerms = false;
 
-	stepActivo = signal(0);
-	step1Completo = signal(false);
-	step2Completo = signal(false);
-	step3Completo = signal(false);
-
-	completarPaso1(){
-		this.step1Completo.set(!this.step1Completo());
-	}
-	completarPaso2(){
-		this.step2Completo.set(!this.step2Completo());
-	}
-	completarPaso3(){
-		this.step3Completo.set(!this.step3Completo());
-	}
-
-	anteriorStep(){
-		let stepA = this.stepActivo();
-		if(stepA > 0) {
-			stepA--;
-			this.stepActivo.set(stepA);
+	onFileSelected(event: Event) {
+		const input = event.target as HTMLInputElement;
+		if (input.files && input.files.length > 0) {
+			this.fileUploaded = true;
 		}
 	}
 
-	siguienteStep(){
-		let stepA = this.stepActivo();
-		if(stepA < 2) {
-			stepA++;
-			this.stepActivo.set(stepA);
-		}
+	onFinalizado() {
+		alert('🎉 Todos los pasos completados');
 	}
-
-
 }

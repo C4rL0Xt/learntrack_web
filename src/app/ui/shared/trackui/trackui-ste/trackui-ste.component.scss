@@ -1,0 +1,38 @@
+.step-number {
+	width: 24px;
+	height: 24px;
+	transition: all 0.3s ease;
+}
+
+.step-line {
+	width: 78px;
+	height: 1px;
+	background-color: var(--color-subordinary-5);
+}
+
+.items-step.active .step-number {
+	background-color: var(--color-tertiary-7);
+	color: var(--color-inverse);
+}
+
+.items-step.active .step-title {
+	color: var(--color-tertiary-7);
+}
+
+.items-step.completed .step-number {
+	background-color: var(--color-success-5);
+	color: var(--color-inverse);
+}
+
+.items-step.completed .step-title {
+	color: var(--color-success-5);
+}
+
+.items-step.pending .step-number {
+	background-color: var(--color-subordinary-5);
+	color: var(--color-inverse);
+}
+
+.items-step.pendind .step-title {
+	color: var(--color-subordinary-5);
+}
