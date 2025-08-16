@@ -1,9 +1,7 @@
 import { TrackuiUploadComponent } from './../../../../../shared/trackui/trackui-upload/trackui-upload.component';
 import { TrackuiInputComponent } from './../../../../../shared/trackui/trackui-input/trackui-input.component';
-import { Component, EventEmitter, input, Output, signal } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { TrackuiModalComponent } from '../../../../../shared/trackui/trackui-modal/trackui-modal.component';
-import { STEPS_CREAR_CLASE } from '../../../../../../core/mocks/cursos/steps-crear-clase-mocks';
-import { Step } from '../../../../../../core/domain/interfaces/step-opcion.interface';
 import {
 	FormBuilder,
 	FormGroup,

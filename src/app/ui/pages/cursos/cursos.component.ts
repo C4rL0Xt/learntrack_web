@@ -12,6 +12,7 @@ import { TrackuiDropdown } from '../../shared/trackui/trackui-dropdown/trackui-d
 import { TrackuiMenuItemDirective } from '../../shared/trackui/trackui-dropdown/trackui-menu-item/trackui-menu-item.directive';
 import { LISTADO_CURSOS } from '../../../core/mocks/cursos/listado-cursos.mock';
 import { Curso } from '../../../core/domain/dto/cursos/cursos.dto';
+import { ModalActualizarClaseComponent } from './listado/components/modal-actualizar-clase/modal-actualizar-clase.component';
 
 @Component({
 	selector: 'cursos',
@@ -26,6 +27,7 @@ import { Curso } from '../../../core/domain/dto/cursos/cursos.dto';
 		ModalCrearClaseComponent,
 		TrackuiDropdownMenuComponent,
 		TrackuiMenuItemDirective,
+		ModalActualizarClaseComponent
 	],
 	templateUrl: 'cursos.component.html',
 	styleUrl: 'cursos.component.scss',

@@ -1,0 +1,49 @@
+<trackui-modal
+	titulo="Actualizar clase"
+	[cerrar]="cerrar()"
+	[isOpen]="visible()"
+	(handleAction)="action($event)"
+    [button1]="btnIzquierdoModal()"
+    [button2]="btnDerechoModal()"
+>
+	<form
+		style="max-width: 350px"
+		class="flex-colum gap-xs"
+		[formGroup]="formContenido"
+	>
+		<div class="flex-column gap-xs">
+			<div class="flex-column gap-xxxs">
+				<label class="text-description text-neutral-7 text-medium"
+					>Nombre de la materia</label
+				>
+				<trackui-input
+					label="Nombre de la materia"
+					formControlName="nombre"
+				></trackui-input>
+			</div>
+			<div class="flex gap-sm">
+				<div class="flex-column gap-xxxs">
+					<label class="text-description text-neutral-7 text-medium"
+						>Grado</label
+					>
+					<trackui-input label="Grado" formControlName="grado"></trackui-input>
+				</div>
+				<div class="flex-column gap-xxxs">
+					<label class="text-description text-neutral-7 text-medium"
+						>Aula</label
+					>
+					<trackui-input label="Aula" formControlName="aula"></trackui-input>
+				</div>
+			</div>
+			<trackui-divider orientacion="horizontal"></trackui-divider>
+			<div class="flex-column gap-xxs">
+				<div class="flex gap-xxxs">
+					<label class="text-bold text-neutral-8">Foto de la clase</label>
+					<label class="text-bold text-neutral-6">(Opcional)</label>
+				</div>
+
+				<trackui-upload formControlName="foto"></trackui-upload>
+			</div>
+		</div>
+	</form>
+</trackui-modal>
