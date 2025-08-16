@@ -3,12 +3,14 @@ import { TrackuiButtonDirective } from '../trackui-button/trackui-button.directi
 import { TrackuiDividerComponent } from '../trackui-divider/trackui-divider.component';
 import { TrackUiIconsDirective } from '../trackui-icons/trackui-icons.directive';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { NgStyle } from '@angular/common';
 @Component({
 	selector: 'trackui-modal',
 	imports: [
 		TrackuiButtonDirective,
 		TrackuiDividerComponent,
 		TrackUiIconsDirective,
+		NgStyle,
 	],
 	templateUrl: './trackui-modal.component.html',
 	styleUrl: './trackui-modal.component.scss',
@@ -30,4 +32,6 @@ export class TrackuiModalComponent {
 	@Output() handleAction = new EventEmitter<boolean>();
 
 	@Input() isOpen = false;
+
+	trStyles = input<Record<string, string>>();
 }

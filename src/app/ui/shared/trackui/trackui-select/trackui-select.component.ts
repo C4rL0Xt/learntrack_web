@@ -14,14 +14,14 @@ import {
 } from '@angular/core';
 import { TrackUiIconsDirective } from '../trackui-icons/trackui-icons.directive';
 import { TrackuiIcons } from '../../../../core/domain/types/tipos-icons.type';
-import { NgClass } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 import { TrackuiOptionSelectComponent } from './trackui-option-select/trackui-option-select.component';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
 	selector: 'trackui-select',
-	imports: [TrackUiIconsDirective, NgClass],
+	imports: [TrackUiIconsDirective, NgClass, NgStyle],
 	templateUrl: 'trackui-select.component.html',
 	styleUrl: 'trackui-select.component.scss',
 	animations: [
@@ -51,6 +51,8 @@ export class TrackuiSelectComponent implements ControlValueAccessor {
 	valorSeleccionado = signal<string | number | null | undefined>('');
 	etiquetaSeleccionada = signal<string | null | undefined>(undefined);
 	isOpen = signal<boolean>(false);
+
+	trStyles = input<Record<string, string>>();
 
 	changeIcon = computed<TrackuiIcons>(() => {
 		return this.isOpen() === true ? 'flecha-arriba' : 'flecha-abajo';

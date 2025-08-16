@@ -1,11 +1,14 @@
 <trackui-modal
+	[trStyles]="{
+		height: '552px',
+	}"
 	[titulo]="'Crear clase'"
 	[cerrar]="cerrar()"
 	[isOpen]="visible()"
 	[existButtons]="false"
 	(handleAction)="action($event)"
 >
-	<trackui-step
+	<trackui-step 
 		textoSiguiente="Siguiente"
 		textoAnterior="Atrás"
 		textoFinalizar="Crear clase"
@@ -19,7 +22,7 @@
 			<ng-template>
 				<trackui-divider orientacion="horizontal"></trackui-divider>
 				<form
-					style="max-width: 350px"
+					style="max-width: 350px; min-height: 279px"
 					class="flex-colum gap-xs py-md"
 					[formGroup]="formDetalles"
 				>
@@ -82,7 +85,7 @@
 			<ng-template>
 				<trackui-divider orientacion="horizontal"></trackui-divider>
 				<form
-					style="max-width: 350px"
+					style="max-width: 350px; min-height: 279px"
 					class="flex-colum gap-md pt-md"
 					[formGroup]="formFoto"
 				>

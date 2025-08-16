@@ -1,6 +1,6 @@
-<div class="trackui-select-container">
+<div class="trackui-select-container w100" [ngStyle]="trStyles()">
 	<button
-		class="flex items-center gap-xs px-xs py-xxxs trackui-select br-xs"
+		class="flex items-center gap-xs px-xs py-xxxs trackui-select br-xs w100"
 		(click)="openSelect()"
 	>
 		@if (icono()) {
@@ -8,7 +8,7 @@
 		}
 
 		<div
-			class="flex-column justify-center relative"
+			class="flex-column items-start justify-center relative expanded"
 			style="min-height: 39px; min-width: 40px"
 		>
 			<p>{{etiquetaAMostrar()}}</p>

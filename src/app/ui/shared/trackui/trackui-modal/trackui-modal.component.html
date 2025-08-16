@@ -2,6 +2,7 @@
 	<div class="modal-backdrop" (click)="cerrar()()"></div>
 	<div
 		class="modal flex-column gap-sm br-xxs background-inverse"
+		[ngStyle]="trStyles()"
 		@modalAnimation
 	>
 		<div class="flex-column gap-xs px-md">

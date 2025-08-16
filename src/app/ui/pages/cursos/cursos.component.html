@@ -17,7 +17,14 @@
 		</div>
 		<div class="flex-column gap-xs">
 			@if (true) {
-				<trackui-select [formControl]="controlSelect" label="Institución">
+				<trackui-select
+					class="item-self-start"
+					[formControl]="controlSelect"
+					label="Institución"
+					[trStyles]="{
+						'max-width': '200px',
+					}"
+				>
 					<trackui-option [id]="1" valor="valor 1" />
 					<trackui-option [id]="2" valor="valor 2" />
 					<trackui-option [id]="3" valor="valor 3" />
@@ -43,13 +50,12 @@
 	<vista-previa-curso [curso]="cursoPreview()!" class="expanded h100" />
 </main>
 
-
 @defer (on interaction(btnModal)) {
-	<modal-crear-clase [cerrar]="cerrarModal" [visible]="modalAbierto()"></modal-crear-clase>
-
-
+	<modal-crear-clase
+		[cerrar]="cerrarModal"
+		[visible]="modalAbierto()"
+	></modal-crear-clase>
 }
-
 
 <ng-template #menuAccionClase>
 	<trackui-dropdown-menu>
