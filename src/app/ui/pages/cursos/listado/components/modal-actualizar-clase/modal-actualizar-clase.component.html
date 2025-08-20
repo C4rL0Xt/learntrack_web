@@ -9,7 +9,7 @@
 	<form
 		style="max-width: 350px"
 		class="flex-colum gap-xs"
-		[formGroup]="formContenido"
+		[formGroup]="fw().formulario"
 	>
 		<div class="flex-column gap-xs">
 			<div class="flex-column gap-xxxs">
@@ -18,7 +18,7 @@
 				>
 				<trackui-input
 					label="Nombre de la materia"
-					formControlName="nombre"
+					formControlName="nombreClase"
 				></trackui-input>
 			</div>
 			<div class="flex gap-sm">

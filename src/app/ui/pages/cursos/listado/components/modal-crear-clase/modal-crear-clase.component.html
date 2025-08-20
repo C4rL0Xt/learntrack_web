@@ -6,7 +6,6 @@
 	[cerrar]="cerrar()"
 	[isOpen]="visible()"
 	[existButtons]="false"
-	(handleAction)="action($event)"
 >
 	<trackui-step 
 		textoSiguiente="Siguiente"
@@ -17,14 +16,14 @@
 		<item-step
 			[stepNumber]="1"
 			titulo="Detalles"
-			[isValid]="formDetalles.valid"
+			[isValid]="fw().validar()"
 		>
 			<ng-template>
 				<trackui-divider orientacion="horizontal"></trackui-divider>
 				<form
 					style="max-width: 350px; min-height: 279px"
 					class="flex-colum gap-xs py-md"
-					[formGroup]="formDetalles"
+					[formGroup]="fw().formulario"
 				>
 					<div class="flex-column gap-xs" style="min-height: 279px">
 						<label class="text-bold text-neutral-8">Detalles de clase</label>
@@ -35,7 +34,7 @@
 								>
 								<trackui-input
 									label="Nombre de la materia"
-									formControlName="nombre"
+									formControlName="nombreClase"
 								></trackui-input>
 							</div>
 							<div class="flex-column gap-xxxs">
@@ -44,7 +43,7 @@
 								>
 								<trackui-select
 									label="Seleccione"
-									formControlName="institucion"
+									formControlName="institucionId"
 								>
 									@for (option of opciones; track $index) {
 										<trackui-option
@@ -81,13 +80,13 @@
 			</ng-template>
 		</item-step>
 
-		<item-step [stepNumber]="2" titulo="Foto" [isValid]="formFoto.valid">
+		<item-step [stepNumber]="2" titulo="Foto">
 			<ng-template>
 				<trackui-divider orientacion="horizontal"></trackui-divider>
 				<form
 					style="max-width: 350px; min-height: 279px"
 					class="flex-colum gap-md pt-md"
-					[formGroup]="formFoto"
+					[formGroup]="fw().formulario"
 				>
 					<div class="flex-column gap-xxs" style="min-height: 279px">
 						<div class="flex gap-xxxs">

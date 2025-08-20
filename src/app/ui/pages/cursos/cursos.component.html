@@ -53,8 +53,14 @@
 @defer (on interaction(btnModal)) {
 	<modal-actualizar-clase
 		[cerrar]="cerrarModal"
-		[visible]="modalAbierto()"
+		[(visible)]="modalCrearClaseAbierto"
+		[fw]="fwActualizar"
 	></modal-actualizar-clase>
+	<!-- <modal-crear-clase
+		[cerrar]="cerrarModal"
+		[(visible)]="modalCrearClaseAbierto"
+		[fw]="fw"
+	></modal-crear-clase> -->
 }
 
 <ng-template #menuAccionClase>

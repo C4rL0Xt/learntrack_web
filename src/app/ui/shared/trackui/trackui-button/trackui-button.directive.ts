@@ -63,7 +63,6 @@ export class TrackuiButtonDirective implements OnInit {
 			const icon = this.nameIcon();
 			if (icon) this.setIcon('left', icon);
 		}
-		console.log('hola');
 	}
 
 	handleLoading() {
