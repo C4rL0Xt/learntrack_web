@@ -1,1 +1,5 @@
-<p>dashboard works!</p>
+<div class="flex flex-wrap gap-md background-neutral-0">
+	@for (curso of cursos; track $index) {
+		<card-curso-alumno [curso]="curso"></card-curso-alumno>
+	}
+</div>

@@ -16,7 +16,7 @@ export const LISTADO_CURSOS: Curso[] = [
 		preview: {
 			fechaCreacion: new Date('2025-06-06 06:34:51'),
 			numeroEstudiantes: 100,
-		},
+		}
 	},
 	{
 		id: 2,
@@ -32,7 +32,7 @@ export const LISTADO_CURSOS: Curso[] = [
 		preview: {
 			fechaCreacion: new Date('2024-10-02 12:57:12'),
 			numeroEstudiantes: 84,
-		},
+		}
 	},
 	{
 		id: 3,
@@ -49,7 +49,7 @@ export const LISTADO_CURSOS: Curso[] = [
 		preview: {
 			fechaCreacion: new Date('2024-12-21 08:30:55'),
 			numeroEstudiantes: 8,
-		},
+		}
 	},
 	{
 		id: 4,

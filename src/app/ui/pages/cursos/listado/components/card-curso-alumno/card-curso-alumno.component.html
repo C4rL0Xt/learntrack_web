@@ -1,0 +1,28 @@
+<button class="curso-alumno flex-column br-sm p-xxs gap-xs background-inverse">
+	<img class="image br-sm" src="images/pngs/trigo.jpg" />
+	<div class="flex-column px-xxs gap-xs">
+		<div>
+			<div class="flex justify-space-beetween text-bold text-base">
+				<label class="truncate" style="max-width: 180px">{{
+					curso().nombreCurso | uppercase
+				}}</label>
+				<span trackuiIcon nombre="tres-puntos" style="font-size: 16px"></span>
+			</div>
+			<label class="text-description text-neutral-7"
+				>{{ curso().grado }}° - Grupo {{ curso().grupo }}</label
+			>
+		</div>
+		<div class="profesor-info flex gap-xs items-center">
+			<img class="foto-profesor br-50" src="images/pngs/trigo.jpg" alt="" />
+			<div class="flex-column">
+				<label class="truncate text-bold text-base" style="max-width: 158px"
+					>{{ curso().profesor?.nombres }}
+					{{ curso().profesor?.apellidos }}</label
+				>
+				<label class="text-description text-bold text-neutral-6"
+					>Profesor</label
+				>
+			</div>
+		</div>
+	</div>
+</button>

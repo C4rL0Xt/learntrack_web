@@ -24,7 +24,6 @@ import { ModalActualizarClaseComponent } from './listado/components/modal-actual
 		TrackuiOptionSelectComponent,
 		ReactiveFormsModule,
 		TrackuiInputComponent,
-		ModalCrearClaseComponent,
 		TrackuiDropdownMenuComponent,
 		TrackuiMenuItemDirective,
 		ModalActualizarClaseComponent

@@ -1,4 +1,5 @@
 import { Institucion } from "../general/institucion.dto";
+import { Profesor } from "../general/profesor.dto";
 import { CursoPreview } from "./curso-vista-previa.dto";
 
 export interface Curso {
@@ -9,4 +10,5 @@ export interface Curso {
     grupo: number;
     preview: CursoPreview;
     imagen: string;
+    profesor?: Profesor;
 }
