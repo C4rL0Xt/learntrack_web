@@ -1,6 +1,6 @@
 import { TrackuiUploadComponent } from './../../../../../shared/trackui/trackui-upload/trackui-upload.component';
 import { TrackuiInputComponent } from './../../../../../shared/trackui/trackui-input/trackui-input.component';
-import { Component, input, signal } from '@angular/core';
+import { Component, input, model, signal } from '@angular/core';
 import { TrackuiModalComponent } from '../../../../../shared/trackui/trackui-modal/trackui-modal.component';
 import {
 	FormBuilder,
@@ -14,6 +14,8 @@ import { LISTADO_INSTITUCIONES } from '../../../../../../core/mocks/cursos/lista
 import { TrackuiOptionSelectComponent } from '../../../../../shared/trackui/trackui-select/trackui-option-select/trackui-option-select.component';
 import { TrackuiStepComponent } from '../../../../../shared/trackui/trackui-ste/trackui-ste.component';
 import { ItemStepComponent } from '../../../../../shared/trackui/trackui-ste/item-ste/item-ste.component';
+import { ClaseForm } from '../../../../../../infraestructure/forms/cursos/curso.form';
+import { IClaseForm } from '../../../../../../core/domain/forms/cursos/clase.form';
 @Component({
 	selector: 'modal-crear-clase',
 	imports: [
@@ -32,30 +34,18 @@ import { ItemStepComponent } from '../../../../../shared/trackui/trackui-ste/ite
 })
 export class ModalCrearClaseComponent {
 	cerrar = input.required<() => void>();
+
+	//mock
 	opciones = LISTADO_INSTITUCIONES;
+	
 	btnIzquierdoModal = signal('Cancelar');
 	btnDerechoModal = signal('Siguiente');
-	visible = input.required<boolean>();
+	visible = model.required<boolean>();
 
-	formDetalles: FormGroup;
-	formFoto: FormGroup;
-
-	constructor(private fb: FormBuilder) {
-		this.formDetalles = this.fb.group({
-			nombre: ['', Validators.required],
-			institucion: ['', Validators.required],
-			grado: ['', Validators.required],
-			aula: ['', Validators.required],
-		});
-
-		this.formFoto = this.fb.group({
-			foto: [null],
-		});
-	}
-
-	action(valor: boolean) {}
+	fw = input.required<ClaseForm>();
 
 	onFinalizado() {
-		alert('🎉 Todos los pasos completados');
+		console.log(this.fw().formulario.getRawValue());
+		this.visible.set(false);
 	}
 }

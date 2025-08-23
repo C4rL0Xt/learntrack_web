@@ -13,6 +13,8 @@ import { TrackuiMenuItemDirective } from '../../shared/trackui/trackui-dropdown/
 import { LISTADO_CURSOS } from '../../../core/mocks/cursos/listado-cursos.mock';
 import { Curso } from '../../../core/domain/dto/cursos/cursos.dto';
 import { ModalActualizarClaseComponent } from './listado/components/modal-actualizar-clase/modal-actualizar-clase.component';
+import { ClaseForm } from '../../../infraestructure/forms/cursos/curso.form';
+import { ActualizarClaseForm } from '../../../infraestructure/forms/cursos/actualizar-clase.form';
 
 @Component({
 	selector: 'cursos',
@@ -26,7 +28,7 @@ import { ModalActualizarClaseComponent } from './listado/components/modal-actual
 		TrackuiInputComponent,
 		TrackuiDropdownMenuComponent,
 		TrackuiMenuItemDirective,
-		ModalActualizarClaseComponent
+		ModalActualizarClaseComponent,
 	],
 	templateUrl: 'cursos.component.html',
 	styleUrl: 'cursos.component.scss',
@@ -35,23 +37,26 @@ export class CursosPage {
 	cursos = LISTADO_CURSOS;
 	cursoPreview = signal<Curso | undefined>(undefined);
 
+	fw = new ClaseForm();
+	fwActualizar = new ActualizarClaseForm();
+
 	controlInput = new FormControl<string>('');
 	controlSelect = new FormControl<string | number | null | undefined>(
 		undefined,
 	);
-	modalAbierto = signal(false);
+	modalCrearClaseAbierto = signal(false);
 
 	constructor() {
 		this.cursoPreview.set(this.cursos[0]);
 	}
 
 	abrirModal() {
-		this.modalAbierto.set(true);
+		this.modalCrearClaseAbierto.set(true);
 	}
 
 	cerrarModal = () => {
 		console.log('funcion cerrarModal');
-		this.modalAbierto.set(false);
+		this.modalCrearClaseAbierto.set(false);
 	};
 
 	manejarAccion(accion: boolean) {

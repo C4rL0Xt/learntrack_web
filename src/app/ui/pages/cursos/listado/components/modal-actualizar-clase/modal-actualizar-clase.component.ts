@@ -1,6 +1,6 @@
 import { TrackuiUploadComponent } from './../../../../../shared/trackui/trackui-upload/trackui-upload.component';
 import { TrackuiInputComponent } from './../../../../../shared/trackui/trackui-input/trackui-input.component';
-import { Component, Input, input, signal } from '@angular/core';
+import { Component, Input, input, model, signal } from '@angular/core';
 import { TrackuiModalComponent } from '../../../../../shared/trackui/trackui-modal/trackui-modal.component';
 import { TrackuiDividerComponent } from '../../../../../shared/trackui/trackui-divider/trackui-divider.component';
 import {
@@ -9,6 +9,7 @@ import {
 	Validators,
 	ReactiveFormsModule,
 } from '@angular/forms';
+import { ActualizarClaseForm } from '../../../../../../infraestructure/forms/cursos/actualizar-clase.form';
 
 @Component({
 	selector: 'modal-actualizar-clase',
@@ -16,8 +17,8 @@ import {
 		TrackuiUploadComponent,
 		TrackuiInputComponent,
 		TrackuiModalComponent,
-    ReactiveFormsModule,
-    TrackuiDividerComponent
+		ReactiveFormsModule,
+		TrackuiDividerComponent,
 	],
 	templateUrl: './modal-actualizar-clase.component.html',
 	styleUrl: './modal-actualizar-clase.component.scss',
@@ -26,24 +27,20 @@ export class ModalActualizarClaseComponent {
 	cerrar = input.required<() => void>();
 	btnIzquierdoModal = signal('Cancelar');
 	btnDerechoModal = signal('Actualizar');
-	visible = input.required<boolean>();
+	visible = model.required<boolean>();
 
-	formContenido: FormGroup;
+	fw = input.required<ActualizarClaseForm>();
 
-	constructor(private fb: FormBuilder) {
-		this.formContenido = this.fb.group({
-			nombre: ['Trigonometría', Validators.required],
-			grado: ['5°', Validators.required],
-			aula: ['B', Validators.required],
-      foto: [null]
-		});
-	}
 	action(valor: boolean) {
-    if(valor){
-      console.log("Se actualizan los valores del curso");
-    }else{
-      console.log("Se cierra");
-      this.cerrar()();
-    }
-  }
+		if (valor) {
+			if (!this.fw().validar()) {
+				return;
+			}
+			console.log('entre', this.fw().formulario.getRawValue());
+			this.visible.set(false);
+			return;
+		}
+		console.log('Se cancela la actualizacion');
+		this.cerrar()();
+	}
 }
