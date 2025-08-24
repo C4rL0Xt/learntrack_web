@@ -59,36 +59,43 @@ export class TrackuiDropdown implements OnInit {
 	}
 
 	agregarContainerAlButton() {
-		if (this.menuIsOpen()) {
-			return;
-		}
+		if (this.menuIsOpen()) return;
 
-		this.viewRef = this.container.createEmbeddedView(this.menu);
-		const [rootNode] = this.viewRef.rootNodes; // rootnode es un htmlelement
+		this.viewRef = this.menu.createEmbeddedView({});
+		this.viewRef.detectChanges(); // importante para que se renderice el contenido
+
+		const [rootNode] = this.viewRef.rootNodes;
 		this.menuElement = rootNode;
-		this.renderer.addClass(rootNode, 'trackui-dropdown-menu');
-		this.setPosition(rootNode);
-		this.renderer.appendChild(this.elementRef.nativeElement, rootNode);
 
-		//para cerrar el menu desde el item.
+		this.renderer.addClass(rootNode, 'trackui-dropdown-menu');
+		document.body.appendChild(rootNode); // insertar en body
+
+		this.setPosition(rootNode);
+
 		this.menuElement.querySelectorAll('li').forEach((item) => {
-			item.addEventListener('click', () => {
-				this.eliminarView();
-			});
+			item.addEventListener('click', () => this.eliminarView());
 		});
 
 		this.menuIsOpen.set(true);
 	}
 
-	public setPosition(el: HTMLElement) {
+	setPosition(el: HTMLElement) {
+		const buttonRect = this.elementRef.nativeElement.getBoundingClientRect();
+
+		el.style.position = 'absolute';
+		el.style.top = `${buttonRect.bottom + window.scrollY}px`;
+
 		if (this.position() === 'izquierda') {
-			el.style.left = '0px';
-			return;
+			el.style.left = `${buttonRect.left + window.scrollX}px`;
+		} else {
+			el.style.right = `${window.innerWidth - buttonRect.right}px`;
 		}
-		el.style.right = '0px';
 	}
 
 	eliminarView() {
+		if (this.menuElement?.parentNode) {
+			this.menuElement.parentNode.removeChild(this.menuElement);
+		}
 		this.viewRef?.destroy();
 		this.viewRef = undefined;
 		this.menuIsOpen.set(false);

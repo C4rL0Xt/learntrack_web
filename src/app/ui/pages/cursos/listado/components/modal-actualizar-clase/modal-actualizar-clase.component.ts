@@ -1,6 +1,6 @@
 import { TrackuiUploadComponent } from './../../../../../shared/trackui/trackui-upload/trackui-upload.component';
 import { TrackuiInputComponent } from './../../../../../shared/trackui/trackui-input/trackui-input.component';
-import { Component, Input, input, model, signal } from '@angular/core';
+import { Component, Input, input, model, output, signal } from '@angular/core';
 import { TrackuiModalComponent } from '../../../../../shared/trackui/trackui-modal/trackui-modal.component';
 import { TrackuiDividerComponent } from '../../../../../shared/trackui/trackui-divider/trackui-divider.component';
 import {
@@ -28,6 +28,7 @@ export class ModalActualizarClaseComponent {
 	btnIzquierdoModal = signal('Cancelar');
 	btnDerechoModal = signal('Actualizar');
 	visible = model.required<boolean>();
+	closeAnimation = output<boolean>();
 
 	fw = input.required<ActualizarClaseForm>();
 
@@ -36,11 +37,9 @@ export class ModalActualizarClaseComponent {
 			if (!this.fw().validar()) {
 				return;
 			}
-			console.log('entre', this.fw().formulario.getRawValue());
 			this.visible.set(false);
 			return;
 		}
-		console.log('Se cancela la actualizacion');
 		this.cerrar()();
 	}
 }

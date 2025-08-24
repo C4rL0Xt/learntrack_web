@@ -1,12 +1,13 @@
 @if (isOpen) {
-	<div class="modal-backdrop" (click)="cerrar()()"></div>
+	<div @modalOverlayAnimation class="modal-backdrop" (click)="cerrar()()"></div>
 	<div
 		class="modal flex-column gap-sm br-xxs background-inverse"
 		[ngStyle]="trStyles()"
-		@modalAnimation
+		[@modalContentAnimation]
+		(@modalContentAnimation.done)="handleAnimation($event)"
 	>
 		<div class="flex-column gap-xs px-md">
-			<div class="flex items-center justify-space-beetween pt-sm">
+			<div class="flex items-center justify-space-between pt-sm">
 				<h6 class="text-primary-7">{{ titulo() }}</h6>
 				<span
 					class="icon text-neutral-5"

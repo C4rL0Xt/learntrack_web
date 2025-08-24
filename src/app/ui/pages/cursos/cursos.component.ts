@@ -29,6 +29,7 @@ import { ActualizarClaseForm } from '../../../infraestructure/forms/cursos/actua
 		TrackuiDropdownMenuComponent,
 		TrackuiMenuItemDirective,
 		ModalActualizarClaseComponent,
+		ModalCrearClaseComponent,
 	],
 	templateUrl: 'cursos.component.html',
 	styleUrl: 'cursos.component.scss',
@@ -44,26 +45,51 @@ export class CursosPage {
 	controlSelect = new FormControl<string | number | null | undefined>(
 		undefined,
 	);
+
+	// Para el modal crear-clase
 	modalCrearClaseAbierto = signal(false);
+	closeEventCrearModal = signal(false);
+	interactuoConModalCrear = signal(false);
+
+	// Para el modal actualizar-clase
+	modalActualizarAbierto = signal(false);
+	closeEventActualizaModal = signal(false);
+	interactuoConModalActualizar = signal(false);
 
 	constructor() {
 		this.cursoPreview.set(this.cursos[0]);
 	}
 
 	abrirModal() {
+		if (!this.interactuoConModalCrear()) {
+			this.interactuoConModalCrear.set(true);
+		}
 		this.modalCrearClaseAbierto.set(true);
+		this.closeEventCrearModal.set(false);
 	}
 
 	cerrarModal = () => {
-		console.log('funcion cerrarModal');
+		if (this.interactuoConModalCrear()) {
+			this.interactuoConModalCrear.set(false);
+		}
 		this.modalCrearClaseAbierto.set(false);
+		this.fw.resetear();
 	};
 
-	manejarAccion(accion: boolean) {
-		if (accion) {
-			console.log('Clase creada');
+	abrirModalActualizar() {
+		if(!this.interactuoConModalActualizar()) {
+			this.interactuoConModalActualizar.set(true);
 		}
-		this.cerrarModal();
+		this.modalActualizarAbierto.set(true);
+		this.closeEventActualizaModal.set(false);
 	}
-	//
+
+	cerrarModalActualizar = () => {
+		if(this.interactuoConModalActualizar()) {
+			this.interactuoConModalActualizar.set(false);
+		}
+		this.modalActualizarAbierto.set(false);
+		this.interactuoConModalActualizar.set(false);
+		this.fwActualizar.resetear();
+	};
 }

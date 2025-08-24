@@ -1,10 +1,12 @@
 .trackui-button-normal {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 16px;
 	border-radius: 12px;
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
+	// text-align: center;
 }
 
 .trackui-button-circular {
@@ -55,6 +57,7 @@
 		padding: $br $pd;
 		cursor: pointer;
 		transition: all 0.2s ease-in-out;
+		// text-align: center;
 
 		&:hover {
 			background-color: $background-h;

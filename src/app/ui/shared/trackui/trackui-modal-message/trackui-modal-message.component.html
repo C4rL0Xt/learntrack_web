@@ -1,0 +1,64 @@
+@if (isVisible()) {
+	<div @modalOverlayAnimation class="modal-backdrop" (click)="handleCancel()?.()"></div>
+}
+@if (isVisible()) {
+	<div [@modalContentAnimation] (@modalContentAnimation.done)="closeAnimation.next(true)"  class="flex items-center trackui-modal-message background-inverse">
+		<div class="flex-column gap-md w100">
+			<div
+				class="flex {{
+					iconContainerColor()
+				}} item-self-center p-xxs br-50 icon-container"
+				style="min-height: 50px; min-width: 50px"
+			>
+				<span
+					class="text-inverse m-auto"
+					trackuiIcon
+					[nombre]="icono()"
+					style="font-size: 18px"
+				></span>
+			</div>
+			<div class="flex-column">
+				<h6 class="text-medium text-center">{{ titulo() }}</h6>
+				@if (descripcion()) {
+					<p class="text-center">{{ descripcion() }}</p>
+				}
+			</div>
+			@if (textoOk() || textoCancel()) {
+				<div class="flex gap-xs">
+					@if (textoCancel()) {
+						<button
+							class="expanded"
+							trackuiButton
+							tipo="outlined"
+							(click)="handleCancel()?.()"
+						>
+							{{ textoCancel() }}
+						</button>
+					}
+					@if (textoOk()) {
+						<button
+							class="expanded"
+							trackuiButton
+							tipo="primary"
+							(click)="handleOk()?.()"
+						>
+							{{ textoOk() }}
+						</button>
+					}
+				</div>
+			}
+		</div>
+
+		<button
+			class="absolute trackui-modal-message-btn-close pointer"
+			(click)="handleCancel()?.()"
+		>
+			<span
+				class="text-subordinary-5"
+				trackuiIcon
+				nombre="equis"
+				style="font-size: 12px"
+			></span>
+		</button>
+	</div>
+}

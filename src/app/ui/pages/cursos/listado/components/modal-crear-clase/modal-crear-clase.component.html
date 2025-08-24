@@ -6,6 +6,7 @@
 	[cerrar]="cerrar()"
 	[isOpen]="visible()"
 	[existButtons]="false"
+	(closeAnimation)="closeAnimation.emit($event)"
 >
 	<trackui-step 
 		textoSiguiente="Siguiente"

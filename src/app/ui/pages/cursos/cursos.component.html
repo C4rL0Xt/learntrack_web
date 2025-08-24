@@ -2,7 +2,7 @@
 	<section
 		class="listado flex-column gap-md p-lg background-inverse br-sm expanded"
 	>
-		<div class="flex justify-space-beetween items-center">
+		<div class="flex justify-space-between items-center">
 			<h5 class="text-base text-bold">Mis cursos</h5>
 			<button
 				#btnModal
@@ -47,20 +47,33 @@
 		</div>
 	</section>
 
-	<vista-previa-curso [curso]="cursoPreview()!" class="expanded h100" />
+	<vista-previa-curso
+		[curso]="cursoPreview()!"
+		class="expanded h100"
+		(editar)="abrirModalActualizar()"
+	/>
 </main>
 
-@defer (on interaction(btnModal)) {
-	<modal-actualizar-clase
-		[cerrar]="cerrarModal"
-		[(visible)]="modalCrearClaseAbierto"
-		[fw]="fwActualizar"
-	></modal-actualizar-clase>
-	<!-- <modal-crear-clase
-		[cerrar]="cerrarModal"
-		[(visible)]="modalCrearClaseAbierto"
-		[fw]="fw"
-	></modal-crear-clase> -->
+@defer (when interactuoConModalCrear()) {
+	@if (!closeEventCrearModal()) {
+		<modal-crear-clase
+			[cerrar]="cerrarModal"
+			[(visible)]="modalCrearClaseAbierto"
+			[fw]="fw"
+			(closeAnimation)="closeEventCrearModal.set($event)"
+		></modal-crear-clase>
+	}
+}
+
+@defer (when interactuoConModalActualizar()) {
+	@if (!closeEventActualizaModal()) {
+		<modal-actualizar-clase
+			[cerrar]="cerrarModalActualizar"
+			[(visible)]="modalActualizarAbierto"
+			[fw]="fwActualizar"
+			(closeAnimation)="closeEventActualizaModal.set($event)"
+		></modal-actualizar-clase>
+	}
 }
 
 <ng-template #menuAccionClase>

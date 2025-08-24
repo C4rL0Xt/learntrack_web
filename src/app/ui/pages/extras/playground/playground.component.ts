@@ -5,7 +5,7 @@ import { SeccionComponent } from './components/seccion-component/seccion.compone
 import { TrackuiToggleButton } from '../../../shared/trackui/trackui-toggle-button/trackui-toggle-button.component';
 import { TrackuiAlertaComponent } from '../../../shared/trackui/trackui-alerta/trackui-alerta.component';
 import { NgFor, NgIf } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TiposEtiqueta } from '../../../../core/domain/types/tipos-etiqueta.type';
 import { TrackuiEtiquetaComponent } from '../../../shared/trackui/trackui-etiqueta/trackui-etiqueta.component';
@@ -45,6 +45,8 @@ import { TrackuiModalComponent } from '../../../shared/trackui/trackui-modal/tra
 import { TrackuiStepComponent } from '../../../shared/trackui/trackui-ste/trackui-ste.component';
 import { ItemStepComponent } from '../../../shared/trackui/trackui-ste/item-ste/item-ste.component';
 import { FormsModule } from '@angular/forms';
+import { TrackuiModalMessage } from '../../../shared/trackui/trackui-modal-message/trackui-modal-message.component';
+import { TrackuiModalMessageProvider } from '../../../shared/trackui/trackui-modal-message/trackui-modal-message.provider';
 @Component({
 	selector: 'playground',
 	imports: [
@@ -89,6 +91,8 @@ import { FormsModule } from '@angular/forms';
 	styleUrl: 'playground.component.scss',
 })
 export class PlayGroundPage {
+
+	public readonly trackuiModalMessageProvider = inject(TrackuiModalMessageProvider);
 	constructor() {
 		this.controlSegmentado.valueChanges.subscribe((valor) => {
 			console.log('✅ Objeto recibido en el Playground:', valor);
@@ -217,4 +221,42 @@ export class PlayGroundPage {
 	onFinalizado() {
 		alert('🎉 Todos los pasos completados');
 	}
+
+
+	abrirModalMensajeSuccess() {
+		this.trackuiModalMessageProvider.sucess({
+			titulo: 'Melani aprendio usar plastilinas',
+			handleCancel: () => console.log('sd'),
+			handleOk: () => console.log('ddd'),
+			textoOk: 'Si, es muy bebe ella'
+		})
+	}
+	abrirModalMensajeWarning() {
+		this.trackuiModalMessageProvider.warning({
+			titulo: '¿Eres la bebita universal?',
+			handleCancel: () => console.log('sd'),
+			handleOk: () => console.log('ddd'),
+			textoOk: 'Si',
+			textoCancel: 'Si'
+		})
+	}
+	abrirModalMensajeDanger() {
+		this.trackuiModalMessageProvider.error({
+			titulo: '¿Eres la bebita universal?',
+			handleCancel: () => console.log('sd'),
+			handleOk: () => console.log('ddd'),
+			textoOk: 'Si',
+			textoCancel: 'Si'
+		})
+	}
+	abrirModalMensajeInfo() {
+		this.trackuiModalMessageProvider.info({
+			titulo: 'Melani es la bebita universal',
+			handleCancel: () => console.log('sd'),
+			handleOk: () => console.log('ddd'),
+			textoOk: 'Facto mi estimado'
+		})
+	}
+
+	
 }

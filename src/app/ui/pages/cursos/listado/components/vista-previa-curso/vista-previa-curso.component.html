@@ -1,20 +1,47 @@
 <section class="flex-column gap-md p-lg background-inverse br-sm">
-	<h5 class="text-bold">Detalles del curso</h5>
+	<div class="flex items-center justify-space-between">
+		<h5 class="text-bold">Detalles del curso</h5>
+		<div class="flex">
+			<button
+				class="pointer"
+				style="background: none; border: none; height: 20px; width: 20px"
+				(click)="editar.emit(true)"
+			>
+				<span
+					class="text-base"
+					trackuiIcon
+					nombre="editar"
+					style="font-size: 16px"
+				></span>
+			</button>
+			<button
+				class="pointer"
+				style="background: none; border: none; height: 20px; width: 20px"
+				(click)="borrar.emit(true)"
+			>
+				<span
+					class="text-base"
+					trackuiIcon
+					nombre="basura"
+					style="font-size: 16px"
+				></span>
+			</button>
+		</div>
+	</div>
 	<figure class="flex-column gap-xxs">
-		<img
-			[src]="curso().imagen"
-			alt="Logo curso"
-			height="260"
-			class="br-sm"
-		/>
+		<img [src]="curso().imagen" alt="Logo curso" height="260" class="br-sm" />
 		<figcaption class="flex items-center gap-xxs">
 			<span trackuiIcon nombre="user" style="font-size: 12px"></span>
-			<p class="text-description">{{curso().institucion.distrito}}, {{curso().institucion.direccion}}</p>
+			<p class="text-description">
+				{{ curso().institucion.distrito }}, {{ curso().institucion.direccion }}
+			</p>
 		</figcaption>
 	</figure>
 	<div class="flex-column">
-		<h6 class="text-bold">{{curso().nombreCurso}}</h6>
-		<p class="text-medium">Institución: {{curso().institucion.nombreInstitucion}}</p>
+		<h6 class="text-bold">{{ curso().nombreCurso }}</h6>
+		<p class="text-medium">
+			Institución: {{ curso().institucion.nombreInstitucion }}
+		</p>
 	</div>
 	<div class="flex gap-xxs">
 		<trackui-card-etiqueta

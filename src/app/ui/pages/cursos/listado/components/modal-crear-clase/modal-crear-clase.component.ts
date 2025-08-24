@@ -1,6 +1,6 @@
 import { TrackuiUploadComponent } from './../../../../../shared/trackui/trackui-upload/trackui-upload.component';
 import { TrackuiInputComponent } from './../../../../../shared/trackui/trackui-input/trackui-input.component';
-import { Component, input, model, signal } from '@angular/core';
+import { Component, input, model, output, signal } from '@angular/core';
 import { TrackuiModalComponent } from '../../../../../shared/trackui/trackui-modal/trackui-modal.component';
 import {
 	FormBuilder,
@@ -43,6 +43,7 @@ export class ModalCrearClaseComponent {
 	visible = model.required<boolean>();
 
 	fw = input.required<ClaseForm>();
+	closeAnimation = output<boolean>();
 
 	onFinalizado() {
 		console.log(this.fw().formulario.getRawValue());

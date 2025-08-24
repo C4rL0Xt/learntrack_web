@@ -5,6 +5,7 @@
 	(handleAction)="action($event)"
     [button1]="btnIzquierdoModal()"
     [button2]="btnDerechoModal()"
+	(closeAnimation)="closeAnimation.emit($event)"
 >
 	<form
 		style="max-width: 350px"

@@ -1,0 +1,32 @@
+.trackui-modal-message {
+    position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    z-index: 1000;
+    max-width: 280px;
+    min-height: 200px;
+    min-width: 180px;
+    padding: var(--spaceLg);
+    box-shadow: 0px 0px 2px 2px var(--color-base-10);
+    border-radius: var(--spaceMd);
+}
+
+.trackui-modal-message-btn-close {
+    border: none;
+    right: 10px;
+    top: 10px;
+    background: none;
+}
+
+.icon-container {
+    box-shadow: 0px 0px 4px 4px var(--color-base-10);
+}
+
+.modal-backdrop {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 999;
+}
+

@@ -1,0 +1,1 @@
+export type TipoMensaje = 'success' | 'danger' | 'warning' | 'info';
