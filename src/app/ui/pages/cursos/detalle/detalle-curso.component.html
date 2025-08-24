@@ -7,33 +7,33 @@
         <div class="flex-column gap-xxxs text-inverse">
             <div class="flex gap-xxs text-medium items-center">
                 <span trackuiIcon nombre="escuela" style="font-size: 12px;"></span>
-                <label>IEEE. Villa el salvador</label>
+                <label>{{curso?.institucion?.nombreInstitucion}}</label>
             </div>
             <div class="flex expand items-center">
                 <div class="flex gap-xs items-center expand" style="width: 100%;">
-                    <span trackuiIcon nombre="flecha-izquierda" style="font-size: 24px;"></span>
-                    <h4 class="text-bold">Trigonometría</h4>
+                    <span trackuiIcon nombre="flecha-izquierda" style="font-size: 24px" class="pointer"></span>
+                    <h4 class="text-bold">{{curso?.nombreCurso}}</h4>
                 </div>
-                <span trackuiIcon nombre="ajustes" style="font-size: 24px;"></span>
+                <span trackuiIcon nombre="ajustes" style="font-size: 24px" class="pointer"></span>
             </div>
             <div class="flex gap-xs items-center">
                 <div class="flex gap-xxs items-center">
-                    <span trackuiIcon nombre="nivel-facil" style="font-size: 12px;"></span>
-                    <label>5° de secundaria</label>
+                    <span trackuiIcon nombre="nivel-facil" style="font-size: 12px"></span>
+                    <label>{{curso?.grado}}° de secundaria</label>
                 </div>
                 <div class="flex punto items-center">
-                    <span trackuiIcon nombre="punto" style="font-size: 3.75px;"></span>
+                    <span trackuiIcon nombre="punto" style="font-size: 3.75px"></span>
                 </div>
                 <div class="flex gap-xxs items-center">
                     <span trackuiIcon nombre="fecha" style="font-size: 12px;"></span>
-                    <label>28 abril, 2025</label>
+                    <label>{{ curso?.preview?.fechaCreacion | date: 'dd MMM yyyy' }}</label>
                 </div>
                 <div class="flex punto items-center">
                     <span trackuiIcon nombre="punto" style="font-size: 3.75px;"></span>
                 </div>
                 <div class="flex gap-xxs items-center">
                     <span trackuiIcon nombre="estudiantes" style="font-size: 12px;"></span>
-                    <label>35 alumnos</label>
+                    <label>{{curso?.preview?.numeroEstudiantes}} alumnos</label>
                 </div>
             </div>
         </div>

@@ -5,6 +5,8 @@ import { TrackuiButtonDirective } from '../../../../../shared/trackui/trackui-bu
 import { TrackuiDropdown } from '../../../../../shared/trackui/trackui-dropdown/trackui-dropdown.directive';
 import { Curso } from '../../../../../../core/domain/dto/cursos/cursos.dto';
 import { NgClass } from '@angular/common';
+import { Router } from '@angular/router';
+import { RUTAS } from '../../../../../../core/domain/constants/rutas.const';
 
 @Component({
   selector: 'card-curso-profesor',
@@ -15,6 +17,11 @@ import { NgClass } from '@angular/common';
 export class CardCursoProfesorComponent {
   curso = input.required<Curso>();
   controlCurso = model<Curso>();
+  private readonly rutas = RUTAS;
+
+  constructor(private router: Router){
+
+  }
 
   estaSeleccionado = computed<boolean>(() => {
     return this.curso().id === this.controlCurso()?.id;
@@ -24,6 +31,10 @@ export class CardCursoProfesorComponent {
 
   seleccionarCurso() {
     this.controlCurso.set(this.curso());
+  }
+
+  ingresar(){
+    this.router.navigate([this.rutas.cursos.base,this.curso().id]);
   }
 
 }

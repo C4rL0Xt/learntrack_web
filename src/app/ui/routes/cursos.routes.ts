@@ -1,4 +1,4 @@
-import { DetalleCursoComponent } from './../pages/cursos/detalle/detalle-curso.component';
+
 import { Routes } from '@angular/router';
 
 export const CURSOS_ROUTES: Routes = [
@@ -11,7 +11,7 @@ export const CURSOS_ROUTES: Routes = [
 					import('../pages/cursos/cursos.component').then((c) => c.CursosPage),
 			},
 			{
-				path: 'detalle-curso',
+				path: ':id',
 				loadComponent: () =>
 					import('../pages/cursos/detalle/detalle-curso.component').then((c) => c.DetalleCursoComponent),
 			},
